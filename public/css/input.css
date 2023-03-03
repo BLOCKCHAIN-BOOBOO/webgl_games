@@ -1,0 +1,113 @@
+body{
+    background:#fef2f2;
+} 
+.game-card{
+    background:#ff9191;
+    height:240px;
+    width:190px;
+  }
+  .game-card img{
+    height:200px;
+    /* width:150px; */
+  }
+  .star-div{
+    width:190px;
+  }
+  .react-multi-carousel-item {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    width: 230px !important;
+}
+
+/* #mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#home {
+  top: 20px;
+  background-color: #dc2626;
+}
+
+#favourite {
+  top: 80px;
+  background-color: #dc2626;
+}
+
+#settings {
+  top: 140px;
+  background-color: #dc2626;
+}
+
+#logout {
+  top: 200px;
+  background-color: #dc2626
+} */
+
+
+
+
+#mySidenav a {
+  background-color: #dc2626;
+  position: absolute;
+  font-size: 22px;
+  text-decoration: none;
+  Color: white;
+  padding: 15px 15px 15px 0px;
+  border-radius: 0px 5px 5px 0px;
+  left: -70px;
+  transition: 0.3s;
+  width:120px;
+  /* opacity: 0.5; */
+}
+  
+/* Hover effect on sidebar */
+#mySidenav a:hover {
+  left: 0px;
+  opacity: 1;
+  background-color: #dc2626;
+}
+  
+/* float icons*/
+#mySidenav a {
+  float: right;
+}
+  
+/* defining position of each nav bar */
+#home {
+  top: 20px;
+  /* width: 210px;
+  height: 30px; */
+}
+    
+#favourite {
+  /* top: 80px; */
+  top:70px;
+  /* width: 210px;
+  height: 30px; */
+}
+    
+#settings {
+  top: 140px;
+  /* width: 210px;
+  height: 30px; */
+}
+    
+#logout {
+  /* top: 200px; */
+  top:120px;
+  /* width: 210px;
+  height: 30px; */
+}
+    
