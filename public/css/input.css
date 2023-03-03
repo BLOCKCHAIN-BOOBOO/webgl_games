@@ -1,3 +1,9 @@
+html,body{
+  height:100% !important;
+}
+.fix-height{
+  height:100vh !important;
+}
 body{
     background:#fef2f2;
 } 
@@ -111,3 +117,13 @@ body{
   height: 30px; */
 }
     
+/* login-page */
+.signup-background {
+  width: 100%;
+  /* height:100% !important; */
+  background-image: url("../../src/images/gamelogin.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top:5rem;
+  padding-bottom:5rem;
+}
