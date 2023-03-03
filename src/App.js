@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import AppRoutes from "./components/AppRoutes/AppRoutes";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/home';
 import Login from './components/login';
 
@@ -21,10 +23,18 @@ function App() {
           Learn React
         </a>
       </header> */}
+
+
+<BrowserRouter>
+{/* <ExploreNFT/> */}
+      <AppRoutes />
+    </BrowserRouter>
+
      {/* <Home/> */}
-     <Login/>
+     {/* <Login/> */}
     </div>
   );
 }
 
 export default App;
+

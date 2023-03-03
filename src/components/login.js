@@ -1,25 +1,25 @@
 import React from "react";
 import logo from "../images/login-logo.png"
-
+import bbgamelogin from "../../src/images/bbgamelogin.png"
 import gamelogin from "../../src/images/gamelogin.png"
 
 const Login = () => {
 
     return (
        
- <div className=" signup-background fix-height relative sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10" 
- style={{backgroundImage: `url(${gamelogin})`}} >
+ <div className="fix-height relative sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10" 
+ >
 	
 
 		<div className="container mx-auto align"  > 
 
 
-				<div className="w-full flex flex-col" >
+				<div className="w-full flex flex-col xl: flex-row md:flex-row sm:flex-col justify-between" >
 
 
 
 					<div
-						className="lg:w-2/5 sm:w-2/5 md:w-2/5 p-6 md:p-8 mx-auto sm:mx-0 md:mx-0 lg:mx-0 ">
+						className="xl:flex-row flex md:flex-row sm:flex-col flex-col lg:w-2/5 sm:w-2/5 md:w-2/5 p-6 md:p-8 mx-auto sm:mx-0 md:mx-0 lg:mx-0 ">
 						<div className="flex flex-col">
                         <div className=" self-center px-20">
                 <img src={logo} height="200" width="200" className="mx-auto" alt="" /> </div>
@@ -48,11 +48,19 @@ const Login = () => {
 									className="text-white w-full rounded-lg bg-red-500 text-xl font-bold signup-input-width py-2"> LOGIN</button> </div>
 
 						</div>
-
+                 
 
 					</div>
 
+                    <div className="signup-background " 
+                //    style={{backgroundImage: `url(${gamelogin})`}}
+                   >
+ <img src={bbgamelogin} 
+   height="400" width="400"
+  className="mx-auto" alt="" /> 
 
+
+                   </div>
 				</div>
 
 			</div>

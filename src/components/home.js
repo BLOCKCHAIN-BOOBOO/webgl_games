@@ -14,6 +14,9 @@ import settings from "../images/settings.png"
 import logout from "../images/logout.png"
 import profile from "../images/profile.png"
 
+import { useEffect, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+
 import game1 from "../images/game1.png"
 import game2 from "../images/game2.png"
 import game3 from "../images/game3.png"
@@ -21,7 +24,7 @@ import game4 from "../images/game4.png"
 
 
 
-const Home = () => {
+const Home = ({video}) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -59,7 +62,7 @@ const Home = () => {
 <div id="mySidenav" className="sidenav">
   <ul className="fixed z-10">
   {/* relative */}
-<li className="relative mb-5">
+  <li className="relative mb-5">
       <a id="home" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
        grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
    <span className="text-sm self-center font-bold "> Home</span>   <img src={home} height="25" width="25" className="" alt="" />        
@@ -194,7 +197,8 @@ const Home = () => {
              <div className="game-card z-0 rounded-xl">
              
                         <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
+                          <div onClick={() => video("https://nft.radiqal.com")}>
+                          <NavLink to="/game" >
                               <img
                                 src={game3}
                                 height="200px"
@@ -206,8 +210,8 @@ const Home = () => {
                                 <span className="text-sm text-white font-semibold float-left justify-start  text-left">
                             Lorem Ipsum
                                 </span>
-                             
-                            
+                                </NavLink>
+                                                        
                           </div>
                         </div>
                       </div>
