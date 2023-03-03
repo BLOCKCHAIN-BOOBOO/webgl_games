@@ -197,8 +197,8 @@ const Home = ({video}) => {
              <div className="game-card z-0 rounded-xl">
              
                         <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div onClick={() => video("https://nft.radiqal.com")}>
-                          <NavLink to="/game" >
+                          <div>
+                          <NavLink to="/game" > 
                               <img
                                 src={game3}
                                 height="200px"
@@ -206,11 +206,11 @@ const Home = ({video}) => {
                                 className="rounded-lg self-center"
                                 alt=""
                               />
-                          
+                          </NavLink>
                                 <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
+                           Example
                                 </span>
-                                </NavLink>
+                               
                                                         
                           </div>
                         </div>
