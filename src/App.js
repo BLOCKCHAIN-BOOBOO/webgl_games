@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/home';
 import Login from './components/login';
 import Sidebar from './components/sidebar';
-import Navbar from './components/navbar';
+// import Navbar from './components/navbar';
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
      
 <BrowserRouter>
 <Sidebar/>
-<Navbar />
+{/* <Navbar /> */}
 
       <AppRoutes />
     </BrowserRouter>

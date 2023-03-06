@@ -154,7 +154,7 @@ const Home = ({ video }) => {
 </div> */}
 
       {/* pt-6 */}
-      {/* <section className="lg:ml-40 md:ml-40 sm:ml-40 relative ">
+      <section className="lg:ml-40 md:ml-40 sm:ml-40 relative ">
 
 
 	<div className="container relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
@@ -183,7 +183,7 @@ const Home = ({ video }) => {
             
          </div>	
      </div>
-</section> */}
+</section>
 
       <section className="lg:ml-40 md:ml-40 sm:ml-40 relative pt-6">
         <div className="mr-10">

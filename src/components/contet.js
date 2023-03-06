@@ -7,7 +7,7 @@ return(
 <div className="flex flex-col">
 
     <div className="flex text-red-500 text-lg float-left text-left  font-semibold py-5">
-        <span className="border-b-2 border-red-500">More Information</span><i class="fa fa-angle-down text-xl font-semibold self-center align-middle text-red-500"></i></div>
+        <span className="border-b-2 border-red-500">More Information</span><i className="fa fa-angle-down text-xl font-semibold self-center align-middle text-red-500"></i></div>
     <div className="flex flex-row self-center text-center py-5 align">
         
         <input type="text" name="search" className="header-search bg-red-200 

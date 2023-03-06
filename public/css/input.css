@@ -140,15 +140,7 @@ body{
    /* padding-top: 5px;
    padding-bottom: 10px; */
 }
-#unity-container { position: absolute ;background:#fff; width: 100vw;}
-#unity-container.unity-desktop { 
-    /* left: 50%; top: 50%; transform: translate(-50%, -50%) */
- }
-#unity-container.unity-mobile { width: 100%; height: 100% }
-.unity-mobile #unity-canvas { width: 100%; height: 100% }
-.unity-div{width: 100%;height: 100%;position: absolute; display: flex;justify-content: center;}
-/* padding-top: 5px;padding-bottom: 10px; */
-.unity-body{padding:5px;}
+
 .unity-container{
 position: absolute ;
 background:transparent;
@@ -159,6 +151,10 @@ overflow-y: auto;
 }
 #unity-canvas {
   background: #FFFFFF;
+  height: 85vh !important;
+  width: 100vw !important;
+}
+.unity-container canvas{
   height: 85vh !important;
   width: 100vw !important;
 }
