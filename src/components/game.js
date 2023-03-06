@@ -30,7 +30,7 @@ const Game = () => {
     
   }, []);
   return (
-    <div className="relative">
+    <div className="relative mt-10">
       {/* lg:ml-36 md:ml-36 sm:ml-36  */}
       <div className="unity-div">
         <div className="unity-container">
