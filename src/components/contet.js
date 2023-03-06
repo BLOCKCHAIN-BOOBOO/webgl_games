@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Content=({video})=>{
+const Content=({})=>{
 return(
 
 <div className="flex flex-col">

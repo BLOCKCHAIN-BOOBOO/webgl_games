@@ -18,7 +18,7 @@ const Game = () => {
         .get(`https://html-game-api.kryptofam.com/game?id=${params.id}`)
         .then((res) => {
           console.log(res);
-          setgamedetails(res?.data?.data)
+          setgamedetails(res?.data?.data);
         });
     } catch (err) {
       console.log(err);
@@ -30,14 +30,14 @@ const Game = () => {
     setvid(play);
     console.log(vid);
   }, [play]);
-
+  return (
     <div className="relative">
-        {/* lg:ml-36 md:ml-36 sm:ml-36  */}
-    <div className="unity-div">
+      {/* lg:ml-36 md:ml-36 sm:ml-36  */}
+      <div className="unity-div">
         <div className="unity-container">
-          
           <Iframe
-            src=" https://html-game-api.kryptofam.com/play/CrazyShipParking2D/index.html"
+            // src=" https://html-game-api.kryptofam.com/play/CrazyShipParking2D/index.html"
+            src={gamedetails.url}
             id=""
             height="600px"
             width="100%"
@@ -47,8 +47,7 @@ const Game = () => {
             position="relative"
           />
 
-          
-          <Content video={setPlay} />
+          <Content />
         </div>
       </div>
     </div>
