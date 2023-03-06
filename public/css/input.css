@@ -105,14 +105,15 @@ body{
 }
     
 #settings {
-  top: 140px;
+  /* top: 140px; */
+  top:120px;
   /* width: 210px;
   height: 30px; */
 }
     
 #logout {
-  /* top: 200px; */
-  top:120px;
+  top: 60px;
+  /* top:120px; */
   /* width: 210px;
   height: 30px; */
 }
@@ -151,6 +152,62 @@ overflow-y: auto;
   height: 85vh !important;
   width: 100vw !important;
 }
+@media (min-width: 1024px) {
 .align {
   padding: 0 5rem; 
 }
+}
+
+/* Mobile view bar icon */
+.bar-icon::before{ 
+  content:"\f0c9";
+  font-size:25px;
+  font-family: FontAwesome;
+}
+.bar-icon.close-icon::before{ 
+  content:"\2612" !important;
+  font-size:25px;
+  font-family: FontAwesome;
+}
+
+/* close navbar */
+.ul-close{
+  /* top:25px !important; */
+  top:10px !important;
+  display: flex;
+  opacity:100 !important;
+}
+
+.ul-open{
+  opacity:0;
+  top:0;
+  /* display:none; */
+  display:flex;
+}
+
+@media (min-width: 300px) and (max-width: 640px){
+
+  .mobile-menu{
+   height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(91, 85, 85);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 10px;
+  }
+  }
+  
+  @media (min-width: 641px) and (max-width: 1024px){
+  
+  .mobile-menu{
+  height:100%;    
+    z-index: 1;
+    left: 0;
+    transition: 0.5s;
+  
+  }
+  }
