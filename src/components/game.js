@@ -1,48 +1,58 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import Iframe from 'react-iframe'
+import Iframe from "react-iframe";
 import Content from "./contet";
+import { useParams } from "react-router-dom";
+const Game = () => {
+  const [play, setPlay] = useState("http://127.0.0.1:5500/index.html");
+  const [vid, setvid] = useState("");
+  const [gamedetails, setgamedetails] = useState([]);
+  const params = useParams("");
+  console.log(params);
+  let vurl = "";
 
+  const fetchgamedetails = async () => {
+    try {
+      await axios
+        .get(`https://html-game-api.kryptofam.com/game?id=${params.id}`)
+        .then((res) => {
+          console.log(res);
+          setgamedetails(res?.data?.data)
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-const Game=()=>{
-    const [play, setPlay] =useState("http://127.0.0.1:5500/index.html");
-        const [vid,setvid] =useState("")
-          let vurl="";
-        useEffect(()=>{
-        setvid(play)
-        console.log(vid)
-        },[play])
-        
-   
-    return(
+  useEffect(() => {
+    fetchgamedetails();
+    setvid(play);
+    console.log(vid);
+  }, [play]);
 
+  return (
     <div className="lg:ml-36 md:ml-36 sm:ml-36 relative ">
-    <div className="unity-div">
+      <div className="unity-div">
         <div className="unity-container">
-    {/* <div className="flex justify-center "> */}
-    <Iframe 
-    // url="https://www.sdrive.app/embed/1ptBQD"
-    // url={vid}
-    src={vid}
-            // width="640px"
-            // height="320px"
-            id="" height="600px" width="100%"
+          
+          <Iframe
+            src=" https://html-game-api.kryptofam.com/play/CrazyShipParking2D/index.html"
+            id=""
+            height="600px"
+            width="100%"
             className=""
             allow="autoplay"
             display="block"
-            position="relative"/>
-    
-    {/* <iframe src="https://booboogamesorg.itch.io/crazy-ship-parking-2d" title="description"></iframe> */}
-    {/* <iframe src={vid} name="iframe_a" height="600px" width="100%" title="Iframe Example"></iframe> */}
-    
-        
-    {/* </div> */}
-    <Content video={setPlay} />
-    </div>
-    </div>
-    </div>
+            position="relative"
+          />
 
-);
+          
+          <Content video={setPlay} />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Game;

@@ -1,58 +1,77 @@
-
-import React from "react";
+import React, { useRef } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-import games from "../images/games.png"
-import home from "../images/home.png"
-import wallet from "../images/wallet.png"
-import notification from "../images/notification.png"
-import star from "../images/star.png"
-import line from "../images/line.png"
-import group from "../images/group.png"
-import settings from "../images/settings.png"
-import logout from "../images/logout.png"
-import profile from "../images/profile.png"
+import games from "../images/games.png";
+import home from "../images/home.png";
+import wallet from "../images/wallet.png";
+import notification from "../images/notification.png";
+import star from "../images/star.png";
+import line from "../images/line.png";
+import group from "../images/group.png";
+import settings from "../images/settings.png";
+import logout from "../images/logout.png";
+import profile from "../images/profile.png";
 
 import { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import game1 from "../images/game1.png"
-import game2 from "../images/game2.png"
-import game3 from "../images/game3.png"
-import game4 from "../images/game4.png"
+import game1 from "../images/game1.png";
+import game2 from "../images/game2.png";
+import game3 from "../images/game3.png";
+import game4 from "../images/game4.png";
+import axios from "axios";
 
 import Game from "./game";
 
-
-
-const Home = ({video}) => {
+const Home = ({ video }) => {
+  const [allGames, setallGames] = useState([]);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 5,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1
+      items: 1,
+    },
+  };
+  const dataFetchedRef = useRef(false);
+
+  // let temp = [];
+  const fetchapi = async () => {
+    try {
+      await axios
+        .get("https://html-game-api.kryptofam.com/games")
+        .then((res) => {
+          console.log(res);
+          // temp = [...temp, res?.data?.data];
+          // console.log(temp);
+          setallGames(res?.data?.data);
+        });
+    } catch (err) {
+      console.log(err);
     }
   };
-    return (
 
+  useEffect(() => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+    fetchapi();
+  }, []);
 
-
-<div className="pb-20">
-
-   {/* <li className="relative mb-5">
+  return (
+    <div className="pb-20">
+      {/* <li className="relative mb-5">
       <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
        <img src={games} height="25" width="25" className="mr-2" alt="" />      
       </a>
@@ -79,12 +98,11 @@ const Home = ({video}) => {
       </a>
     </li> */}
       {/* hidden */}
- {/* <a href="javascript:void(0)" className="closebtn md:hidden lg:hidden " >&times;</a> */}
- {/* onClick={closeMenu()} */}
- {/* bg-red-600  shadow-2xl*/}
+      {/* <a href="javascript:void(0)" className="closebtn md:hidden lg:hidden " >&times;</a> */}
+      {/* onClick={closeMenu()} */}
+      {/* bg-red-600  shadow-2xl*/}
 
-
-{/* <div className="lg:w-32 md:w-32 sm:w-40 h-20 lg:h-full md:h-full sm:h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
+      {/* <div className="lg:w-32 md:w-32 sm:w-40 h-20 lg:h-full md:h-full sm:h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
 <div className="mb-10 h-full pt-5 pb-5">
 
 
@@ -135,12 +153,8 @@ const Home = ({video}) => {
 
 </div> */}
 
-
-
-
-
-{/* pt-6 */}
-{/* <section className="lg:ml-40 md:ml-40 sm:ml-40 relative ">
+      {/* pt-6 */}
+      {/* <section className="lg:ml-40 md:ml-40 sm:ml-40 relative ">
 
 
 	<div className="container relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
@@ -171,426 +185,256 @@ const Home = ({video}) => {
      </div>
 </section> */}
 
+      <section className="lg:ml-40 md:ml-40 sm:ml-40 relative pt-6">
+        <div className="mr-10">
+          <div className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
+            GAMES
+          </div>
 
-<section className="lg:ml-40 md:ml-40 sm:ml-40 relative pt-6">
-  <div className="mr-10">
-    <div className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">GAMES</div>
-
-    <Carousel
-              swipeable={true}
-              draggable={true}
-              showDots={false}
-              responsive={responsive}
-              ssr={true} // means to render carousel on server-side.
-              infinite={true}
-              // autoPlay={window.deviceType !== "mobile" ? true : false}
-              // autoPlaySpeed={2000}
-              keyBoardControl={true}
-              customTransition="all .5"
-              transitionDuration={500}
-              containerClass="carousel-container w-full"
-              // removeArrowOnDeviceType={["tablet", "mobile"]}
-              // deviceType={this.props.deviceType}
-              dotListClass="custom-dot-list-style"
-              itemClass="carousel-item-padding-40-px "
-            >
-             
-<div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            centerMode={true}
+            responsive={responsive}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            // autoPlay={window.deviceType !== "mobile" ? true : false}
+            // autoPlaySpeed={2000}
+            keyBoardControl={true}
+            customTransition="all .5"
+            transitionDuration={500}
+            containerClass="carousel-container w-full"
+            // removeArrowOnDeviceType={["tablet", "mobile"]}
+            // deviceType={this.props.deviceType}
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px "
+          >
+            {allGames.map((details, index) => {
+              console.log(details._id);
+              return (
+                <div className="star-div" key={details._id}>
+                  <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                    <i className="fa fa-star text-white text-xs"></i>
+                    <i className="fa fa-star text-white text-xs"></i>
+                    <i className="fa fa-star text-white text-xs"></i>
+                    <i className="fa fa-star text-white text-xs"></i>
+                  </div>
+                  <div className="game-card z-0 rounded-xl">
+                    <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                      <div>
+                        <NavLink to={"/game/" + details._id}>
+                          <img
+                            src={
+                              "https://html-game-api.kryptofam.com/" +
+                              details.thumbnail
+                            }
+                            height="200px"
+                            // width="150px"
+                            className="rounded-lg self-center"
+                            alt=""
+                          />
+                        </NavLink>
+                        <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                          {details.name}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                          <NavLink to="/game" > 
-                              <img
-                                src={game3}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          </NavLink>
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                           Example
-                                </span>
-                               
-                                                        
-                          </div>
-                        </div>
-                      </div>
-                      </div>
+              );
+            })}
+          </Carousel>
+        </div>
+      </section>
 
+      <section className="lg:ml-40 md:ml-40 sm:ml-40 relative pt-6">
+        <div className="mr-10">
+          <div className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
+            MOST POPULAR GAMES
+          </div>
 
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            centerMode={true}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            // autoPlay={window.deviceType !== "mobile" ? true : false}
+            // autoPlaySpeed={2000}
+            keyBoardControl={true}
+            customTransition="all .5"
+            transitionDuration={500}
+            containerClass="carousel-container w-full"
+            // removeArrowOnDeviceType={["tablet", "mobile"]}
+            // deviceType={this.props.deviceType}
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px "
+          >
+            <div className="star-div">
+              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
+              </div>
+              <div className="game-card z-0 rounded-xl">
+                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                  <div>
+                    <img
+                      src={game1}
+                      height="200px"
+                      // width="150px"
+                      className="rounded-lg self-center"
+                      alt=""
+                    />
+
+                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                      Lorem Ipsum
+                    </span>
+                  </div>
                 </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game1}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
+              </div>
+            </div>
 
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+            <div className="star-div">
+              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
+              </div>
+              <div className="game-card z-0 rounded-xl">
+                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                  <div>
+                    <img
+                      src={game2}
+                      height="200px"
+                      // width="150px"
+                      className="rounded-lg self-center"
+                      alt=""
+                    />
+
+                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                      Lorem Ipsum
+                    </span>
+                  </div>
                 </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game2}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
+              </div>
+            </div>
 
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+            <div className="star-div">
+              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
+              </div>
+              <div className="game-card z-0 rounded-xl">
+                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                  <div>
+                    <img
+                      src={game3}
+                      height="200px"
+                      // width="150px"
+                      className="rounded-lg self-center"
+                      alt=""
+                    />
+
+                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                      Lorem Ipsum
+                    </span>
+                  </div>
                 </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game3}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
+              </div>
+            </div>
 
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+            <div className="star-div">
+              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
+              </div>
+              <div className="game-card z-0 rounded-xl">
+                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                  <div>
+                    <img
+                      src={game4}
+                      height="200px"
+                      // width="150px"
+                      className="rounded-lg self-center"
+                      alt=""
+                    />
+
+                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                      Lorem Ipsum
+                    </span>
+                  </div>
                 </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game4}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
+              </div>
+            </div>
 
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+            <div className="star-div">
+              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
+              </div>
+              <div className="game-card z-0 rounded-xl">
+                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                  <div>
+                    <img
+                      src={game1}
+                      height="200px"
+                      // width="150px"
+                      className="rounded-lg self-center"
+                      alt=""
+                    />
+
+                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                      Lorem Ipsum
+                    </span>
+                  </div>
                 </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game1}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
+              </div>
+            </div>
 
-
-            </Carousel>
-
-
-  </div>
-</section>
-
-
-
-
-
-<section className="lg:ml-40 md:ml-40 sm:ml-40 relative pt-6">
-  <div className="mr-10">
-    <div className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">MOST POPULAR GAMES</div>
-
-    <Carousel
-              swipeable={true}
-              draggable={true}
-              showDots={false}
-              responsive={responsive}
-              ssr={true} // means to render carousel on server-side.
-              infinite={true}
-              // autoPlay={window.deviceType !== "mobile" ? true : false}
-              // autoPlaySpeed={2000}
-              keyBoardControl={true}
-              customTransition="all .5"
-              transitionDuration={500}
-              containerClass="carousel-container w-full"
-              // removeArrowOnDeviceType={["tablet", "mobile"]}
-              // deviceType={this.props.deviceType}
-              dotListClass="custom-dot-list-style"
-              itemClass="carousel-item-padding-40-px "
-            >
-             
-<div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+            <div className="star-div">
+              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
                 <i className="fa fa-star text-white text-xs"></i>
+              </div>
+              <div className="game-card z-0 rounded-xl">
+                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                  <div>
+                    <img
+                      src={game2}
+                      height="200px"
+                      // width="150px"
+                      className="rounded-lg self-center"
+                      alt=""
+                    />
+
+                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                      Lorem Ipsum
+                    </span>
+                  </div>
                 </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game1}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
+              </div>
+            </div>
+          </Carousel>
+        </div>
+      </section>
 
+      {/* <Game/> */}
+    </div>
+  );
+};
 
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game2}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game3}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game4}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game1}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-
-                      <div className="star-div">
-<div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                </div>
-             <div className="game-card z-0 rounded-xl">
-             
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                              <img
-                                src={game2}
-                                height="200px"
-                                // width="150px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-                          
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            Lorem Ipsum
-                                </span>
-                             
-                            
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-
-
-            </Carousel>
-
-
-  </div>
-</section>
-
-{/* <Game/> */}
-		</div>
-
-      );
-    };
-    
-    export default Home;
+export default Home;

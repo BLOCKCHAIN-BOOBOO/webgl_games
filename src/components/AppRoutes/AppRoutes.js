@@ -11,12 +11,12 @@ import Login from "../login";
 function AppRoutes() {
   return (
     <div className="App">
-      <Routes>     
-     
-        <Route path="/" element={<Home />}> </Route>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          {" "}
+        </Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/game" element={<Game />}></Route>
-       
+        <Route path="/game/:id" element={<Game />}></Route>
       </Routes>
 
       {/* <header className="App-header">
