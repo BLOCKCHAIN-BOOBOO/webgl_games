@@ -11,36 +11,53 @@ import profile from "../images/profile.png"
 
 
 const Sidebar = () => {
+
+  const mobileMenutoggle=(e)=>{
+    let lists = document.querySelector('ul');
+    lists.classList.toggle("ul-close");
+   
+    let list = document.querySelector('button');
+    list.classList.toggle("close-icon");
+    
+         }
+  const showMenu = () => {
+    var element = document.getElementById("show-menu");
+    element.classList.toggle("hidden");
+    document.getElementById("show-menu").style.display = "block";
+  };
+  const closeMenu = () => {
+    var element = document.getElementById("show-menu");
+    element.classList.toggle("hidden");
+
+    document.getElementById("show-menu").style.display = "none";
+  };
+
  
     return (
 
 <div>
-<div className="lg:w-32 md:w-32 sm:w-40 h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
+<div className="lg:w-32 md:w-32 sm:w-40 h-full lg:fixed md:fixed sm:fixed" style={{position: "sticky"}}>
 {/* h-20 lg:h-full md:h-full sm:h-full */}
-<div className="mb-10 h-full">
+<div className="z-40 relative h-full">
 {/* bg-red-600  pt-5 pb-5 shadow-2xl*/}
 
-<div className="block text-3xl relative cursor-pointer md:hidden">
-          <button className="flex flex-col text-white float-right right-8 top-6 mx-2 md:mx-0 bar-icon">
-          </button>
-        </div>
-
-<div  id="show-menu" className=" mobile-menu sm:mobile-menu md:desktop-menu lg:desktop-menu text-black lg:text-black
- block sm:block md:block lg:block xl:block md:text-black sm:text-black z-40">
-   {/* hidden */}
- {/* <a href="javascript:void(0)" className="closebtn md:hidden lg:hidden " >&times;</a> */}
- {/* onClick={closeMenu()} */}
-
+     
 
 
 <div id="mySidenav" className="sidenav">
-  <ul className="fixed z-40 flex flex-col
-  sm:mt-10 mt-10 md:mt-0 xl:mt-0 bg-slate-800 sm:bg-slate-800 md:bg-transparent lg:bg-transparent
+                  <div className="block text-3xl relative cursor-pointer md:hidden">
+          <button className="flex flex-col float-left text-left left-2 top-6 mx-2 md:mx-0 bar-icon"
+          // float-right right-8
+           onClick={e=>mobileMenutoggle(e)}>
+          </button>
+        </div>
+  <ul className="fixed z-10 flex flex-col
+  sm:mt-20 mt-10 md:mt-20 xl:mt-20 bg-slate-800 sm:bg-slate-800 md:bg-slate-800 lg:bg-transparent
    font-bold md:flex md:items-center absolute z-[1] md:z-auto
   left-0 py-2 opacity-0 md:opacity-100 transition-all ease-in duration-500">
   {/* relative md:static top-[-400px] */}
   <li className="relative mb-5">
-      <a id="home" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
+      <a id="home"  onClick={e=>mobileMenutoggle(e)} className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
        grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
    <span className="text-sm self-center font-bold "> Home</span>   <img src={home} height="25" width="25" className="" alt="" />        
       </a>
@@ -95,15 +112,11 @@ const Sidebar = () => {
       </a>
     </li>
   </ul>
+  {/* </div> */}
   </div>
 
 </div>
 </div>
-
-
-
-</div>
-
 </div>
 
       );
