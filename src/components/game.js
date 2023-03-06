@@ -27,9 +27,8 @@ const Game = () => {
 
   useEffect(() => {
     fetchgamedetails();
-    setvid(play);
-    console.log(vid);
-  }, [play]);
+    
+  }, []);
   return (
     <div className="relative">
       {/* lg:ml-36 md:ml-36 sm:ml-36  */}
@@ -47,7 +46,7 @@ const Game = () => {
             position="relative"
           />
 
-          <Content />
+          <Content id={params.id} />
         </div>
       </div>
     </div>
