@@ -16,7 +16,8 @@ const Game=()=>{
    
     return(
 
-    <div className="lg:ml-36 md:ml-36 sm:ml-36 relative ">
+    <div className="relative">
+        {/* lg:ml-36 md:ml-36 sm:ml-36  */}
     <div className="unity-div">
         <div className="unity-container">
     {/* <div className="flex justify-center "> */}

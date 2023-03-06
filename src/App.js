@@ -13,9 +13,9 @@ function App() {
     <div className="App relative">
      
 <BrowserRouter>
-
-<Navbar />
 <Sidebar/>
+<Navbar />
+
       <AppRoutes />
     </BrowserRouter>
 
