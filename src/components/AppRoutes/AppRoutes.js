@@ -5,16 +5,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Game from "../game";
 import Home from "../home";
+import Login from "../login";
 // import Frontend from "./layouts/Frontend";
 
 function AppRoutes() {
   return (
     <div className="App">
-      <Routes>
-
-        <Route path="/" element={<Home />}></Route>
+      <Routes>     
+     
+        <Route path="/" element={<Home />}> </Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/game" element={<Game />}></Route>
-        
+       
       </Routes>
 
       {/* <header className="App-header">

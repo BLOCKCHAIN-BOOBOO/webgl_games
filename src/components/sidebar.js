@@ -15,19 +15,30 @@ const Sidebar = () => {
     return (
 
 <div>
-<div className="lg:w-32 md:w-32 sm:w-40 h-20 lg:h-full md:h-full sm:h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
-<div className="mb-10 h-full pt-5 pb-5">
-{/* bg-red-600  shadow-2xl*/}
+<div className="lg:w-32 md:w-32 sm:w-40 h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
+{/* h-20 lg:h-full md:h-full sm:h-full */}
+<div className="mb-10 h-full">
+{/* bg-red-600  pt-5 pb-5 shadow-2xl*/}
 
-<div  id="show-menu" className=" mobile-menu sm:mobile-menu md:desktop-menu lg:desktop-menu text-white lg:text-black
- block sm:block md:block lg:block xl:block md:text-black sm:text-black">
+<div className="block text-3xl relative cursor-pointer md:hidden">
+          <button className="flex flex-col text-white float-right right-8 top-6 mx-2 md:mx-0 bar-icon">
+          </button>
+        </div>
+
+<div  id="show-menu" className=" mobile-menu sm:mobile-menu md:desktop-menu lg:desktop-menu text-black lg:text-black
+ block sm:block md:block lg:block xl:block md:text-black sm:text-black z-40">
    {/* hidden */}
  {/* <a href="javascript:void(0)" className="closebtn md:hidden lg:hidden " >&times;</a> */}
  {/* onClick={closeMenu()} */}
 
+
+
 <div id="mySidenav" className="sidenav">
-  <ul className="fixed z-10">
-  {/* relative */}
+  <ul className="fixed z-40 flex flex-col
+  sm:mt-10 mt-10 md:mt-0 xl:mt-0 bg-slate-800 sm:bg-slate-800 md:bg-transparent lg:bg-transparent
+   font-bold md:flex md:items-center absolute z-[1] md:z-auto
+  left-0 py-2 opacity-0 md:opacity-100 transition-all ease-in duration-500">
+  {/* relative md:static top-[-400px] */}
   <li className="relative mb-5">
       <a id="home" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
        grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">

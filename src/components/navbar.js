@@ -19,7 +19,8 @@ const Navbar = () => {
 {/* pt-6 */}
 
 	<div className="container relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
-    <div className="lg:w-full text-left mt-20 sm:mt-10 md:mt-10 xl:mt-0"> 
+    <div className="lg:w-full text-left mt-0 sm:mt-0 md:mt-0 xl:mt-0"> 
+    {/* mt-20 sm:mt-10 md:mt-10 xl:mt-0 */}
                              
       <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
         
