@@ -22,6 +22,8 @@ import game2 from "../images/game2.png"
 import game3 from "../images/game3.png"
 import game4 from "../images/game4.png"
 
+import Game from "./game";
+
 
 
 const Home = ({video}) => {
@@ -49,26 +51,8 @@ const Home = ({video}) => {
 
 
 <div className="pb-20">
-<div className="lg:w-32 md:w-32 sm:w-40 h-20 lg:h-full md:h-full sm:h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
-<div className="mb-10 h-full pt-5 pb-5">
-{/* bg-red-600  shadow-2xl*/}
 
-<div  id="show-menu" className=" mobile-menu sm:mobile-menu md:desktop-menu lg:desktop-menu text-white lg:text-black
- block sm:block md:block lg:block xl:block md:text-black sm:text-black">
-   {/* hidden */}
- {/* <a href="javascript:void(0)" className="closebtn md:hidden lg:hidden " >&times;</a> */}
- {/* onClick={closeMenu()} */}
-
-<div id="mySidenav" className="sidenav">
-  <ul className="fixed z-10">
-  {/* relative */}
-  <li className="relative mb-5">
-      <a id="home" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
-       grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-   <span className="text-sm self-center font-bold "> Home</span>   <img src={home} height="25" width="25" className="" alt="" />        
-      </a>
-    </li>
-    {/* <li className="relative mb-5">
+   {/* <li className="relative mb-5">
       <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
        <img src={games} height="25" width="25" className="mr-2" alt="" />      
       </a>
@@ -83,15 +67,7 @@ const Home = ({video}) => {
        <img src={notification} height="25" width="25" className="mr-2" alt="" />       
       </a>
     </li>   */}
-
- <li className="relative mb-5">
-      <a id="favourite" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
-       grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-      <span className="text-sm self-center font-bold "> Favourite</span> <img src={star} height="25" width="25" className="" alt="" />
-      </a>
-    </li>
-
-    {/* <li className="relative mb-5">
+      {/* <li className="relative mb-5">
       <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
        <img src={line} height="25" width="25" className="mr-2" alt="" />
       </a>
@@ -102,6 +78,38 @@ const Home = ({video}) => {
        <img src={group} height="25" width="25" className="mr-2" alt="" />
       </a>
     </li> */}
+      {/* hidden */}
+ {/* <a href="javascript:void(0)" className="closebtn md:hidden lg:hidden " >&times;</a> */}
+ {/* onClick={closeMenu()} */}
+ {/* bg-red-600  shadow-2xl*/}
+
+
+{/* <div className="lg:w-32 md:w-32 sm:w-40 h-20 lg:h-full md:h-full sm:h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
+<div className="mb-10 h-full pt-5 pb-5">
+
+
+<div  id="show-menu" className=" mobile-menu sm:mobile-menu md:desktop-menu lg:desktop-menu text-white lg:text-black
+ block sm:block md:block lg:block xl:block md:text-black sm:text-black">
+ 
+
+<div id="mySidenav" className="sidenav">
+  <ul className="fixed z-10">
+  <li className="relative mb-5">
+      <a id="home" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
+       grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
+   <span className="text-sm self-center font-bold "> Home</span>   <img src={home} height="25" width="25" className="" alt="" />        
+      </a>
+    </li>
+   
+
+ <li className="relative mb-5">
+      <a id="favourite" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
+       grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
+      <span className="text-sm self-center font-bold "> Favourite</span> <img src={star} height="25" width="25" className="" alt="" />
+      </a>
+    </li>
+
+  
 
     <li className="relative mb-5">
       <a id="settings" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
@@ -125,15 +133,15 @@ const Home = ({video}) => {
 
 
 
-</div>
+</div> */}
 
 
 
 
 
-
-<section className="lg:ml-40 md:ml-40 sm:ml-40 relative ">
 {/* pt-6 */}
+{/* <section className="lg:ml-40 md:ml-40 sm:ml-40 relative ">
+
 
 	<div className="container relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
     <div className="lg:w-full text-left mt-20 sm:mt-10 md:mt-10 xl:mt-0"> 
@@ -161,7 +169,7 @@ const Home = ({video}) => {
             
          </div>	
      </div>
-</section>
+</section> */}
 
 
 <section className="lg:ml-40 md:ml-40 sm:ml-40 relative pt-6">
@@ -578,6 +586,8 @@ const Home = ({video}) => {
 
   </div>
 </section>
+
+{/* <Game/> */}
 		</div>
 
       );

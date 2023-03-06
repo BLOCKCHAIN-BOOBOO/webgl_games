@@ -1,0 +1,38 @@
+import React from "react";
+import { useState } from "react";
+
+const Content=({video})=>{
+return(
+
+<div className="flex flex-col">
+
+    <div className="flex text-red-500 text-lg float-left text-left  font-semibold py-5">More Information</div>
+    <div className="flex flex-row self-center text-center py-5 align">
+        
+        <input type="text" name="search" className="header-search bg-red-200 
+         b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
+      border-red-300 placeholder-white font-semibold focus:outline-none 
+              xl:w-96 md:w-96 sm:w-60 w-40 block text-white  rounded-full sm:text-sm focus:ring" placeholder="Type Comments...." />
+               <button type="button" className="bg-red-500 w-60 text-white font-semibold -ml-20 px-12 w-full text-xs rounded-full "> Send Comment</button>
+    </div>
+
+    {/* <div className="text-sm font-semibold pt-10">This content is constant no need to change the content for any game</div>
+
+    <div className="flex m-3">
+<button className="bg-blue-400 text-white text-sm py-2 px-4 m-2" onClick={() => video("https://nft.radiqal.com")}>video1</button>
+<button className="bg-blue-600 text-white text-sm py-2 px-4 m-2" onClick={()=>video("http://127.0.0.1:5500/index.html")}>video2</button>
+
+    </div> */}
+
+
+
+
+
+</div>
+
+
+
+);
+};
+
+export default Content;

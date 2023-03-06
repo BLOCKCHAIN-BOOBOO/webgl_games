@@ -127,3 +127,30 @@ body{
   padding-top:5rem;
   padding-bottom:5rem;
 }
+
+/* game display in game page */
+
+.unity-div{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+   display: flex;
+   justify-content: center;
+   /* padding-top: 5px;
+   padding-bottom: 10px; */
+}
+.unity-container{
+position: absolute ;
+background:transparent;
+width: 80vw;
+/* height:100%; */
+overflow-y: auto;
+}
+#unity-canvas {
+  background: #FFFFFF;
+  height: 85vh !important;
+  width: 100vw !important;
+}
+.align {
+  padding: 0 5rem; 
+}
