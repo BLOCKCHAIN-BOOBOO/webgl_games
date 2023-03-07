@@ -11,7 +11,7 @@ import Sidebar from './components/sidebar';
 function App() {
   return (
     <div className="App relative">
-     
+    
 <BrowserRouter>
 <Sidebar/>
 {/* <Navbar /> */}

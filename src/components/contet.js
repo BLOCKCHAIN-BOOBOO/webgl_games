@@ -55,31 +55,13 @@ const Content = ({ id }) => {
 
 
                         <div className="body-height close-accordion">
-                          <input
-                            type="text"
-                            name="name"
-                            className="rounded-lg text-gray-800 bg-slate-600 w-full px-2"
-                            placeholder="Price"
-                            required
-                          />
-                          <button class="rounded-lg accordion-buttons text-xs font-semibold px-2 md:px-2 py-2 active">
-                            Write</button>
-                            <div className="flex flex-col">
-                            <div className="flex flex-col self-center text-center lg:ml-4">            
-              <img src={profile} height="40" width="40" className="mr-2 self-center" alt="" />
-             </div>
-             <div className="text-sm font-normal">Description dhhaut g guyg hjagj gasjg jgag uyagsu a vgd gashgj agdhsg jdag javascript savecomment
-             fa sgdj hgasjhg jag jgdsauyg jagj hgjag uyfatuy gfajhgjh gajhg jhgsajhusay idi eahg fuyafyag fgjha faj faj
-             feayyugjehg dvnabv dsa dasygdyastyduteg vg vags gajyg</div>
+                        <div>{info.description}</div>
+                        <div> gfhsdg hfjsg fsjhg fjhdsg</div>
                             
-                            </div>
                         </div>
                       </Accordion>
 
-
-
-      <div>{info.description}</div>
-      <div className="flex flex-row self-center text-center py-5 align">
+          <div className="flex flex-row self-center text-center py-5 align">
         <input
           type="text"
           name="search"
