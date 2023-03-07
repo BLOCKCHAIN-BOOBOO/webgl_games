@@ -13,12 +13,12 @@ function App() {
     <div className="App relative">
     
 <BrowserRouter>
-<div className='flex flex-row'>
+{/* <div className='flex flex-row'> */}
 <Sidebar/>
 {/* <Navbar /> */}
 
       <AppRoutes />
-      </div>
+      {/* </div> */}
     </BrowserRouter>
 
      {/* <Home/> */}

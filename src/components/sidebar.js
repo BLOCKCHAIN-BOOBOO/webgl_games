@@ -41,7 +41,7 @@ const Sidebar = () => {
     return (
 
 <div>
-<div className="lg:w-32 md:w-32 sm:w-40 h-full lg:fixed md:fixed sm:fixed" style={{position: "sticky"}}>
+<div className="lg:w-32 md:w-32 sm:w-32 h-full z-40 absolute lg:fixed md:fixed sm:fixed" style={{position: "sticky"}}>
 {/* h-20 lg:h-full md:h-full sm:h-full */}
 <div className="z-40 relative h-full">
 {/* bg-red-600  pt-5 pb-5 shadow-2xl*/}

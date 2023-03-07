@@ -12,7 +12,8 @@ import Favourite from "../favourite";
 
 function AppRoutes() {
   return (
-    <div className="App w-full">
+    <div className="App">
+       {/* w-full */}
       <Routes>
         <Route path="*" element={<Login />}></Route>
         <Route path="/login" element={<Login />}></Route>
