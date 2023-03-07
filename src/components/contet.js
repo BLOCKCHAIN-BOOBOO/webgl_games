@@ -93,7 +93,7 @@ const Content = ({ id }) => {
       </div>
       {gamecomments.map((comment) => {
         return (
-          <div className="flex flex-col py-3 text-left float-left">
+          <div className="flex flex-col py-5 text-left float-left">
             <div className="flex flex-row w-full">
                <img src={profile} height="40" width="40" className="mr-2 self-center" alt="" />
             <span className="flex self-center text-sm font-normal">Profile</span>
