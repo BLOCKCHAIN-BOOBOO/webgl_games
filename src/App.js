@@ -14,7 +14,8 @@ function App() {
     
 <BrowserRouter>
 {/* <div className='flex flex-row'> */}
-<Sidebar/>
+
+{/* <Sidebar /> */}
 {/* <Navbar /> */}
 
       <AppRoutes />
