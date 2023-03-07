@@ -47,7 +47,7 @@ const Content = ({ id }) => {
   }, [comment]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-3">
       {/* <div className="flex text-red-500 text-lg float-left text-left  font-semibold py-5">
         <span className="border-b-2 border-red-500">More Information</span>
         <i class="fa fa-angle-down text-xl font-semibold self-center align-middle text-red-500"></i>

@@ -30,11 +30,11 @@ const Home = ({ video }) => {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5,
+      items: 2,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 2,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -70,7 +70,8 @@ const Home = ({ video }) => {
   }, []);
 
   return (
-    <div className="pb-20">
+    <div className="pb-20 ">
+      {/* lg:ml-32 md:ml-32 sm:ml-32  */}
       {/* <li className="relative mb-5">
       <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
        <img src={games} height="25" width="25" className="mr-2" alt="" />      
@@ -154,7 +155,8 @@ const Home = ({ video }) => {
 </div> */}
 
       {/* pt-6 */}
-      <section className="lg:ml-40 md:ml-40 sm:ml-40 relative ">
+      <section className="">
+      {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
 
 
 	<div className="container relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
@@ -185,7 +187,8 @@ const Home = ({ video }) => {
      </div>
 </section>
 
-      <section className="lg:ml-40 md:ml-40 sm:ml-40 relative pt-6">
+      <section className="relative pt-6">
+      {/* lg:ml-40 md:ml-40 sm:ml-40  */}
         <div className="mr-10">
           <div className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
             GAMES
@@ -248,7 +251,7 @@ const Home = ({ video }) => {
         </div>
       </section>
 
-      <section className="lg:ml-40 md:ml-40 sm:ml-40 relative pt-6">
+      <section className=" relative pt-6">
         <div className="mr-10">
           <div className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
             MOST POPULAR GAMES
@@ -260,18 +263,16 @@ const Home = ({ video }) => {
             showDots={false}
             responsive={responsive}
             centerMode={true}
-            ssr={true} // means to render carousel on server-side.
+            ssr={true} 
             infinite={true}
-            // autoPlay={window.deviceType !== "mobile" ? true : false}
-            // autoPlaySpeed={2000}
             keyBoardControl={true}
             customTransition="all .5"
             transitionDuration={500}
             containerClass="carousel-container w-full"
-            // removeArrowOnDeviceType={["tablet", "mobile"]}
-            // deviceType={this.props.deviceType}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px "
+            sliderClass=""
+            slidesToSlide={1}
           >
             <div className="star-div">
               <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
@@ -286,7 +287,6 @@ const Home = ({ video }) => {
                     <img
                       src={game1}
                       height="200px"
-                      // width="150px"
                       className="rounded-lg self-center"
                       alt=""
                     />
@@ -312,7 +312,6 @@ const Home = ({ video }) => {
                     <img
                       src={game2}
                       height="200px"
-                      // width="150px"
                       className="rounded-lg self-center"
                       alt=""
                     />
@@ -338,7 +337,6 @@ const Home = ({ video }) => {
                     <img
                       src={game3}
                       height="200px"
-                      // width="150px"
                       className="rounded-lg self-center"
                       alt=""
                     />
@@ -364,7 +362,6 @@ const Home = ({ video }) => {
                     <img
                       src={game4}
                       height="200px"
-                      // width="150px"
                       className="rounded-lg self-center"
                       alt=""
                     />
@@ -390,7 +387,6 @@ const Home = ({ video }) => {
                     <img
                       src={game1}
                       height="200px"
-                      // width="150px"
                       className="rounded-lg self-center"
                       alt=""
                     />
@@ -416,7 +412,6 @@ const Home = ({ video }) => {
                     <img
                       src={game2}
                       height="200px"
-                      // width="150px"
                       className="rounded-lg self-center"
                       alt=""
                     />

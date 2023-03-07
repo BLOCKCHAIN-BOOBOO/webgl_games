@@ -75,12 +75,12 @@ const Login = () => {
 
               <button
                 type="button"
-                className="text-red-500 border-2 border-red-500 flex flex-row w-full rounded-lg bg-transparent text-xl font-bold signup-input-width py-2"
+                className="text-red-500 border-2 border-red-500 self-center text-center justify-center flex flex-row w-full rounded-lg bg-transparent text-xl font-bold signup-input-width py-2"
               >
                 <img
                   src={booboocoin}
-                  height="40"
-                  width="40"
+                  height="30"
+                  width="30"
                   className="mr-2 self-center"
                   alt=""
                 />{" "}
