@@ -252,7 +252,7 @@ const Home = ({ video }) => {
         </div>
       </section>
 
-      <section className=" relative pt-6">
+      {/* <section className=" relative pt-6">
         <div className="mr-10">
           <div className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
             MOST POPULAR GAMES
@@ -428,7 +428,7 @@ const Home = ({ video }) => {
             </div>
           </Carousel>
         </div>
-      </section>
+      </section> */}
 
       {/* <Game/> */}
     </div>
