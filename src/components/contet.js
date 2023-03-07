@@ -84,7 +84,15 @@ const Content = ({ id }) => {
         </button>
       </div>
       {gamecomments.map((comment) => {
-        return <div key={comment._id}>{comment.text}</div>;
+        return (
+          <div className="flex flex-col py-3 text-left float-left">
+            <div className="flex flex-row w-full">
+               <img src={profile} height="40" width="40" className="mr-2 self-center" alt="" />
+            <span className="flex self-center text-sm font-normal">Profile</span>
+            </div>
+          <div key={comment._id}>{comment.text}</div>
+          </div>
+        )
       })}
     </div>
   );
