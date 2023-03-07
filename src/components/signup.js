@@ -9,6 +9,7 @@ const Signup = () => {
   const [details, setdetails] = useState({});
   const [errMsg, seterrMsg] = useState("");
   const BaseURL = "https://booboo-login.kryptofam.com/";
+  window.sessionStorage.clear();
   let navigate = useNavigate();
   const handleChange = (evt) => {
     const value = evt.target.value;
@@ -18,7 +19,8 @@ const Signup = () => {
     });
   };
 
-  const Submit = async (e) => {
+  const Submit = async () => {
+    console.log("details", details);
     if (details.password === details.confirmPassword) {
       try {
         let data = {
@@ -34,17 +36,25 @@ const Signup = () => {
             console.log(respnse.data.message);
             navigate("/login");
           } else {
-            seterrMsg();
+            seterrMsg(respnse.data.message);
             console.log(respnse.data.message);
           }
         });
       } catch (error) {
         console.log(error?.response?.data?.message);
+        seterrMsg(error?.response?.data?.message);
       }
+    } else if (details === null || details === undefined || details === "") {
+      seterrMsg("empty fields");
     } else {
       console.log("password not matching");
-	  
+      seterrMsg("password not matching");
     }
+  };
+
+  const gotosign = () => {
+    // console.log()
+    navigate("/login");
   };
 
   return (
@@ -66,7 +76,11 @@ const Signup = () => {
               <div className="text-2xl text-red-500  mt-2 font-bold self-center mb-5">
                 WELCOME TO BOOBOO GAMES
               </div>
-
+              <div>
+                <span className="after:content-[''] after:ml-0.5 text-justify text-red-700 red text-xs font-medium text-red text-left">
+                  {errMsg}
+                </span>
+              </div>
               <label className="block w-full mb-5 mt-5 self-center">
                 <input
                   type="text"
@@ -171,7 +185,10 @@ const Signup = () => {
               </div>
               <div className="text-xs font-normal">
                 Already have an Account?
-                <span className="text-xs font-normal hover:border-b-2 hover:border-blue-500 hover:text-blue-500 cursor-pointer">
+                <span
+                  className="text-xs font-normal hover:border-b-2 hover:border-blue-500 hover:text-blue-500 cursor-pointer"
+                  onClick={gotosign}
+                >
                   Sign In
                 </span>
               </div>

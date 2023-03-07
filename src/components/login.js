@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import logo from "../images/login-logo.png";
 import bbgamelogin from "../../src/images/bbgamelogin.png";
 import gamelogin from "../../src/images/gamelogin.png";
@@ -9,6 +10,8 @@ const Login = () => {
   const [details, setdetails] = useState({});
   const [errMsg, seterrMsg] = useState("");
   const BaseURL = "https://booboo-login.kryptofam.com/";
+
+  window.sessionStorage.clear();
   let navigate = useNavigate();
   const handleChange = (evt) => {
     const value = evt.target.value;
@@ -18,6 +21,34 @@ const Login = () => {
     });
   };
 
+  const Submit = async (e) => {
+    try {
+      let data = {
+        id: details.email,
+        password: details.password,
+      };
+      await axios.post(BaseURL + "/users/login", data).then((respnse) => {
+        console.log(respnse);
+        if (respnse.data.code === "success") {
+          console.log(respnse.data.message);
+
+          window.sessionStorage.setItem("token", respnse?.data?.data?.token);
+
+          navigate("/home");
+        } else {
+          seterrMsg();
+          console.log(respnse.data.message);
+        }
+      });
+    } catch (error) {
+      console.log(error?.response?.data?.message);
+      seterrMsg(error?.response?.data?.message);
+    }
+  };
+  const gotosign = () => {
+    // console.log()
+    navigate("/signup");
+  };
   return (
     <div className="fix-height relative sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10">
       <div className="container mx-auto align">
@@ -38,11 +69,18 @@ const Login = () => {
               <div className="text-2xl text-red-500  mt-2 font-bold self-center mb-5">
                 WELCOME TO BOOBOO GAMES
               </div>
-
+              <div>
+                <span className="after:content-[''] after:ml-0.5 text-justify text-red-700 red text-xs font-medium text-red text-left">
+                  {errMsg}
+                </span>
+              </div>
               <label className="block w-full mb-5 mt-5 self-center">
                 <input
                   type="email"
                   name="email"
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
                   className="mt-1 w-full px-3 p-1 py-4 bg-transparent border-red-500 border-b-2 
                                      font-semibold focus:outline-none text-md placeholder-black"
                   //    focus:border-red-500 focus:ring-red-500 block signup-input-width
@@ -52,8 +90,11 @@ const Login = () => {
 
               <label className="block w-full mb-5 self-center">
                 <input
-                  type="email"
-                  name="email"
+                  type="password"
+                  name="password"
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
                   className="mt-1 w-full px-3 p-1 py-4 bg-transparent border-red-500 border-b-2 
                                     placeholder-black font-semibold focus:outline-none text-md"
                   placeholder="Password"
@@ -66,6 +107,7 @@ const Login = () => {
               <div className="mb-2 w-full mt-5 self-center lg:self-center">
                 <button
                   type="button"
+                  onClick={Submit}
                   className="text-white w-full rounded-lg bg-red-500 text-xl font-bold signup-input-width py-2"
                 >
                   {" "}
@@ -73,7 +115,7 @@ const Login = () => {
                 </button>{" "}
               </div>
 
-              <button
+              {/* <button
                 type="button"
                 className="text-red-500 border-2 border-red-500 self-center text-center justify-center flex flex-row w-full rounded-lg bg-transparent text-xl font-bold signup-input-width py-2"
               >
@@ -85,7 +127,17 @@ const Login = () => {
                   alt=""
                 />{" "}
                 <span className="flex self-center">Login with BooBoo</span>
-              </button>
+              </button> */}
+
+              <div className="text-xs font-normal">
+                Don't have account ?
+                <span
+                  className="text-xs font-normal hover:border-b-2 hover:border-blue-500 hover:text-blue-500 cursor-pointer"
+                  onClick={gotosign}
+                >
+                  Sign Up
+                </span>
+              </div>
             </div>
           </div>
 
