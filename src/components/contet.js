@@ -4,7 +4,8 @@ import axios from "axios";
 import profile from "../images/profile.png";
 
 import uparrow from "../images/uparrow.png";
-import { Accordion } from 'react-bootstrap-accordion'
+import { Accordion } from "react-bootstrap-accordion";
+import Iframe from "react-iframe";
 
 const Content = ({ id }) => {
   const [gamecomments, setgamecomments] = useState([]);
@@ -15,10 +16,13 @@ const Content = ({ id }) => {
     try {
       console.log(comment);
       await axios
-        .get(`https://html-game-api.kryptofam.com/game?id=${id}`)
+        .post(
+          `https://html-game-api.kryptofam.com/add_comments?id=${id}&comment=${comment}`
+        )
         .then((res) => {
-          console.log(res?.data?.data);
-          setinfo(res?.data?.data);
+          if (res?.data?.code === "success") {
+            fetchgamedetails();
+          }
         });
     } catch (err) {
       console.log(err);
@@ -40,7 +44,7 @@ const Content = ({ id }) => {
   };
   useEffect(() => {
     fetchgamedetails();
-  }, []);
+  }, [comment]);
 
   return (
     <div className="flex flex-col">
@@ -49,8 +53,12 @@ const Content = ({ id }) => {
         <i class="fa fa-angle-down text-xl font-semibold self-center align-middle text-red-500"></i>
       </div> */}
 
-<Accordion id="first" title="More Information" className="flex float-left text-left flex-col accordion-image first" >
-{/* onClick={getclick}  */}
+      <Accordion
+        id="first"
+        title="More Information"
+        className="flex float-left text-left flex-col accordion-image first"
+      >
+        {/* onClick={getclick}  */}
 
 
 
@@ -74,7 +82,7 @@ const Content = ({ id }) => {
               xl:w-96 md:w-96 sm:w-60 w-40 block text-white  rounded-full sm:text-sm focus:ring"
           placeholder="Type Comments...."
         />
-       
+
         <button
           type="button"
           onClick={savecomment}
