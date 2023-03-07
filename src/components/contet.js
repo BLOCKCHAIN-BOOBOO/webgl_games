@@ -47,7 +47,7 @@ const Content = ({ id }) => {
   }, [comment]);
 
   return (
-    <div className="flex flex-col mt-3">
+    <div className="flex flex-col mt-3 px-2">
       {/* <div className="flex text-red-500 text-lg float-left text-left  font-semibold py-5">
         <span className="border-b-2 border-red-500">More Information</span>
         <i class="fa fa-angle-down text-xl font-semibold self-center align-middle text-red-500"></i>
@@ -69,7 +69,7 @@ const Content = ({ id }) => {
                         </div>
                       </Accordion>
 
-          <div className="flex flex-row self-center text-center py-5 align">
+          <div className="flex xl:flex-row md:flex-row sm:flex-row flex-row self-center text-center py-5 align">
         <input
           type="text"
           name="search"
@@ -79,21 +79,22 @@ const Content = ({ id }) => {
           className="header-search bg-red-200 
          b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
       border-red-300 placeholder-white font-semibold focus:outline-none 
-              xl:w-96 md:w-96 sm:w-60 w-40 block text-white  rounded-full sm:text-sm focus:ring"
+              xl:w-96 md:w-96 sm:w-60 w-60 block text-white  rounded-full sm:text-sm focus:ring"
           placeholder="Type Comments...."
         />
 
         <button
           type="button"
           onClick={savecomment}
-          className="bg-red-500 w-60 text-white font-semibold -ml-20 px-12 text-xs rounded-full "
+          className="bg-red-500 xl:w-60 md:w-60 sm:w-32 w-32 text-white font-semibold -ml-20
+           xl:px-12 md:px-12 sm:px-6 px-4 py-2 text-xs rounded-full "
         >
           Send Comment
         </button>
-      </div>
+      </div>     
       {gamecomments.map((comment) => {
         return (
-          <div className="flex flex-col py-3 text-left float-left">
+          <div className="flex flex-col py-5 text-left float-left">
             <div className="flex flex-row w-full">
                <img src={profile} height="40" width="40" className="mr-2 self-center" alt="" />
             <span className="flex self-center text-sm font-normal">Profile</span>
@@ -102,7 +103,7 @@ const Content = ({ id }) => {
           </div>
         )
       })}
-    </div>
+      </div>
   );
 };
 

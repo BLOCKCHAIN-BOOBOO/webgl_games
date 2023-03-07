@@ -70,7 +70,7 @@ const Home = ({ video }) => {
   }, []);
 
   return (
-    <div className="pb-20 ">
+    <div className="pb-20 lg:ml-32 md:ml-32 sm:ml-32">
       {/* lg:ml-32 md:ml-32 sm:ml-32  */}
       {/* <li className="relative mb-5">
       <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
@@ -159,7 +159,8 @@ const Home = ({ video }) => {
       {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
 
 
-	<div className="container relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
+	<div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
+  {/* container */}
     <div className="lg:w-full text-left mt-20 sm:mt-10 md:mt-10 xl:mt-0"> 
                              
       <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
@@ -211,7 +212,7 @@ const Home = ({ video }) => {
             // removeArrowOnDeviceType={["tablet", "mobile"]}
             // deviceType={this.props.deviceType}
             dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px "
+            itemClass="carousel-item-padding-20-px "
           >
             {allGames.map((details, index) => {
               console.log(details._id);
@@ -251,28 +252,30 @@ const Home = ({ video }) => {
         </div>
       </section>
 
-      <section className=" relative pt-6">
+      {/* <section className=" relative pt-6">
         <div className="mr-10">
           <div className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
             MOST POPULAR GAMES
           </div>
 
           <Carousel
-            swipeable={true}
-            draggable={true}
-            showDots={false}
-            responsive={responsive}
-            centerMode={true}
-            ssr={true} 
-            infinite={true}
-            keyBoardControl={true}
-            customTransition="all .5"
-            transitionDuration={500}
-            containerClass="carousel-container w-full"
-            dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px "
-            sliderClass=""
-            slidesToSlide={1}
+             swipeable={true}
+             draggable={true}
+             showDots={false}
+             centerMode={true}
+             responsive={responsive}
+             ssr={true} // means to render carousel on server-side.
+             infinite={true}
+             // autoPlay={window.deviceType !== "mobile" ? true : false}
+             // autoPlaySpeed={2000}
+             keyBoardControl={true}
+             customTransition="all .5"
+             transitionDuration={500}
+             containerClass="carousel-container w-full"
+             // removeArrowOnDeviceType={["tablet", "mobile"]}
+             // deviceType={this.props.deviceType}
+             dotListClass="custom-dot-list-style"
+             itemClass="carousel-item-padding-40-px "
           >
             <div className="star-div">
               <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
@@ -425,7 +428,7 @@ const Home = ({ video }) => {
             </div>
           </Carousel>
         </div>
-      </section>
+      </section> */}
 
       {/* <Game/> */}
     </div>
