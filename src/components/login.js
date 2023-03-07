@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../images/login-logo.png"
 import bbgamelogin from "../../src/images/bbgamelogin.png"
 import gamelogin from "../../src/images/gamelogin.png"
+import booboocoin from "../../src/images/booboocoin.png"
 
 const Login = () => {
 
@@ -43,16 +44,22 @@ const Login = () => {
 <div className="text-md flex text-right justify-end self-end font-semibold float-right">Forgot Password?</div>
 
 
-							<div className="mb-10 w-full mt-10 self-center lg:self-center"> 
+							<div className="mb-2 w-full mt-5 self-center lg:self-center"> 
                             <button type="button"
 									className="text-white w-full rounded-lg bg-red-500 text-xl font-bold signup-input-width py-2"> LOGIN</button> </div>
 
+
+<button type="button"
+									className="text-red-500 border-2 border-red-500 flex flex-row w-full rounded-lg bg-transparent text-xl font-bold signup-input-width py-2">
+										 <img src={booboocoin} height="40" width="40" className="mr-2 self-center" alt="" /> <span className="flex self-center">Login with BooBoo</span></button>
 						</div>
-                 
+               
+					
+				
 
 					</div>
 
-                    <div className="signup-background " 
+                    <div className="signup-background flex self-center " 
                 //    style={{backgroundImage: `url(${gamelogin})`}}
                    >
  <img src={bbgamelogin} 
