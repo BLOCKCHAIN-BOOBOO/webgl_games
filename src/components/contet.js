@@ -6,46 +6,66 @@ import profile from "../images/profile.png";
 import uparrow from "../images/uparrow.png";
 import { Accordion } from "react-bootstrap-accordion";
 import Iframe from "react-iframe";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const Content = ({ id }) => {
   const [gamecomments, setgamecomments] = useState([]);
   const [info, setinfo] = useState([]);
   const [comment, setcomment] = useState("");
-
+  const params = useParams("");
+  console.log("asdfds", params);
+  let token = useSelector((state) => {
+    console.log("home token", state);
+    return state?.userToken?.token ? state?.userToken?.token : "";
+  });
   const savecomment = async () => {
     try {
       console.log(comment);
       let data = {
         comment: comment,
       };
-      await axios
-        .post(`https://html-game-api.kryptofam.com/add_comments?id=${id}`, data)
-        .then((res) => {
-          if (res?.data?.code === "success") {
-            fetchgamedetails();
-          }
-        });
+      await axios({
+        method: "post",
+        url: `https://html-game-api.kryptofam.com/add_comments?id=${params.id}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        data: data,
+      }).then((res) => {
+        console.log("comment added", res);
+        if (res?.data?.code === "success") {
+          setcomment("");
+          fetchgamedetails();
+        }
+      });
     } catch (err) {
-      console.log(err);
+      console.log("ertr", err);
+      setcomment("");
     }
   };
 
   const fetchgamedetails = async () => {
     try {
-      await axios
-        .get(`https://html-game-api.kryptofam.com/game?id=${id}`)
-        .then((res) => {
-          console.log(res?.data?.data?.comments);
-          setinfo(res?.data?.data);
-          setgamecomments(res?.data?.data?.comments);
-        });
+      await axios({
+        method: "get",
+        url: "https://html-game-api.kryptofam.com/game",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        params: params,
+      }).then((res) => {
+        console.log("comments deta", res);
+        setinfo(res?.data?.data);
+        setgamecomments(res?.data?.data?.comments);
+      });
     } catch (err) {
       console.log(err);
     }
   };
   useEffect(() => {
     fetchgamedetails();
-  }, [comment]);
+  }, [gamecomments]);
 
   return (
     <div className="flex flex-col">
@@ -63,7 +83,7 @@ const Content = ({ id }) => {
 
         <div className="body-height close-accordion">
           <div>{info.description}</div>
-          <div> gfhsdg hfjsg fsjhg fjhdsg</div>
+          {/* <div> gfhsdg hfjsg fsjhg fjhdsg</div> */}
         </div>
       </Accordion>
 
@@ -71,6 +91,7 @@ const Content = ({ id }) => {
         <input
           type="text"
           name="search"
+          value={comment}
           onChange={(e) => {
             setcomment(e.target.value);
           }}

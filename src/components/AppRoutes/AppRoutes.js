@@ -38,17 +38,19 @@ const AppRoutes = () => {
     <div className="App">
       {/* {token && ValidateToken() ? ( */}
       <Routes>
-        <Route element={<SidebarLayout />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/settings" element={<Settings />}></Route>
-        <Route path="/favourite" element={<Favourite />}></Route>
-        <Route path="/game/:id" element={<Game />}></Route>
+        <Route element={<SidebarLayout />}>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/settings" element={<Settings />}></Route>
+          <Route path="/favourite" element={<Favourite />}></Route>
+          <Route path="/game/:id" element={<Game />}></Route>
+        </Route>
         {/* </Routes>
       ) : (
         <Routes> */}
         <Route path="*" element={<Login />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+
         {/* </Routes>
       )} */}
       </Routes>

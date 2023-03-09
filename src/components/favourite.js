@@ -1,14 +1,7 @@
 import React from "react";
 
 const Favourite = () => {
-return (
-
-<div className="flex">
-    Favourite
-
-</div>
-
-);
+  return <div className="flex justify-center">Favourite</div>;
 };
-    
+
 export default Favourite;

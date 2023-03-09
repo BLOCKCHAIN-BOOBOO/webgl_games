@@ -10,16 +10,23 @@ const Game = () => {
   const [gamedetails, setgamedetails] = useState([]);
   const params = useParams("");
   console.log(params);
-  let vurl = "";
-
+  let token = useSelector((state) => {
+    console.log("home token", state);
+    return state?.userToken?.token ? state?.userToken?.token : "";
+  });
   const fetchgamedetails = async () => {
     try {
-      await axios
-        .get(`https://html-game-api.kryptofam.com/game?id=${params.id}`)
-        .then((res) => {
-          console.log(res);
-          setgamedetails(res?.data?.data);
-        });
+      await axios({
+        method: "get",
+        url: "https://html-game-api.kryptofam.com/game",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        params: params,
+      }).then((res) => {
+        console.log(res);
+        setgamedetails(res?.data?.data);
+      });
     } catch (err) {
       console.log(err);
     }
@@ -27,7 +34,6 @@ const Game = () => {
 
   useEffect(() => {
     fetchgamedetails();
-    
   }, []);
   return (
     <div className="relative mt-10">
