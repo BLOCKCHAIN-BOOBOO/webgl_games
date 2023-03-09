@@ -3,6 +3,8 @@ import axios from "axios";
 import logo from "../images/login-logo.png";
 import bbgamelogin from "../../src/images/bbgamelogin.png";
 import gamelogin from "../../src/images/gamelogin.png";
+import logobg from "../../src/images/logo-bg.png";
+import logologin from "../../src/images/logo-login.png";
 import booboocoin from "../../src/images/booboocoin.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -48,8 +50,21 @@ const Login = () => {
     navigate("/signup");
   };
   return (
-    <div className="fix-height relative">
-      {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
+    <div className="fix-height relative" 
+    //  style={{backgroundImage: `url(${logologin})`,
+    //   backgroundRepeat: "no-repeat", 
+    //   // backgroundSize: "cover"
+    // }}   
+      >
+         <img
+              src={logologin}
+              // height="400"
+              // width="400"
+               align="right"
+              className="mx-auto logo-height signup-background "
+              alt=""
+            />
+		 {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
       <div className="container mx-auto login-align login-page">
         <div className="w-full flex flex-col xl: flex-row md:flex-row sm:flex-col justify-between">
           <div className="xl:flex-row flex md:flex-row sm:flex-col flex-col lg:w-2/5 sm:w-4/5 md:w-2/5 p-6 sm:p-8 md:p-8 mx-auto sm:mx-auto md:mx-0 lg:mx-0 ">
@@ -139,19 +154,27 @@ const Login = () => {
               </div>
             </div>
           </div>
-
-          <div
+{/* <div className=" "> */}
+          {/* <img
+              src={logologin}
+              height="400"
+              width="400" align="right"
+              className="mx-auto "
+              alt=""
+            /> */}
+          {/* <div
             className="signup-background flex self-center "
-            //    style={{backgroundImage: `url(${gamelogin})`}}
+           
           >
             <img
               src={bbgamelogin}
               height="400"
               width="400"
-              className="mx-auto"
+              // className="mx-auto absolute"
               alt=""
             />
-          </div>
+          </div> */}
+          {/* </div> */}
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@ import axios from "axios";
 import logo from "../images/login-logo.png";
 import bbgamelogin from "../../src/images/bbgamelogin.png";
 
+import logologin from "../../src/images/logo-login.png";
+
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -58,8 +60,16 @@ const Signup = () => {
 
   return (
     <div className="fix-height relative">
-      {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
-      <div className="container mx-auto login-align">
+         {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
+         <img
+              src={logologin}
+              // height="400"
+              // width="400"
+               align="right"
+              className="mx-auto logo-height signup-background "
+              alt=""
+            />
+      <div className="container mx-auto login-align login-page">
         <div className="w-full flex flex-col xl: flex-row md:flex-row sm:flex-col justify-between">
           <div className="xl:flex-row flex md:flex-row sm:flex-col flex-col lg:w-2/5 sm:w-2/5 md:w-2/5 p-6 md:p-8 mx-auto sm:mx-0 md:mx-0 lg:mx-0 ">
             <div className="flex flex-col">
@@ -88,7 +98,7 @@ const Signup = () => {
                   onChange={(e) => {
                     handleChange(e);
                   }}
-                  className="mt-1 w-full px-3 p-1 py-4 bg-transparent border-red-500 border-b-2 
+                  className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                      font-semibold focus:outline-none text-md placeholder-slate-500"
                   //    focus:border-red-500 focus:ring-red-500 block signup-input-width
                   placeholder="Username"
@@ -102,7 +112,7 @@ const Signup = () => {
                   onChange={(e) => {
                     handleChange(e);
                   }}
-                  className="mt-1 w-full px-3 p-1 py-4 bg-transparent border-red-500 border-b-2 
+                  className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Email"
                 />
@@ -115,7 +125,7 @@ const Signup = () => {
                   onChange={(e) => {
                     handleChange(e);
                   }}
-                  className="mt-1 w-full px-3 p-1 py-4 bg-transparent border-red-500 border-b-2 
+                  className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Password"
                 />
@@ -127,7 +137,7 @@ const Signup = () => {
                   onChange={(e) => {
                     handleChange(e);
                   }}
-                  className="mt-1 w-full px-3 p-1 py-4 bg-transparent border-red-500 border-b-2 
+                  className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Confirm Password"
                 />
@@ -140,7 +150,7 @@ const Signup = () => {
                   onChange={(e) => {
                     handleChange(e);
                   }}
-                  className="mt-1 w-full px-3 p-1 py-4 bg-transparent border-red-500 border-b-2 
+                  className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Phone No"
                 />
@@ -195,7 +205,7 @@ const Signup = () => {
             </div>
           </div>
 
-          <div
+          {/* <div
             className="signup-background flex self-center "
             //    style={{backgroundImage: `url(${gamelogin})`}}
           >
@@ -206,7 +216,7 @@ const Signup = () => {
               className="mx-auto"
               alt=""
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
