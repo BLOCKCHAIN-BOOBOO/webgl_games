@@ -9,7 +9,6 @@ const Signup = () => {
   const [details, setdetails] = useState({});
   const [errMsg, seterrMsg] = useState("");
   const BaseURL = "https://booboo-login.kryptofam.com/";
-  window.sessionStorage.clear();
   let navigate = useNavigate();
   const handleChange = (evt) => {
     const value = evt.target.value;
@@ -59,7 +58,7 @@ const Signup = () => {
 
   return (
     <div className="fix-height relative">
-         {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
+      {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
       <div className="container mx-auto login-align">
         <div className="w-full flex flex-col xl: flex-row md:flex-row sm:flex-col justify-between">
           <div className="xl:flex-row flex md:flex-row sm:flex-col flex-col lg:w-2/5 sm:w-2/5 md:w-2/5 p-6 md:p-8 mx-auto sm:mx-0 md:mx-0 lg:mx-0 ">

@@ -4,9 +4,9 @@ import { useState } from "react";
 import Iframe from "react-iframe";
 import Content from "./contet";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 const Game = () => {
-  const [play, setPlay] = useState("http://127.0.0.1:5500/index.html");
-  const [vid, setvid] = useState("");
   const [gamedetails, setgamedetails] = useState([]);
   const params = useParams("");
   console.log(params);

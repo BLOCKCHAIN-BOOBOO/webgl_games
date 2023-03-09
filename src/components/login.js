@@ -5,13 +5,14 @@ import bbgamelogin from "../../src/images/bbgamelogin.png";
 import gamelogin from "../../src/images/gamelogin.png";
 import booboocoin from "../../src/images/booboocoin.png";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { SIGNIN } from "../actiontypes/Types";
+import Signin, { UsersignIn } from "../actions/Signin";
 const Login = () => {
   const [details, setdetails] = useState({});
   const [errMsg, seterrMsg] = useState("");
   const BaseURL = "https://booboo-login.kryptofam.com/";
-
-  window.sessionStorage.clear();
+  const dispatch = useDispatch();
   let navigate = useNavigate();
   const handleChange = (evt) => {
     const value = evt.target.value;
@@ -27,16 +28,13 @@ const Login = () => {
         id: details.email,
         password: details.password,
       };
-      await axios.post(BaseURL + "/users/login", data).then((respnse) => {
+      dispatch(UsersignIn(data)).then((respnse) => {
         console.log(respnse);
-        if (respnse.data.code === "success") {
-          console.log(respnse.data.message);
-
-          window.sessionStorage.setItem("token", respnse?.data?.data?.token);
-
+        if (respnse.code === "success") {
+          sessionStorage.setItem("token", respnse.data.token);
           navigate("/home");
         } else {
-          seterrMsg();
+          seterrMsg(respnse.data.message);
           console.log(respnse.data.message);
         }
       });
@@ -51,7 +49,7 @@ const Login = () => {
   };
   return (
     <div className="fix-height relative">
-		 {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
+      {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
       <div className="container mx-auto login-align login-page">
         <div className="w-full flex flex-col xl: flex-row md:flex-row sm:flex-col justify-between">
           <div className="xl:flex-row flex md:flex-row sm:flex-col flex-col lg:w-2/5 sm:w-4/5 md:w-2/5 p-6 sm:p-8 md:p-8 mx-auto sm:mx-auto md:mx-0 lg:mx-0 ">

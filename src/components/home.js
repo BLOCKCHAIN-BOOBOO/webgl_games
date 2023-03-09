@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -13,18 +13,12 @@ import settings from "../images/settings.png";
 import logout from "../images/logout.png";
 import profile from "../images/profile.png";
 
-import { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import game1 from "../images/game1.png";
-import game2 from "../images/game2.png";
-import game3 from "../images/game3.png";
-import game4 from "../images/game4.png";
 import axios from "axios";
 
-import Game from "./game";
-
-const Home = ({ video }) => {
+const Home = () => {
   const [allGames, setallGames] = useState([]);
   const responsive = {
     superLargeDesktop: {
@@ -48,16 +42,24 @@ const Home = ({ video }) => {
   const dataFetchedRef = useRef(false);
 
   // let temp = [];
+  let token = useSelector((state) => {
+    console.log("home token", state);
+    return state?.userToken?.token ? state?.userToken?.token : "";
+  });
   const fetchapi = async () => {
+    console.log("fetching");
     try {
-      await axios
-        .get("https://html-game-api.kryptofam.com/games")
-        .then((res) => {
-          console.log(res);
-          // temp = [...temp, res?.data?.data];
-          // console.log(temp);
-          setallGames(res?.data?.data);
-        });
+      await axios({
+        method: "get",
+        url: "https://html-game-api.kryptofam.com/games",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((res) => {
+        console.log(res);
+
+        setallGames(res?.data?.data);
+      });
     } catch (err) {
       console.log(err);
     }
@@ -156,40 +158,43 @@ const Home = ({ video }) => {
 
       {/* pt-6 */}
       <section className="">
-      {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
+        {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
 
-
-	<div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
-  {/* container */}
-    <div className="lg:w-full text-left mt-20 sm:mt-10 md:mt-10 xl:mt-0"> 
-                             
-      <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
-        
-                 <input type="text" name="search" className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
+        <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
+          {/* container */}
+          <div className="lg:w-full text-left mt-20 sm:mt-10 md:mt-10 xl:mt-0">
+            <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
+              <input
+                type="text"
+                name="search"
+                className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
                border-red-300 placeholder-slate-500 font-normal focus:outline-none 
-                        w-3/4  block text-slate-800  rounded-lg sm:text-sm focus:ring" placeholder="Search Games" />
-                          
+                        w-3/4  block text-slate-800  rounded-lg sm:text-sm focus:ring"
+                placeholder="Search Games"
+              />
 
-             <div className="flex flex-row header-search rounded-lg float-right bg-red-200">
-
-             
-             <div className="flex flex-col self-center ml-2"><span className="text-xs text-slate-500">Welcome</span>
-              <span className="text-sm text-slate-500">Eddie Janson</span>
+              <div className="flex flex-row header-search rounded-lg float-right bg-red-200">
+                <div className="flex flex-col self-center ml-2">
+                  <span className="text-xs text-slate-500">Welcome</span>
+                  <span className="text-sm text-slate-500">Eddie Janson</span>
+                </div>
+                <div className="flex flex-col self-center text-center lg:ml-4">
+                  <img
+                    src={profile}
+                    height="40"
+                    width="40"
+                    className="mr-2 self-center"
+                    alt=""
+                  />
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col self-center text-center lg:ml-4">            
-              <img src={profile} height="40" width="40" className="mr-2 self-center" alt="" />
-             </div>
-          
-          </div>	
-            </div>
-           
-            
-         </div>	
-     </div>
-</section>
+          </div>
+        </div>
+      </section>
 
       <section className="relative pt-6">
-      {/* lg:ml-40 md:ml-40 sm:ml-40  */}
+        {/* lg:ml-40 md:ml-40 sm:ml-40  */}
         <div className="mr-10">
           <div className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
             GAMES

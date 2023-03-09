@@ -10,39 +10,50 @@ import Settings from "../settings";
 import Favourite from "../favourite";
 import { ValidateToken } from "../tokenvalidator/TokenValidate";
 import SidebarLayout from "../sidebarlayout";
+import { useSelector } from "react-redux";
 // import Frontend from "./layouts/Frontend";
 
-function AppRoutes() {
-  let token = window.sessionStorage.getItem("token");
+const AppRoutes = () => {
+  // let token = window.sessionStorage.getItem("token");
+  let token = useSelector((state) => {
+    console.log("state token", state);
+    return state?.userToken?.state ? state?.userToken?.state : "";
+  });
+
+  console.log("token", token);
 
   useEffect(() => {
-    // if (token) {
-    //   if (ValidateToken()) {
-    //     console.log("Token Valid");
-    //     return;
-    //   } else {
-    //     console.log("Session Expired, Signingout");
-    //   }
-    // }
+    if (token) {
+      if (ValidateToken(token)) {
+        console.log("Token Valid");
+        return;
+      } else {
+        console.log("Session Expired, Signingout");
+      }
+    }
     return () => {};
   }, [token]);
 
   return (
     <div className="App">
-       {/* w-full */}
+      {/* {token && ValidateToken() ? ( */}
       <Routes>
-        <Route path="*" element={<Login />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route element={<SidebarLayout/>}>
+        <Route element={<SidebarLayout />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/settings" element={<Settings />}></Route>
         <Route path="/favourite" element={<Favourite />}></Route>
         <Route path="/game/:id" element={<Game />}></Route>
-        </Route>
+        {/* </Routes>
+      ) : (
+        <Routes> */}
+        <Route path="*" element={<Login />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+        {/* </Routes>
+      )} */}
       </Routes>
     </div>
   );
-}
+};
 
 export default AppRoutes;
