@@ -15,16 +15,16 @@ import { useSelector } from "react-redux";
 
 const AppRoutes = () => {
   // let token = window.sessionStorage.getItem("token");
-  let token = useSelector((state) => {
+  let userdata = useSelector((state) => {
     console.log("state token", state);
-    return state?.userToken?.state ? state?.userToken?.state : "";
+    return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
   });
 
-  console.log("token", token);
+  console.log("token", userdata.token);
 
   useEffect(() => {
-    if (token) {
-      if (ValidateToken(token)) {
+    if (userdata.token) {
+      if (ValidateToken(userdata.token)) {
         console.log("Token Valid");
         return;
       } else {
@@ -32,7 +32,7 @@ const AppRoutes = () => {
       }
     }
     return () => {};
-  }, [token]);
+  }, [userdata.token]);
 
   return (
     <div className="App">

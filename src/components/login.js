@@ -10,12 +10,19 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { SIGNIN } from "../actiontypes/Types";
 import Signin, { UsersignIn } from "../actions/Signin";
+import { useGoogleLogin } from "@react-oauth/google";
+import { googleAuth } from "../actions/googlelAuth";
+
 const Login = () => {
   const [details, setdetails] = useState({});
   const [errMsg, seterrMsg] = useState("");
-  const BaseURL = "https://booboo-login.kryptofam.com/";
   const dispatch = useDispatch();
   let navigate = useNavigate();
+  sessionStorage.clear();
+  sessionStorage.setItem("token", "");
+  sessionStorage.setItem("username", "");
+  sessionStorage.setItem("email", "");
+
   const handleChange = (evt) => {
     const value = evt.target.value;
     setdetails({
@@ -30,7 +37,7 @@ const Login = () => {
         id: details.email,
         password: details.password,
       };
-      dispatch(UsersignIn(data)).then((respnse) => {
+      await dispatch(UsersignIn(data)).then((respnse) => {
         console.log(respnse);
         if (respnse.code === "success") {
           sessionStorage.setItem("token", respnse.data.token);
@@ -49,22 +56,61 @@ const Login = () => {
     // console.log()
     navigate("/signup");
   };
+
+  const googlelogin = useGoogleLogin({
+    onSuccess: (tokenResponse) => {
+      console.log(tokenResponse.access_token);
+      getUserGoogleProfile(tokenResponse.access_token);
+    },
+  });
+
+  const getUserGoogleProfile = async (accesstoken) => {
+    try {
+      if (accesstoken) {
+        console.log(accesstoken);
+        window.sessionStorage.setItem("web0auth", accesstoken);
+        const data = {
+          google_token: accesstoken,
+        };
+        await dispatch(googleAuth(data)).then((res) => {
+          if (res?.code === "success") {
+            seterrMsg(res?.message);
+
+            navigate("/home");
+            //  setisLoader(false);
+          } else if (res?.response?.data?.code === "failed") {
+            seterrMsg(res?.response?.data?.message);
+            //  setisLoader(false);
+          } else if (res?.code === "ERR_NETWORK") {
+            seterrMsg(res?.message);
+            //  setisLoader(false);
+          } else {
+            seterrMsg("something went wrong");
+            //  setisLoader(false);
+          }
+        });
+      }
+    } catch (error) {}
+    return;
+  };
+
   return (
-    <div className="fix-height relative" 
-    //  style={{backgroundImage: `url(${logologin})`,
-    //   backgroundRepeat: "no-repeat", 
-    //   // backgroundSize: "cover"
-    // }}   
-      >
-         <img
-              src={logologin}
-              // height="400"
-              // width="400"
-               align="right"
-              className="mx-auto logo-height signup-background "
-              alt=""
-            />
-		 {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
+    <div
+      className="fix-height relative"
+      //  style={{backgroundImage: `url(${logologin})`,
+      //   backgroundRepeat: "no-repeat",
+      //   // backgroundSize: "cover"
+      // }}
+    >
+      <img
+        src={logologin}
+        // height="400"
+        // width="400"
+        align="right"
+        className="mx-auto logo-height signup-background "
+        alt=""
+      />
+      {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
       <div className="container mx-auto login-align login-page">
         <div className="w-full flex flex-col xl: flex-row md:flex-row sm:flex-col justify-between">
           <div className="xl:flex-row flex md:flex-row sm:flex-col flex-col lg:w-2/5 sm:w-4/5 md:w-2/5 p-6 sm:p-8 md:p-8 mx-auto sm:mx-auto md:mx-0 lg:mx-0 ">
@@ -152,29 +198,24 @@ const Login = () => {
                   Sign Up
                 </span>
               </div>
+
+              <div className="text-red-500 border-2 border-red-500 self-center text-center justify-center flex flex-row w-full rounded-lg bg-transparent text-xl font-bold signup-input-width py-2">
+                <button
+                  type="button"
+                  className="login-with-google-btn"
+                  onClick={googlelogin}
+                >
+                  Sign in with Google
+                </button>
+                {/* <GoogleLogin
+                  onSuccess={getUserGoogleProfile}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                /> */}
+              </div>
             </div>
           </div>
-{/* <div className=" "> */}
-          {/* <img
-              src={logologin}
-              height="400"
-              width="400" align="right"
-              className="mx-auto "
-              alt=""
-            /> */}
-          {/* <div
-            className="signup-background flex self-center "
-           
-          >
-            <img
-              src={bbgamelogin}
-              height="400"
-              width="400"
-              // className="mx-auto absolute"
-              alt=""
-            />
-          </div> */}
-          {/* </div> */}
         </div>
       </div>
     </div>

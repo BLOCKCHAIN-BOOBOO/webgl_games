@@ -1,30 +1,31 @@
 import axios from "axios";
 import { SIGNIN } from "../actiontypes/Types";
-
-export const UsersignIn = (userdata) => async (dispatch) => {
+export const googleAuth = (Gdata) => async (dispatch) => {
+  console.log(Gdata);
   try {
     const { data } = await axios.post(
-      "https://booboo-login.kryptofam.com/users/login",
-      userdata
+      "https://booboo-login.kryptofam.com/users/google_login",
+      Gdata
     );
-    console.log("data token", data);
+    console.log("google data ", data);
     if (data?.code === "success") {
       localStorage.setItem("token", data?.data?.token);
-      localStorage.setItem("email", data?.data?.email);
-      localStorage.setItem("username", data?.data?.username);
       let token = localStorage.getItem("token");
-      let email = localStorage.getItem("email");
+      localStorage.setItem("email", data?.data?.email);
+
       let username = localStorage.getItem("username");
-      const userdata = {
+      localStorage.setItem("username", data?.data?.username);
+      let email = localStorage.getItem("email");
+
+      let userdata = {
         token: token,
-        username: username,
         email: email,
+        username: username,
       };
-      await dispatch({ type: SIGNIN, payload: userdata });
+      dispatch({ type: SIGNIN, payload: userdata });
       return data;
     }
   } catch (error) {
-    console.log(error.message);
     return error;
   }
 };

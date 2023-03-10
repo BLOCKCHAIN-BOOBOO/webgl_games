@@ -15,10 +15,13 @@ const Content = ({ id }) => {
   const [comment, setcomment] = useState("");
   const params = useParams("");
   console.log("asdfds", params);
-  let token = useSelector((state) => {
+  let userdata = useSelector((state) => {
     console.log("home token", state);
-    return state?.userToken?.token ? state?.userToken?.token : "";
+    return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
   });
+
+  let token = sessionStorage.getItem("token");
+
   const savecomment = async () => {
     try {
       console.log(comment);
@@ -51,7 +54,7 @@ const Content = ({ id }) => {
         method: "get",
         url: "https://html-game-api.kryptofam.com/game",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${userdata.token}`,
         },
         params: params,
       }).then((res) => {
@@ -65,7 +68,7 @@ const Content = ({ id }) => {
   };
   useEffect(() => {
     fetchgamedetails();
-  }, [gamecomments]);
+  }, []);
 
   return (
     <div className="flex flex-col">

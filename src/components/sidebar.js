@@ -7,8 +7,12 @@ import settings from "../images/settings.png";
 import logout from "../images/logout.png";
 import profile from "../images/profile.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import UserSignOut from "../actions/UserSignout";
 
 const Sidebar = () => {
+
+  const dispatch=useDispatch()
   const mobileMenutoggle = (e) => {
     let lists = document.querySelector("ul");
     lists.classList.toggle("ul-close");
@@ -26,6 +30,12 @@ const Sidebar = () => {
     element.classList.toggle("hidden");
 
     document.getElementById("show-menu").style.display = "none";
+  };
+
+  const clearSession = async() => {
+    console.log("clear sessions");
+   await dispatch(UserSignOut())
+    sessionStorage.clear();
   };
 
   return (
@@ -114,7 +124,10 @@ const Sidebar = () => {
                   id="logout"
                   //  onClick={homepage}
                   to="/"
-                  onClick={(e) => mobileMenutoggle(e)}
+                  onClick={(e) => {
+                    mobileMenutoggle(e);
+                    clearSession();
+                  }}
                   className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
           grow cursor-pointer transition duration-300 ease-in-out"
                 >

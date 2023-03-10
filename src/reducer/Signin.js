@@ -1,10 +1,12 @@
-import { SIGNIN } from "../actiontypes/Types";
+import { SIGNIN, SIGNOUT } from "../actiontypes/Types";
 
 const userToken = (
   state = {
-    token: sessionStorage.getItem("token")
-      ? sessionStorage.getItem("token")
-      : null,
+    token: localStorage.getItem("token") ? localStorage.getItem("token") : null,
+    username: localStorage.getItem("username")
+      ? localStorage.getItem("username")
+      : "",
+    email: localStorage.getItem("email") ? localStorage.getItem("email") : "",
   },
   action
 ) => {
@@ -13,7 +15,8 @@ const userToken = (
   switch (action.type) {
     case SIGNIN:
       return { ...state, state: action.payload };
-
+    case SIGNOUT:
+      return { ...state, state: action.payload };
     default:
       return state;
   }
