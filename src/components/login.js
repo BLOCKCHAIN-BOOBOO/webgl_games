@@ -163,8 +163,16 @@ const Login = () => {
               <div className="text-md flex text-right justify-end self-end font-semibold float-right">
                 Forgot Password?
               </div>
-
-              <div className="mb-2 w-full mt-5 self-center lg:self-center">
+              <div className="text-xs font-normal text-left">
+                Don't have account ?
+                <span
+                  className="text-xs font-normal hover:border-b-2 hover:border-blue-500 hover:text-blue-500 cursor-pointer"
+                  onClick={gotosign}
+                >
+                  &#8194;Sign Up
+                </span>
+              </div>
+              <div className="mb-5 w-full mt-4 self-center lg:self-center">
                 <button
                   type="button"
                   onClick={Submit}
@@ -188,16 +196,6 @@ const Login = () => {
                 />{" "}
                 <span className="flex self-center">Login with BooBoo</span>
               </button> */}
-
-              <div className="text-xs font-normal">
-                Don't have account ?
-                <span
-                  className="text-xs font-normal hover:border-b-2 hover:border-blue-500 hover:text-blue-500 cursor-pointer"
-                  onClick={gotosign}
-                >
-                  Sign Up
-                </span>
-              </div>
 
               <div className="text-red-500 border-2 border-red-500 self-center text-center justify-center flex flex-row w-full rounded-lg bg-transparent text-xl font-bold signup-input-width py-2">
                 <button
