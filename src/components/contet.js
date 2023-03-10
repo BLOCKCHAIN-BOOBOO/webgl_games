@@ -6,8 +6,9 @@ import profile from "../images/profile.png";
 import uparrow from "../images/uparrow.png";
 import { Accordion } from "react-bootstrap-accordion";
 import Iframe from "react-iframe";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { COMMENTS } from "../actiontypes/Types";
 
 const Content = ({ id }) => {
   const [gamecomments, setgamecomments] = useState([]);
@@ -15,6 +16,7 @@ const Content = ({ id }) => {
   const [comment, setcomment] = useState("");
   const params = useParams("");
   console.log("asdfds", params);
+  let dispatch = useDispatch();
   let userdata = useSelector((state) => {
     console.log("home token", state);
     return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
@@ -23,6 +25,7 @@ const Content = ({ id }) => {
   let token = sessionStorage.getItem("token");
 
   const savecomment = async () => {
+    setcomment("");
     try {
       console.log(comment);
       let data = {
@@ -32,14 +35,13 @@ const Content = ({ id }) => {
         method: "post",
         url: `https://html-game-api.kryptofam.com/add_comments?id=${params.id}`,
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${userdata.token}`,
         },
         data: data,
       }).then((res) => {
         console.log("comment added", res);
-        if (res?.data?.code === "success") {
-          setcomment("");
-          fetchgamedetails();
+        if (res?.data?.code === 200) {
+          setgamecomments(res?.data?.data?.comments);
         }
       });
     } catch (err) {
@@ -66,6 +68,7 @@ const Content = ({ id }) => {
       console.log(err);
     }
   };
+
   useEffect(() => {
     fetchgamedetails();
   }, []);
@@ -113,25 +116,28 @@ const Content = ({ id }) => {
           Send Comment
         </button>
       </div>
-      {gamecomments.map((comment) => {
-        return (
-          <div className="flex flex-col py-3 text-left float-left">
-            <div className="flex flex-row w-full">
-              <img
-                src={profile}
-                height="40"
-                width="40"
-                className="mr-2 self-center"
-                alt=""
-              />
-              <span className="flex self-center text-sm font-normal">
-                Profile
-              </span>
+      {gamecomments
+        .slice()
+        .reverse()
+        .map((comment) => {
+          return (
+            <div className="flex flex-col py-3 text-left float-left">
+              <div className="flex flex-row w-full">
+                <img
+                  src={profile}
+                  height="40"
+                  width="40"
+                  className="mr-2 self-center"
+                  alt=""
+                />
+                <span className="flex self-center text-sm font-normal">
+                  Profile
+                </span>
+              </div>
+              <div key={comment._id}>{comment.text}</div>
             </div>
-            <div key={comment._id}>{comment.text}</div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };

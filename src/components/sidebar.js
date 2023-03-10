@@ -11,8 +11,7 @@ import { useDispatch } from "react-redux";
 import UserSignOut from "../actions/UserSignout";
 
 const Sidebar = () => {
-
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const mobileMenutoggle = (e) => {
     let lists = document.querySelector("ul");
     lists.classList.toggle("ul-close");
@@ -32,9 +31,9 @@ const Sidebar = () => {
     document.getElementById("show-menu").style.display = "none";
   };
 
-  const clearSession = async() => {
+  const clearSession = async () => {
     console.log("clear sessions");
-   await dispatch(UserSignOut())
+    dispatch(UserSignOut());
     sessionStorage.clear();
   };
 
