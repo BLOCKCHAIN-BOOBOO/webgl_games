@@ -32,24 +32,28 @@ const Login = () => {
   };
 
   const Submit = async (e) => {
-    try {
-      let data = {
-        id: details.email,
-        password: details.password,
-      };
-      await dispatch(UsersignIn(data)).then((respnse) => {
-        console.log(respnse);
-        if (respnse.code === "success") {
-          sessionStorage.setItem("token", respnse.data.token);
-          navigate("/home");
-        } else {
-          seterrMsg(respnse.data.message);
-          console.log(respnse.data.message);
-        }
-      });
-    } catch (error) {
-      console.log(error?.response?.data?.message);
-      seterrMsg(error?.response?.data?.message);
+    if (!(details.email || details.password)) {
+      seterrMsg("fields  require ");
+    } else {
+      try {
+        let data = {
+          id: details.email,
+          password: details.password,
+        };
+        await dispatch(UsersignIn(data)).then((respnse) => {
+          console.log(respnse);
+          if (respnse.code === "success") {
+            sessionStorage.setItem("token", respnse.data.token);
+            navigate("/home");
+          } else {
+            seterrMsg(respnse?.response?.data?.message);
+            console.log(respnse?.response?.data?.message);
+          }
+        });
+      } catch (error) {
+        console.log(error);
+        seterrMsg(error?.response?.data?.message);
+      }
     }
   };
   const gotosign = () => {

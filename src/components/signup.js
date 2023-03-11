@@ -22,34 +22,48 @@ const Signup = () => {
 
   const Submit = async () => {
     console.log("details", details);
-    if (details.password === details.confirmPassword) {
-      try {
-        let data = {
-          username: details.userName,
-          email: details.email,
-          password: details.password,
-          gender: details.gender,
-          phone: details.phoneNo,
-        };
-        await axios.post(BaseURL + "/users/register", data).then((respnse) => {
-          console.log(respnse);
-          if (respnse.data.code === "success") {
-            console.log(respnse.data.message);
-            navigate("/login");
-          } else {
-            seterrMsg(respnse.data.message);
-            console.log(respnse.data.message);
-          }
-        });
-      } catch (error) {
-        console.log(error?.response?.data?.message);
-        seterrMsg(error?.response?.data?.message);
-      }
-    } else if (details === null || details === undefined || details === "") {
-      seterrMsg("empty fields");
+    if (
+      !(
+        details.userName ||
+        details.email ||
+        details.password ||
+        details.gender ||
+        details.phoneNo
+      )
+    ) {
+      seterrMsg("field required");
     } else {
-      console.log("password not matching");
-      seterrMsg("password not matching");
+      if (details.password === details.confirmPassword) {
+        try {
+          let data = {
+            username: details.userName,
+            email: details.email,
+            password: details.password,
+            gender: details.gender,
+            phone: details.phoneNo,
+          };
+          await axios
+            .post(BaseURL + "/users/register", data)
+            .then((respnse) => {
+              console.log(respnse);
+              if (respnse.data.code === "success") {
+                console.log(respnse.data.message);
+                navigate("/login");
+              } else {
+                seterrMsg(respnse.data.message);
+                console.log(respnse.data.message);
+              }
+            });
+        } catch (error) {
+          console.log(error?.response?.data?.message);
+          seterrMsg(error?.response?.data?.message);
+        }
+      } else if (details === null || details === undefined || details === "") {
+        seterrMsg("empty fields");
+      } else {
+        console.log("password not matching");
+        seterrMsg("password not matching");
+      }
     }
   };
 
