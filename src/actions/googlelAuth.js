@@ -12,10 +12,9 @@ export const googleAuth = (Gdata) => async (dispatch) => {
       localStorage.setItem("token", data?.data?.token);
       let token = localStorage.getItem("token");
       localStorage.setItem("email", data?.data?.email);
-
-      let username = localStorage.getItem("username");
-      localStorage.setItem("username", data?.data?.username);
       let email = localStorage.getItem("email");
+      localStorage.setItem("username", data?.data?.username);
+      let username = localStorage.getItem("username");
 
       let userdata = {
         token: token,
