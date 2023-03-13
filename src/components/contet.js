@@ -129,7 +129,11 @@ const Content = ({ id }) => {
                 <div className="flex flex-row w-full">
                   <img
                     // src={profile}
-                    src={`https://ui-avatars.com/api/?bold=true&name=${comment.username}`}
+                    src={
+                      profile
+                        ? profile
+                        : `https://ui-avatars.com/api/?bold=true&name=${comment.username}`
+                    }
                     height="40"
                     width="40"
                     className="mr-2 self-center rounded-full"
