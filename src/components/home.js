@@ -21,6 +21,7 @@ import axios from "axios";
 const Home = () => {
   const [allGames, setallGames] = useState([]);
   const [sorteddata, setsorteddata] = useState({ results: "" });
+  const [search, setsearch] = useState("");
 
   let userdata = useSelector((state) => {
     console.log("home token", state);
@@ -73,6 +74,7 @@ const Home = () => {
     // If input has changed
     console.log(searchtxt);
     if (searchtxt !== "") {
+      setsearch(searchtxt);
       console.log(searchtxt);
       // Split the input to get each words
       const words = searchtxt.toLowerCase().trim().split(" ");
@@ -130,6 +132,7 @@ const Home = () => {
     }
     if (searchtxt === "" || searchtxt.length < 0) {
       setsorteddata({ results: "" });
+      setsearch("");
     }
   };
 
@@ -150,6 +153,11 @@ const Home = () => {
     return res.sort((a, b) => {
       return b.metadata.matchScore - a.metadata.matchScore;
     });
+  };
+
+  const clearsearch = () => {
+    setsearch("");
+    setsorteddata({ results: "" });
   };
 
   useEffect(() => {
@@ -249,16 +257,29 @@ const Home = () => {
           {/* container */}
           <div className="lg:w-full text-left mt-20 sm:mt-10 md:mt-10 xl:mt-0">
             <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
-              <input
-                type="text"
-                name="search"
-                onChange={(e) => searchrecords(e.target.value)}
-                className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
+              <div className="serchwrap">
+                {(sorteddata && sorteddata.results) ||
+                (sorteddata && sorteddata.results.length > 0) ? (
+                  <i
+                    className="fa fa-times  icnstyle"
+                    aria-hidden="true"
+                    onClick={clearsearch}
+                  ></i>
+                ) : (
+                  <i className="fa fa-search icnstyle" aria-hidden="true"></i>
+                )}
+
+                <input
+                  type="text"
+                  name="search"
+                  value={search}
+                  onChange={(e) => searchrecords(e.target.value)}
+                  className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
                border-red-300 placeholder-slate-500 font-normal focus:outline-none 
                         w-3/4  block text-slate-800  rounded-lg sm:text-sm focus:ring"
-                placeholder="Search Games"
-              />
-
+                  placeholder="Search Games"
+                />
+              </div>
               <div className="flex flex-row header-search rounded-lg float-right bg-red-200">
                 <div className="flex flex-col self-center ml-2">
                   <span className="text-xs text-slate-500">Welcome</span>
