@@ -116,11 +116,13 @@ const Content = ({ id }) => {
           Send Comment
         </button>
       </div>
+      <div className="flex w-full flex-col h-96 overflow-y-auto">
       {gamecomments
         .slice()
         .reverse()
         .map((comment) => {
           return (
+          
             <div className="flex flex-col py-3 text-left float-left">
               <div className="flex flex-row w-full">
                 <img
@@ -136,8 +138,10 @@ const Content = ({ id }) => {
               </div>
               <div key={comment._id}>{comment.text}</div>
             </div>
+          
           );
         })}
+      </div>
     </div>
   );
 };

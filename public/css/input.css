@@ -106,7 +106,7 @@ body{
 }
     
 #settings {
-  top: 140px;
+  /* top: 140px; */
   /* top:120px; */
   /* width: 210px;
   height: 30px; */
@@ -114,7 +114,8 @@ body{
     
 #logout {
   /* top: 60px; */
-  top:200px;
+  top:140px;
+  /* top:200px; */
   /* width: 210px;
   height: 30px; */
 }
@@ -130,7 +131,7 @@ body{
   position  : absolute;
   transform : translate(-50%, -50%);
 }
-@media (min-width: 280px) and (max-width: 762px){
+@media (min-width: 280px) and (max-width: 1023px){
   .signup-background {
     /* width: 100%; */
     /* height:100% !important; */
@@ -142,7 +143,7 @@ body{
     display:none !important;
   }
   }
-  @media (min-width: 769px){
+  @media (min-width: 1024px){
 .signup-background {
   /* width: 100%; */
   /* height:100% !important; */
@@ -183,7 +184,7 @@ background:transparent;
 width:83vw;
 /* width: 100vw; */
 /* height:100%; */
-overflow-y: auto;
+/* overflow-y: auto; */
 }
 }
 
