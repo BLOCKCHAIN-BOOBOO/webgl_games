@@ -403,7 +403,28 @@ body {
   font-size: 1.2rem !important;
   color: white;
 }
+      iframe{
+        height:80vh;
+        width:83vw;
+      }
 
 .serchwrap input {
   padding-left: 3rem;
 }
+
+      /* scroll */
+      .scroll{
+        height:100px;
+        overflow:auto;
+        display: block;
+        }
+        
+        .scroll::-webkit-scrollbar{
+            width:5px;
+            /* background-color:#000; */
+            }
+            
+        .scroll::-webkit-scrollbar-thumb{
+          background:gray;
+          border-radius:5px;
+        }

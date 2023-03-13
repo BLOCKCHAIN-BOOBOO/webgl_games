@@ -116,7 +116,7 @@ const Content = ({ id }) => {
           Send Comment
         </button>
       </div>
-      <div className="flex w-full flex-col h-96 overflow-y-auto">
+      <div className="flex w-full flex-col h-96 overflow-y-auto scroll">
       {gamecomments
         .slice()
         .reverse()
