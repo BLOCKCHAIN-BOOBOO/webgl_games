@@ -361,4 +361,25 @@ width:83vw;
         font-family:FontAwesome;
       }
     
+      iframe{
+        height:80vh;
+        width:83vw;
+      }
     
+
+      /* scroll */
+      .scroll{
+        height:100px;
+        overflow:auto;
+        display: block;
+        }
+        
+        .scroll::-webkit-scrollbar{
+            width:5px;
+            /* background-color:#000; */
+            }
+            
+        .scroll::-webkit-scrollbar-thumb{
+          background:gray;
+          border-radius:5px;
+        }
