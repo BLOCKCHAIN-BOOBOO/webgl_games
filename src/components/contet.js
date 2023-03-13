@@ -117,30 +117,32 @@ const Content = ({ id }) => {
         </button>
       </div>
       <div className="flex w-full flex-col h-96 overflow-y-auto scroll">
-      {gamecomments
-        .slice()
-        .reverse()
-        .map((comment) => {
-          return (
-          
-            <div className="flex flex-col py-3 text-left float-left">
-              <div className="flex flex-row w-full">
-                <img
-                  src={profile}
-                  height="40"
-                  width="40"
-                  className="mr-2 self-center"
-                  alt=""
-                />
-                <span className="flex self-center text-sm font-normal">
-                  Profile
-                </span>
+        {gamecomments
+          .slice()
+          .reverse()
+          .map((comment) => {
+            return (
+              <div
+                className="flex flex-col py-3 text-left float-left"
+                key={comment._id}
+              >
+                <div className="flex flex-row w-full">
+                  <img
+                    // src={profile}
+                    src={`https://ui-avatars.com/api/?bold=true&name=${comment.username}`}
+                    height="40"
+                    width="40"
+                    className="mr-2 self-center rounded-full"
+                    alt=""
+                  />
+                  <span className="flex self-center text-sm font-normal">
+                    {comment.username}
+                  </span>
+                </div>
+                <div>{comment.text}</div>
               </div>
-              <div key={comment._id}>{comment.text}</div>
-            </div>
-          
-          );
-        })}
+            );
+          })}
       </div>
     </div>
   );
