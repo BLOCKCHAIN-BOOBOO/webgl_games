@@ -20,6 +20,11 @@ import axios from "axios";
 
 const Home = () => {
   const [allGames, setallGames] = useState([]);
+  let userdata = useSelector((state) => {
+    console.log("home token", state);
+    return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
+  });
+  let token = sessionStorage.getItem("token");
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -42,10 +47,7 @@ const Home = () => {
   const dataFetchedRef = useRef(false);
 
   // let temp = [];
-  let token = useSelector((state) => {
-    console.log("home token", state);
-    return state?.userToken?.token ? state?.userToken?.token : "";
-  });
+
   const fetchapi = async () => {
     console.log("fetching");
     try {
@@ -53,7 +55,7 @@ const Home = () => {
         method: "get",
         url: "https://html-game-api.kryptofam.com/games",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${userdata.token}`,
         },
       }).then((res) => {
         console.log(res);
@@ -66,8 +68,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (dataFetchedRef.current) return;
-    dataFetchedRef.current = true;
     fetchapi();
   }, []);
 
@@ -176,7 +176,9 @@ const Home = () => {
               <div className="flex flex-row header-search rounded-lg float-right bg-red-200">
                 <div className="flex flex-col self-center ml-2">
                   <span className="text-xs text-slate-500">Welcome</span>
-                  <span className="text-sm text-slate-500">Eddie Janson</span>
+                  <span className="text-sm text-slate-500">
+                    {userdata.username}
+                  </span>
                 </div>
                 <div className="flex flex-col self-center text-center lg:ml-4">
                   <img

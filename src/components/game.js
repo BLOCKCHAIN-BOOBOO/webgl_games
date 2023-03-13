@@ -10,17 +10,19 @@ const Game = () => {
   const [gamedetails, setgamedetails] = useState([]);
   const params = useParams("");
   console.log(params);
-  let token = useSelector((state) => {
+  let userdata = useSelector((state) => {
     console.log("home token", state);
-    return state?.userToken?.token ? state?.userToken?.token : "";
+    return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
   });
+
+  let token = sessionStorage.getItem("token");
   const fetchgamedetails = async () => {
     try {
       await axios({
         method: "get",
         url: "https://html-game-api.kryptofam.com/game",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${userdata.token}`,
         },
         params: params,
       }).then((res) => {

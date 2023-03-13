@@ -22,34 +22,48 @@ const Signup = () => {
 
   const Submit = async () => {
     console.log("details", details);
-    if (details.password === details.confirmPassword) {
-      try {
-        let data = {
-          username: details.userName,
-          email: details.email,
-          password: details.password,
-          gender: details.gender,
-          phone: details.phoneNo,
-        };
-        await axios.post(BaseURL + "/users/register", data).then((respnse) => {
-          console.log(respnse);
-          if (respnse.data.code === "success") {
-            console.log(respnse.data.message);
-            navigate("/login");
-          } else {
-            seterrMsg(respnse.data.message);
-            console.log(respnse.data.message);
-          }
-        });
-      } catch (error) {
-        console.log(error?.response?.data?.message);
-        seterrMsg(error?.response?.data?.message);
-      }
-    } else if (details === null || details === undefined || details === "") {
-      seterrMsg("empty fields");
+    if (
+      !(
+        details.userName ||
+        details.email ||
+        details.password ||
+        details.gender ||
+        details.phoneNo
+      )
+    ) {
+      seterrMsg("field required");
     } else {
-      console.log("password not matching");
-      seterrMsg("password not matching");
+      if (details.password === details.confirmPassword) {
+        try {
+          let data = {
+            username: details.userName,
+            email: details.email,
+            password: details.password,
+            gender: details.gender,
+            phone: details.phoneNo,
+          };
+          await axios
+            .post(BaseURL + "/users/register", data)
+            .then((respnse) => {
+              console.log(respnse);
+              if (respnse.data.code === "success") {
+                console.log(respnse.data.message);
+                navigate("/login");
+              } else {
+                seterrMsg(respnse.data.message);
+                console.log(respnse.data.message);
+              }
+            });
+        } catch (error) {
+          console.log(error?.response?.data?.message);
+          seterrMsg(error?.response?.data?.message);
+        }
+      } else if (details === null || details === undefined || details === "") {
+        seterrMsg("empty fields");
+      } else {
+        console.log("password not matching");
+        seterrMsg("password not matching");
+      }
     }
   };
 
@@ -60,15 +74,15 @@ const Signup = () => {
 
   return (
     <div className="fix-height relative">
-         {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
-         <img
-              src={logologin}
-              // height="400"
-              // width="400"
-               align="right"
-              className="mx-auto logo-height signup-background "
-              alt=""
-            />
+      {/* sm:py-8 md:py-8 py-8 lg:py-8 xl:py-10 */}
+      <img
+        src={logologin}
+        // height="400"
+        // width="400"
+        align="right"
+        className="mx-auto logo-height signup-background "
+        alt=""
+      />
       <div className="container mx-auto login-align login-page">
         <div className="w-full flex flex-col xl: flex-row md:flex-row sm:flex-col justify-between">
           <div className="xl:flex-row flex md:flex-row sm:flex-col flex-col lg:w-2/5 sm:w-2/5 md:w-2/5 p-6 md:p-8 mx-auto sm:mx-0 md:mx-0 lg:mx-0 ">
@@ -199,7 +213,7 @@ const Signup = () => {
                   className="text-xs font-normal hover:border-b-2 hover:border-blue-500 hover:text-blue-500 cursor-pointer"
                   onClick={gotosign}
                 >
-                  Sign In
+                  &#8194;Sign In
                 </span>
               </div>
             </div>
