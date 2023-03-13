@@ -20,6 +20,8 @@ import axios from "axios";
 
 const Home = () => {
   const [allGames, setallGames] = useState([]);
+  const [sorteddata, setsorteddata] = useState({ results: "" });
+
   let userdata = useSelector((state) => {
     console.log("home token", state);
     return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
@@ -65,6 +67,89 @@ const Home = () => {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const searchrecords = (searchtxt) => {
+    // If input has changed
+    console.log(searchtxt);
+    if (searchtxt !== "") {
+      console.log(searchtxt);
+      // Split the input to get each words
+      const words = searchtxt.toLowerCase().trim().split(" ");
+      // List here your attributes you want to use in search algorithm
+      const attrs = ["name"];
+      let res = [];
+
+      // Sort items
+
+      allGames &&
+        allGames.forEach((item) => {
+          let isIn = false;
+
+          // For each attribute
+          attrs.forEach((attr) => {
+            const attrValue = item[attr].toLowerCase();
+
+            // For each word in search input
+            words.forEach((word) => {
+              // Check if word is in item
+              const index = attrValue.indexOf(word);
+
+              // If the word is in the item
+              if (index != -1) {
+                // Insert strong tag
+                let strongValue = addHighlightAt(item[attr], word, index);
+
+                // If item is already in the result
+                if (isIn) {
+                  // Increase matchScore
+                  res[res.length - 1].metadata.matchScore += word.length;
+                  res[res.length - 1].data[attr] = strongValue;
+                } else {
+                  // Set score and attribute
+                  res.push({
+                    data: {
+                      ...item,
+                      [attr]: strongValue,
+                    },
+                    metadata: { matchScore: word.length },
+                  });
+                  isIn = true;
+                }
+              }
+            });
+          });
+        });
+
+      // Sort res by matchScore DESC
+      res = sortByMatchScore(res);
+      console.log("res", res);
+      setsorteddata({
+        results: res,
+      });
+    }
+    if (searchtxt === "" || searchtxt.length < 0) {
+      setsorteddata({ results: "" });
+    }
+  };
+
+  const addHighlightAt = (text, word, index) => {
+    // Si l'indice est valide
+    text = [text.slice(0, index), text.slice(index)].join("");
+
+    text = [
+      text.slice(0, index + word.length + 8),
+      ,
+      text.slice(index + word.length + 8),
+    ].join("");
+
+    return text;
+  };
+
+  const sortByMatchScore = (res) => {
+    return res.sort((a, b) => {
+      return b.metadata.matchScore - a.metadata.matchScore;
+    });
   };
 
   useEffect(() => {
@@ -167,6 +252,7 @@ const Home = () => {
               <input
                 type="text"
                 name="search"
+                onChange={(e) => searchrecords(e.target.value)}
                 className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
                border-red-300 placeholder-slate-500 font-normal focus:outline-none 
                         w-3/4  block text-slate-800  rounded-lg sm:text-sm focus:ring"
@@ -263,37 +349,74 @@ const Home = () => {
               );
             })} */}
 
-            {allGames.map((details, index) => {
-              console.log("game list", details);
-              return (
-                <div className="star-div">
-                  <NavLink to={"/game/" + details._id}>
-                    <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                      <i className="fa fa-star text-white text-xs"></i>
-                      <i className="fa fa-star text-white text-xs"></i>
-                      <i className="fa fa-star text-white text-xs"></i>
-                      <i className="fa fa-star text-white text-xs"></i>
-                    </div>
-                    <div className="game-card z-0 rounded-xl">
-                      <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                        <div>
-                          <img
-                            src={details.thumbnail}
-                            height="200px"
-                            className="rounded-lg self-center"
-                            alt=""
-                          />
-
-                          <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                            {details.name}
-                          </span>
+            {!(
+              (sorteddata && sorteddata.results) ||
+              (sorteddata && sorteddata.results.length > 0)
+            )
+              ? allGames &&
+                allGames.map((details, index) => {
+                  console.log("game list", details);
+                  return (
+                    <div className="star-div">
+                      <NavLink to={"/game/" + details._id}>
+                        <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                          <i className="fa fa-star text-white text-xs"></i>
+                          <i className="fa fa-star text-white text-xs"></i>
+                          <i className="fa fa-star text-white text-xs"></i>
+                          <i className="fa fa-star text-white text-xs"></i>
                         </div>
-                      </div>
+                        <div className="game-card z-0 rounded-xl">
+                          <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                            <div>
+                              <img
+                                src={details.thumbnail}
+                                height="200px"
+                                className="rounded-lg self-center"
+                                alt=""
+                              />
+
+                              <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                                {details.name}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </NavLink>
                     </div>
-                  </NavLink>
-                </div>
-              );
-            })}
+                  );
+                })
+              : sorteddata &&
+                sorteddata.results.map((details, index) => {
+                  console.log("sorted  list", details);
+                  return (
+                    <div className="star-div">
+                      <NavLink to={"/game/" + details.data._id}>
+                        <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                          <i className="fa fa-star text-white text-xs"></i>
+                          <i className="fa fa-star text-white text-xs"></i>
+                          <i className="fa fa-star text-white text-xs"></i>
+                          <i className="fa fa-star text-white text-xs"></i>
+                        </div>
+                        <div className="game-card z-0 rounded-xl">
+                          <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                            <div>
+                              <img
+                                src={details.data.thumbnail}
+                                height="200px"
+                                className="rounded-lg self-center"
+                                alt=""
+                              />
+
+                              <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                                {details.data.name}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </NavLink>
+                    </div>
+                  );
+                })}
           </div>
           {/* </Carousel> */}
         </div>
