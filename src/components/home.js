@@ -464,7 +464,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative pt-6"  id="#my-favorite-games">
+      <section className="relative pt-6"  id="favourites">
         {/* lg:ml-40 md:ml-40 sm:ml-40  */}
         <div className="mr-10 flex flex-col">
           <div>

@@ -78,8 +78,24 @@ const Sidebar = () => {
                 </NavLink>
               </li>
 
-              <li className="relative mb-5">
-                <NavLink
+              <li className="relative mb-5"  id="favourite">
+        <a   onClick={(e) => mobileMenutoggle(e)}
+         href="#favourites" 
+         className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
+         grow cursor-pointer transition duration-300 ease-in-out"
+        //  className="hover:text-2xl active:text-2xl text-xl duration-500 xl:text-gray-200 
+        //  md:text-gray-200 sm:text-black text-black"
+        >
+        <span className="text-sm  ml-2 self-center font-bold ">
+                    {" "}
+                    Favourite
+                  </span>
+                  <img src={star} height="25" width="25" className="" alt="" />
+        </a>
+
+
+
+                {/* <NavLink
                   //  onClick={homepage}
                   to="/favourite"
                   id="favourite"
@@ -92,7 +108,7 @@ const Sidebar = () => {
                     Favourite
                   </span>{" "}
                   <img src={star} height="25" width="25" className="" alt="" />
-                </NavLink>
+                </NavLink> */}
               </li>
 
               {/* <li className="relative mb-5">
