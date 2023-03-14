@@ -23,6 +23,7 @@ const Home = () => {
   const [allGames, setallGames] = useState([]);
   const [sorteddata, setsorteddata] = useState({ results: "" });
   const [search, setsearch] = useState("");
+  const [favoritegames, setfavoritegames] = useState([]);
 
   let userdata = useSelector((state) => {
     console.log("home token", state);
@@ -65,6 +66,24 @@ const Home = () => {
         console.log(res);
 
         setallGames(res?.data?.data);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const fetchfavoritegames = async () => {
+    try {
+      await axios({
+        method: "get",
+        url: "https://html-game-api.kryptofam.com/favorite_games",
+        headers: {
+          Authorization: `Bearer ${userdata.token}`,
+        },
+      }).then((res) => {
+        console.log("favar", res);
+
+        setfavoritegames(res?.data?.data);
       });
     } catch (err) {
       console.log(err);
@@ -163,6 +182,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchapi();
+    fetchfavoritegames();
   }, []);
 
   return (
@@ -439,6 +459,92 @@ const Home = () => {
                     </div>
                   );
                 })}
+          </div>
+          {/* </Carousel> */}
+        </div>
+      </section>
+
+      <section className="relative pt-6"  id="#my-favorite-games">
+        {/* lg:ml-40 md:ml-40 sm:ml-40  */}
+        <div className="mr-10 flex flex-col">
+          <div>
+            <span className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
+              FAVORITES{" "}
+            </span>
+          </div>
+
+          <div
+            className="flex xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
+           my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0"
+          >
+            {/* {allGames.map((details, index) => {
+              console.log(details._id);
+              return (
+                <div className="star-div" key={details._id}>
+                  <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                    <i className="fa fa-star text-white text-xs"></i>
+                    <i className="fa fa-star text-white text-xs"></i>
+                    <i className="fa fa-star text-white text-xs"></i>
+                    <i className="fa fa-star text-white text-xs"></i>
+                  </div>
+                  <div className="game-card z-0 rounded-xl">
+                    <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                      <div>
+                        <NavLink to={"/game/" + details._id}>
+                          <img
+                            // src={
+                            //   "https://html-game-api.kryptofam.com/" +
+                            //   details.thumbnail
+                            // }
+                            src={game3}
+                            height="200px"
+                            // width="150px"
+                            className="rounded-lg self-center"
+                            alt=""
+                          />
+                        </NavLink>
+                        <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                          {details.name}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })} */}
+
+            {favoritegames &&
+              favoritegames.map((details, index) => {
+                console.log("favorite game list", details);
+                return (
+                  <div className="star-div">
+                    <NavLink to={"/game/" + details.game_id}>
+                      <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                        <i className="fa fa-star text-white text-xs"></i>
+                        <i className="fa fa-star text-white text-xs"></i>
+                        <i className="fa fa-star text-white text-xs"></i>
+                        <i className="fa fa-star text-white text-xs"></i>
+                      </div>
+                      <div className="game-card z-0 rounded-xl">
+                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                          <div>
+                            <img
+                              src={details.thumbnail}
+                              height="200px"
+                              className="rounded-lg self-center"
+                              alt=""
+                            />
+
+                            <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                              {details.name}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+                );
+              })}
           </div>
           {/* </Carousel> */}
         </div>

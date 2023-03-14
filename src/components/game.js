@@ -43,7 +43,6 @@ const Game = () => {
       <div className="unity-div">
         <div className="unity-container">
           <Iframe
-            // src=" https://html-game-api.kryptofam.com/play/CrazyShipParking2D/index.html"
             src={gamedetails.url}
             id=""
             height="600px"

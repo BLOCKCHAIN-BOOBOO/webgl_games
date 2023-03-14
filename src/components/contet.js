@@ -10,9 +10,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { COMMENTS } from "../actiontypes/Types";
 
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Favorite from "@material-ui/icons/Favorite";
+import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
+
 const Content = ({ id }) => {
   const [gamecomments, setgamecomments] = useState([]);
   const [info, setinfo] = useState([]);
+  const [isClick, setClick] = useState(false);
   const [comment, setcomment] = useState("");
   const params = useParams("");
   console.log("asdfds", params);
@@ -69,6 +75,33 @@ const Content = ({ id }) => {
     }
   };
 
+  // const handleChange = (event) => {
+  //   console.log(event.target.checked);
+  // };
+
+  const handleChange = async (event) => {
+    console.log("like ", event.target.checked);
+    try {
+      if (event.target.checked) {
+        let data = {
+          comment: params.id,
+        };
+        await axios({
+          method: "post",
+          url: "https://html-game-api.kryptofam.com/add_favorite_game",
+          headers: {
+            Authorization: `Bearer ${userdata.token}`,
+          },
+          data: data,
+        }).then((res) => {
+          console.log("comment added", res);
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchgamedetails();
   }, []);
@@ -79,20 +112,41 @@ const Content = ({ id }) => {
         <span className="border-b-2 border-red-500">More Information</span>
         <i class="fa fa-angle-down text-xl font-semibold self-center align-middle text-red-500"></i>
       </div> */}
+      <div>
+        <Accordion
+          id="first"
+          title="More Information"
+          className="flex float-left text-left flex-col accordion-image first"
+        >
+          {/* onClick={getclick}  */}
 
-      <Accordion
-        id="first"
-        title="More Information"
-        className="flex float-left text-left flex-col accordion-image first"
-      >
-        {/* onClick={getclick}  */}
-
-        <div className="body-height close-accordion">
-          <div>{info.description}</div>
-          {/* <div> gfhsdg hfjsg fsjhg fjhdsg</div> */}
+          <div className="body-height close-accordion">
+            <div>{info.description}</div>
+            {/* <div> gfhsdg hfjsg fsjhg fjhdsg</div> */}
+          </div>
+        </Accordion>
+        <div>
+          <div
+            style={{
+              margin: "auto",
+              display: "block",
+              width: "fit-content",
+            }}
+          >
+            <FormControlLabel
+              control={
+                <Checkbox
+                  icon={<FavoriteBorder />}
+                  checkedIcon={<Favorite />}
+                  onChange={handleChange}
+                  name="checkedH"
+                />
+              }
+              label="Add to favorite games "
+            />
+          </div>
         </div>
-      </Accordion>
-
+      </div>
       <div className="flex flex-row self-center text-center py-5 align">
         <input
           type="text"
