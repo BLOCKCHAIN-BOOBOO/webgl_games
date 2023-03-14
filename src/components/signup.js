@@ -6,6 +6,7 @@ import bbgamelogin from "../../src/images/bbgamelogin.png";
 import logologin from "../../src/images/logo-login.png";
 
 import { useNavigate } from "react-router-dom";
+import bblogo from "../images/bbfulllogo.png";
 
 const Signup = () => {
   const [details, setdetails] = useState({});
@@ -89,7 +90,7 @@ const Signup = () => {
             <div className="flex flex-col">
               <div className=" self-center px-20">
                 <img
-                  src={logo}
+                  src={bblogo}
                   height="200"
                   width="200"
                   className="mx-auto"
@@ -97,7 +98,7 @@ const Signup = () => {
                 />{" "}
               </div>
 
-              <div className="text-2xl text-red-500  mt-2 font-bold self-center mb-5">
+              <div className="text-1xl text-red-500  mt-2 font-bold self-center mb-5">
                 WELCOME TO BOOBOO GAMES
               </div>
               <div>
