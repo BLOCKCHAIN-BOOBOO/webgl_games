@@ -126,10 +126,13 @@ const Content = ({ id }) => {
                   icon={<FavoriteBorder />}
                   checkedIcon={<Favorite />}
                   onChange={handleChange}
+                  checked={info.isFavorite === true ? true : false}
                   name="checkedH"
                 />
               }
-              label="Add to favorite games "
+              label={
+                info.isFavorite === true ? "Favourite" : "Add To Favourite"
+              }
             />
           </div>
         </div>
