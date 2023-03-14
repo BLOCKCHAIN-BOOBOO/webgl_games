@@ -44,8 +44,7 @@ const Game = () => {
         <div className="unity-container">
           <Iframe
             // src=" https://html-game-api.kryptofam.com/play/CrazyShipParking2D/index.html"
-            // src={gamedetails.url}
-            src="https://html-game-api.kryptofam.com/play/BE_THE_KEEPER/index.html"
+            src={gamedetails.url}
             id=""
             height="600px"
             width="100%"
@@ -55,7 +54,6 @@ const Game = () => {
             position="relative"
           />
           <Content id={params.id} />
-         
         </div>
       </div>
     </div>
