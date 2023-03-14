@@ -16,7 +16,7 @@ import profile from "../images/profile.png";
 
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import bbglogo from "../images/booboocoin.png";
 import axios from "axios";
 
 const Home = () => {
@@ -278,6 +278,7 @@ const Home = () => {
           {/* container */}
           <div className="lg:w-full text-left mt-20 sm:mt-10 md:mt-10 xl:mt-0">
             <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
+              <img className="h-12 w-13 " src={bbglogo} />
               <div className="serchwrap">
                 {(sorteddata && sorteddata.results) ||
                 (sorteddata && sorteddata.results.length > 0) ? (
@@ -310,10 +311,11 @@ const Home = () => {
                 </div>
                 <div className="flex flex-col self-center text-center lg:ml-4">
                   <img
-                    src={profile}
+                    // src={profile}
+                    src={`https://ui-avatars.com/api/?bold=true&name=${userdata.username}`}
                     height="40"
                     width="40"
-                    className="mr-2 self-center"
+                    className="mr-2 self-center rounded-full"
                     alt=""
                   />
                 </div>
@@ -464,7 +466,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative pt-6"  id="favourites">
+      <section className="relative pt-6" id="favourites">
         {/* lg:ml-40 md:ml-40 sm:ml-40  */}
         <div className="mr-10 flex flex-col">
           <div>

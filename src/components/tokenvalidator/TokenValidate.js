@@ -1,10 +1,12 @@
 import jwtDecode from "jwt-decode";
-
+import jwt from "jwt-decode";
 export const GetDecodedToken = () => {
   try {
-    let gettoken = sessionStorage.getItem("token");
+    let gettoken = localStorage.getItem("token");
     console.log("main", gettoken);
     console.log("ASDFASd", typeof gettoken);
+    let tok = jwt(gettoken);
+    console.log("dec token", tok);
     let token;
     // let token = window.sessionStorage.getItem("token");
     if (gettoken) {
