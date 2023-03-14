@@ -12,12 +12,12 @@ import group from "../images/group.png";
 import settings from "../images/settings.png";
 import logout from "../images/logout.png";
 import profile from "../images/profile.png";
-import bbicon from "../images/bbicon.png"
+import bbicon from "../images/bbicon.png";
 // import bbicon from "../../public/bbicon.png"
 
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import bbglogo from "../images/booboocoin.png";
+import bbglogo from "../images/bbfulllogo.png";
 import axios from "axios";
 
 const Home = () => {
@@ -188,9 +188,9 @@ const Home = () => {
 
   return (
     <div>
-    <div className="pb-20 lg:ml-32 md:ml-32 sm:ml-32">
-      {/* lg:ml-32 md:ml-32 sm:ml-32  */}
-      {/* <li className="relative mb-5">
+      <div className="pb-20 lg:ml-32 md:ml-32 sm:ml-32">
+        {/* lg:ml-32 md:ml-32 sm:ml-32  */}
+        {/* <li className="relative mb-5">
       <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
        <img src={games} height="25" width="25" className="mr-2" alt="" />      
       </a>
@@ -205,7 +205,7 @@ const Home = () => {
        <img src={notification} height="25" width="25" className="mr-2" alt="" />       
       </a>
     </li>   */}
-      {/* <li className="relative mb-5">
+        {/* <li className="relative mb-5">
       <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
        <img src={line} height="25" width="25" className="mr-2" alt="" />
       </a>
@@ -216,12 +216,12 @@ const Home = () => {
        <img src={group} height="25" width="25" className="mr-2" alt="" />
       </a>
     </li> */}
-      {/* hidden */}
-      {/* <a href="javascript:void(0)" className="closebtn md:hidden lg:hidden " >&times;</a> */}
-      {/* onClick={closeMenu()} */}
-      {/* bg-red-600  shadow-2xl*/}
+        {/* hidden */}
+        {/* <a href="javascript:void(0)" className="closebtn md:hidden lg:hidden " >&times;</a> */}
+        {/* onClick={closeMenu()} */}
+        {/* bg-red-600  shadow-2xl*/}
 
-      {/* <div className="lg:w-32 md:w-32 sm:w-40 h-20 lg:h-full md:h-full sm:h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
+        {/* <div className="lg:w-32 md:w-32 sm:w-40 h-20 lg:h-full md:h-full sm:h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
 <div className="mb-10 h-full pt-5 pb-5">
 
 
@@ -272,71 +272,71 @@ const Home = () => {
 
 </div> */}
 
-      {/* pt-6 */}
-      <section className="mt-10" id="home">
-        {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
+        {/* pt-6 */}
+        <section className="mt-10" id="home">
+          {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
 
-        <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
-          {/* container */}
-          <div className="lg:w-full text-left mt-5 sm:mt-5 md:mt-5 xl:mt-0">
-            <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
-              <img className="h-12 w-13 " src={bbglogo} />
-              <div className="serchwrap">
-                {(sorteddata && sorteddata.results) ||
-                (sorteddata && sorteddata.results.length > 0) ? (
-                  <i
-                    className="fa fa-times  icnstyle"
-                    aria-hidden="true"
-                    onClick={clearsearch}
-                  ></i>
-                ) : (
-                  <i className="fa fa-search icnstyle" aria-hidden="true"></i>
-                )}
+          <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
+            {/* container */}
+            <div className="lg:w-full text-left mt-5 sm:mt-5 md:mt-5 xl:mt-0">
+              <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
+                <img className="h-14 w-14 " src={bbglogo} />
+                <div className="serchwrap">
+                  {(sorteddata && sorteddata.results) ||
+                  (sorteddata && sorteddata.results.length > 0) ? (
+                    <i
+                      className="fa fa-times  icnstyle"
+                      aria-hidden="true"
+                      onClick={clearsearch}
+                    ></i>
+                  ) : (
+                    <i className="fa fa-search icnstyle" aria-hidden="true"></i>
+                  )}
 
-                <input
-                  type="text"
-                  name="search"
-                  value={search}
-                  onChange={(e) => searchrecords(e.target.value)}
-                  className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
+                  <input
+                    type="text"
+                    name="search"
+                    value={search}
+                    onChange={(e) => searchrecords(e.target.value)}
+                    className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
                border-red-300 placeholder-slate-500 font-normal focus:outline-none 
                         w-3/4  block text-slate-800  rounded-lg sm:text-sm focus:ring"
-                  placeholder="Search Games"
-                />
-              </div>
-              <div className="flex flex-row header-search rounded-lg float-right bg-red-200">
-                <div className="flex flex-col self-center ml-2">
-                  <span className="text-xs text-slate-500">Welcome</span>
-                  <span className="text-sm text-slate-500">
-                    {userdata.username}
-                  </span>
-                </div>
-                <div className="flex flex-col self-center text-center lg:ml-4">
-                  <img
-                    // src={profile}
-                    src={`https://ui-avatars.com/api/?bold=true&name=${userdata.username}`}
-                    height="40"
-                    width="40"
-                    className="mr-2 self-center rounded-full"
-                    alt=""
+                    placeholder="Search Games"
                   />
+                </div>
+                <div className="flex flex-row header-search rounded-lg float-right bg-red-200">
+                  <div className="flex flex-col self-center ml-2">
+                    <span className="text-xs text-slate-500">Welcome</span>
+                    <span className="text-sm text-slate-500">
+                      {userdata.username}
+                    </span>
+                  </div>
+                  <div className="flex flex-col self-center text-center lg:ml-4">
+                    <img
+                      // src={profile}
+                      src={`https://ui-avatars.com/api/?bold=true&name=${userdata.username}`}
+                      height="40"
+                      width="40"
+                      className="mr-2 self-center rounded-full"
+                      alt=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="relative pt-6" id="home">
-        {/* lg:ml-40 md:ml-40 sm:ml-40  */}
-        <div className="mr-10 flex flex-col">
-          <div>
-            <span className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
-              GAMES
-            </span>
-          </div>
+        <section className="relative pt-6" id="home">
+          {/* lg:ml-40 md:ml-40 sm:ml-40  */}
+          <div className="mr-10 flex flex-col">
+            <div>
+              <span className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
+                GAMES
+              </span>
+            </div>
 
-          {/* <Carousel
+            {/* <Carousel
             swipeable={true}
             draggable={true}
             showDots={false}
@@ -355,11 +355,11 @@ const Home = () => {
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-20-px "
           > */}
-          <div
-            className="flex xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
+            <div
+              className="flex xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
            my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0"
-          >
-            {/* {allGames.map((details, index) => {
+            >
+              {/* {allGames.map((details, index) => {
               console.log(details._id);
               return (
                 <div className="star-div" key={details._id}>
@@ -395,16 +395,134 @@ const Home = () => {
               );
             })} */}
 
-            {!(
-              (sorteddata && sorteddata.results) ||
-              (sorteddata && sorteddata.results.length > 0)
-            )
-              ? allGames &&
-                allGames.map((details, index) => {
-                  console.log("game list", details);
+              {!(
+                (sorteddata && sorteddata.results) ||
+                (sorteddata && sorteddata.results.length > 0)
+              )
+                ? allGames &&
+                  allGames.map((details, index) => {
+                    console.log("game list", details);
+                    return (
+                      <div className="star-div">
+                        <NavLink to={"/game/" + details._id}>
+                          <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                            <i className="fa fa-star text-white text-xs"></i>
+                            <i className="fa fa-star text-white text-xs"></i>
+                            <i className="fa fa-star text-white text-xs"></i>
+                            <i className="fa fa-star text-white text-xs"></i>
+                          </div>
+                          <div className="game-card z-0 rounded-xl">
+                            <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                              <div>
+                                <img
+                                  src={details.thumbnail}
+                                  height="200px"
+                                  className="rounded-lg self-center"
+                                  alt=""
+                                />
+
+                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                                  {details.name}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </NavLink>
+                      </div>
+                    );
+                  })
+                : sorteddata &&
+                  sorteddata.results.map((details, index) => {
+                    console.log("sorted  list", details);
+                    return (
+                      <div className="star-div">
+                        <NavLink to={"/game/" + details.data._id}>
+                          <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                            <i className="fa fa-star text-white text-xs"></i>
+                            <i className="fa fa-star text-white text-xs"></i>
+                            <i className="fa fa-star text-white text-xs"></i>
+                            <i className="fa fa-star text-white text-xs"></i>
+                          </div>
+                          <div className="game-card z-0 rounded-xl">
+                            <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                              <div>
+                                <img
+                                  src={details.data.thumbnail}
+                                  height="200px"
+                                  className="rounded-lg self-center"
+                                  alt=""
+                                />
+
+                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                                  {details.data.name}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </NavLink>
+                      </div>
+                    );
+                  })}
+            </div>
+            {/* </Carousel> */}
+          </div>
+        </section>
+
+        <section className="relative pt-6" id="favourites">
+          {/* lg:ml-40 md:ml-40 sm:ml-40  */}
+          <div className="mr-10 flex flex-col">
+            <div>
+              <span className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
+                FAVORITES{" "}
+              </span>
+            </div>
+
+            <div
+              className="flex xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
+           my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0"
+            >
+              {/* {allGames.map((details, index) => {
+              console.log(details._id);
+              return (
+                <div className="star-div" key={details._id}>
+                  <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                    <i className="fa fa-star text-white text-xs"></i>
+                    <i className="fa fa-star text-white text-xs"></i>
+                    <i className="fa fa-star text-white text-xs"></i>
+                    <i className="fa fa-star text-white text-xs"></i>
+                  </div>
+                  <div className="game-card z-0 rounded-xl">
+                    <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                      <div>
+                        <NavLink to={"/game/" + details._id}>
+                          <img
+                            // src={
+                            //   "https://html-game-api.kryptofam.com/" +
+                            //   details.thumbnail
+                            // }
+                            src={game3}
+                            height="200px"
+                            // width="150px"
+                            className="rounded-lg self-center"
+                            alt=""
+                          />
+                        </NavLink>
+                        <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                          {details.name}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })} */}
+
+              {favoritegames &&
+                favoritegames.map((details, index) => {
+                  console.log("favorite game list", details);
                   return (
                     <div className="star-div">
-                      <NavLink to={"/game/" + details._id}>
+                      <NavLink to={"/game/" + details.game_id}>
                         <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                           <i className="fa fa-star text-white text-xs"></i>
                           <i className="fa fa-star text-white text-xs"></i>
@@ -430,131 +548,13 @@ const Home = () => {
                       </NavLink>
                     </div>
                   );
-                })
-              : sorteddata &&
-                sorteddata.results.map((details, index) => {
-                  console.log("sorted  list", details);
-                  return (
-                    <div className="star-div">
-                      <NavLink to={"/game/" + details.data._id}>
-                        <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                          <i className="fa fa-star text-white text-xs"></i>
-                          <i className="fa fa-star text-white text-xs"></i>
-                          <i className="fa fa-star text-white text-xs"></i>
-                          <i className="fa fa-star text-white text-xs"></i>
-                        </div>
-                        <div className="game-card z-0 rounded-xl">
-                          <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                            <div>
-                              <img
-                                src={details.data.thumbnail}
-                                height="200px"
-                                className="rounded-lg self-center"
-                                alt=""
-                              />
-
-                              <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                                {details.data.name}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </NavLink>
-                    </div>
-                  );
                 })}
+            </div>
+            {/* </Carousel> */}
           </div>
-          {/* </Carousel> */}
-        </div>
-      </section>
+        </section>
 
-      <section className="relative pt-6" id="favourites">
-        {/* lg:ml-40 md:ml-40 sm:ml-40  */}
-        <div className="mr-10 flex flex-col">
-          <div>
-            <span className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
-              FAVORITES{" "}
-            </span>
-          </div>
-
-          <div
-            className="flex xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
-           my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0"
-          >
-            {/* {allGames.map((details, index) => {
-              console.log(details._id);
-              return (
-                <div className="star-div" key={details._id}>
-                  <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                    <i className="fa fa-star text-white text-xs"></i>
-                    <i className="fa fa-star text-white text-xs"></i>
-                    <i className="fa fa-star text-white text-xs"></i>
-                    <i className="fa fa-star text-white text-xs"></i>
-                  </div>
-                  <div className="game-card z-0 rounded-xl">
-                    <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                      <div>
-                        <NavLink to={"/game/" + details._id}>
-                          <img
-                            // src={
-                            //   "https://html-game-api.kryptofam.com/" +
-                            //   details.thumbnail
-                            // }
-                            src={game3}
-                            height="200px"
-                            // width="150px"
-                            className="rounded-lg self-center"
-                            alt=""
-                          />
-                        </NavLink>
-                        <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                          {details.name}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })} */}
-
-            {favoritegames &&
-              favoritegames.map((details, index) => {
-                console.log("favorite game list", details);
-                return (
-                  <div className="star-div">
-                    <NavLink to={"/game/" + details.game_id}>
-                      <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                        <i className="fa fa-star text-white text-xs"></i>
-                        <i className="fa fa-star text-white text-xs"></i>
-                        <i className="fa fa-star text-white text-xs"></i>
-                        <i className="fa fa-star text-white text-xs"></i>
-                      </div>
-                      <div className="game-card z-0 rounded-xl">
-                        <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                          <div>
-                            <img
-                              src={details.thumbnail}
-                              height="200px"
-                              className="rounded-lg self-center"
-                              alt=""
-                            />
-
-                            <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                              {details.name}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </NavLink>
-                  </div>
-                );
-              })}
-          </div>
-          {/* </Carousel> */}
-        </div>
-      </section>
-
-      {/* <section className=" relative pt-6">
+        {/* <section className=" relative pt-6">
         <div className="mr-10 flex flex-col">
           <div>
           <span className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
@@ -738,48 +738,61 @@ const Home = () => {
         </div>
       </section> */}
 
-      {/* <Game/> */}
-
-     
-
-
-    </div>
-    <footer id="footer" className="mt-10" style={{height:"5.5rem"}}>
-      <section className="relative bg-red-100"> 
+        {/* <Game/> */}
+      </div>
+      <footer id="footer" className="mt-10" style={{ height: "5.5rem" }}>
+        <section className="relative bg-red-100">
           <div className=" flex xl:flex-row md:flex-row sm:flex-col flex-col self-center text-center justify-between py-4 relative mx-auto container footer-align">
-          <div className='flex flex-col self-center align-middle'>
-          <img
-                      src={bbicon}
-                      height="200" width="200"
-                      className="rounded-lg self-center"
-                      alt=""
-                    />
-                   
-          </div>
-          <div className='flex flex-col self-center align-middle'>
-          <span className='text-xl flex text-left  text-red-500 mt-5 mb-5 font-bold'>Get In Touch</span>
-          <div className='flex flex-col'>
-          <span className="flex font-semibold float-left">India - Ahmedabad |</span> 
-          <span className="flex font-semibold text-left float-left">Hyderabad</span> 
-          <span className="flex font-semibold float-left">Connect@booboo.games</span> 
-          <span className="flex font-semibold float-left"></span> 
-          
-          {/* DEFAULT */}
-          </div>
-          </div>
-          <div className='flex flex-col self-center align-middle'>
-          <span className='text-xl flex text-left  text-red-500 mt-5 mb-5 font-bold'>Quick Links</span>
-          <div className='flex flex-col'>
-          <span className="flex float-left font-semibold">Mobile Games</span> 
-          <span className="flex text-left font-semibold float-left">Websites</span> 
-          <span className="flex font-semibold float-left">Mobile Applications</span> 
-          <span className="flex font-semibold float-left">Blockchain</span> 
-          </div>
-          </div>
-          </div>
-      </section>
-    </footer>
+            <div className="flex flex-col self-center align-middle">
+              <img
+                src={bbicon}
+                height="200"
+                width="200"
+                className="rounded-lg self-center"
+                alt=""
+              />
+            </div>
+            <div className="flex flex-col self-center align-middle">
+              <span className="text-xl flex text-left  text-red-500 mt-5 mb-5 font-bold">
+                Get In Touch
+              </span>
+              <div className="flex flex-col">
+                <span className="flex font-semibold float-left">
+                  India - Ahmedabad |
+                </span>
+                <span className="flex font-semibold text-left float-left">
+                  Hyderabad
+                </span>
+                <span className="flex font-semibold float-left">
+                  Connect@booboo.games
+                </span>
+                <span className="flex font-semibold float-left"></span>
 
+                {/* DEFAULT */}
+              </div>
+            </div>
+            <div className="flex flex-col self-center align-middle">
+              <span className="text-xl flex text-left  text-red-500 mt-5 mb-5 font-bold">
+                Quick Links
+              </span>
+              <div className="flex flex-col">
+                <span className="flex float-left font-semibold">
+                  Mobile Games
+                </span>
+                <span className="flex text-left font-semibold float-left">
+                  Websites
+                </span>
+                <span className="flex font-semibold float-left">
+                  Mobile Applications
+                </span>
+                <span className="flex font-semibold float-left">
+                  Blockchain
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
     </div>
   );
 };
