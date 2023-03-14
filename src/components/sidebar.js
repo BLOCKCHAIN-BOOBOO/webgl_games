@@ -47,7 +47,7 @@ const Sidebar = () => {
           <div id="mySidenav" className="sidenav">
             <div className="block text-3xl relative cursor-pointer md:hidden">
               <button
-                className="flex flex-col float-left text-left left-0 -top-5 relative mx-2 md:mx-0 bar-icon"
+                className="flex flex-col float-left text-left left-0 -top-6 relative mx-2 md:mx-0 bar-icon"
                 // float-right right-8
                 onClick={(e) => mobileMenutoggle(e)}
               ></button>

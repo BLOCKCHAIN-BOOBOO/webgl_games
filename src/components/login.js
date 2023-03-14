@@ -128,7 +128,7 @@ const Login = () => {
                   src={bblogo}
                   height="200"
                   width="200"
-                  className="mx-auto"
+                  className="login-logo-icon mx-auto"
                   alt=""
                 />{" "}
               </div>

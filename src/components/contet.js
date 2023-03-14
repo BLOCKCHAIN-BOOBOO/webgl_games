@@ -112,20 +112,7 @@ const Content = ({ id }) => {
         <span className="border-b-2 border-red-500">More Information</span>
         <i class="fa fa-angle-down text-xl font-semibold self-center align-middle text-red-500"></i>
       </div> */}
-      <div>
-        <Accordion
-          id="first"
-          title="More Information"
-          className="flex float-left text-left flex-col accordion-image first"
-        >
-          {/* onClick={getclick}  */}
-
-          <div className="body-height close-accordion">
-            <div>{info.description}</div>
-            {/* <div> gfhsdg hfjsg fsjhg fjhdsg</div> */}
-          </div>
-        </Accordion>
-        <div className="flex float-right">
+      <div className="flex self-end  float-right">
           <div
             style={{
               margin: "auto",
@@ -146,6 +133,20 @@ const Content = ({ id }) => {
             />
           </div>
         </div>
+      <div>
+        <Accordion
+          id="first"
+          title="More Information"
+          className="flex float-left text-left flex-col accordion-image first"
+        >
+          {/* onClick={getclick}  */}
+
+          <div className="body-height flex h-auto close-accordion">
+            <div className="flex h-auto">{info.description}</div>
+            {/* <div> gfhsdg hfjsg fsjhg fjhdsg</div> */}
+          </div>
+        </Accordion>
+        
       </div>
       <div className="flex flex-row self-center text-center py-5 align">
         <input

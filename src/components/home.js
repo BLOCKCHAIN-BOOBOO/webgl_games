@@ -273,14 +273,16 @@ const Home = () => {
 </div> */}
 
         {/* pt-6 */}
-        <section className="mt-10" id="home">
+        <section className="mt-5" id="home">
           {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
 
           <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
             {/* container */}
             <div className="lg:w-full text-left mt-5 sm:mt-5 md:mt-5 xl:mt-0">
               <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
-                <img className="h-14 w-14 " src={bbglogo} />
+               <div className="flex self-center m-2 align-middle">
+                 <img className="" height="120" width="120" src={bbglogo} />
+                 </div>
                 <div className="serchwrap">
                   {(sorteddata && sorteddata.results) ||
                   (sorteddata && sorteddata.results.length > 0) ? (

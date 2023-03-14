@@ -47,7 +47,7 @@ const Game = () => {
             id=""
             height="600px"
             width="100%"
-            className="mx-auto"
+            className="w-full flex"
             allow="autoplay"
             display="block"
             position="relative"

@@ -136,7 +136,11 @@ body {
   position: absolute;
   transform: translate(-50%, -50%);
 }
-
+@media (min-width: 260px) and (max-width: 640px) {
+.login-logo-icon{
+  width:120px !important;
+}
+}
 @media (min-width: 280px) and (max-width: 1023px) {
   .signup-background {
     /* width: 100%; */
@@ -328,6 +332,7 @@ body {
 
   transition: height 0.2s ease 0s;
   overflow-x: hidden !important;
+  height:auto !important;
 }
 
 .accordion-item .accordion-body {
