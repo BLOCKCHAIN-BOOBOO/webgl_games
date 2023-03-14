@@ -275,7 +275,7 @@ const Home = () => {
         {/* pt-6 */}
         <section className="mt-5" id="home">
           {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
-
+<div className="flex flex-col">
           <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
             {/* container */}
             <div className="lg:w-full text-left mt-5 sm:mt-5 md:mt-5 xl:mt-0">
@@ -283,7 +283,7 @@ const Home = () => {
                <div className="flex self-center m-2 align-middle">
                  <img className="" height="120" width="120" src={bbglogo} />
                  </div>
-                <div className="serchwrap">
+                <div className="serchwrap sm:hidden hidden md:flex xl:flex">
                   {(sorteddata && sorteddata.results) ||
                   (sorteddata && sorteddata.results.length > 0) ? (
                     <i
@@ -306,34 +306,63 @@ const Home = () => {
                     placeholder="Search Games"
                   />
                 </div>
-                <div className="flex flex-row header-search rounded-lg float-right bg-red-200">
+                <div className="flex xl:w-32 md:w-36 sm:w-32 w-28 flex-row header-search rounded-lg float-right bg-red-200">
                   <div className="flex flex-col self-center ml-2">
                     <span className="text-xs text-slate-500">Welcome</span>
                     <span className="text-sm text-slate-500">
                       {userdata.username}
                     </span>
                   </div>
-                  <div className="flex flex-col self-center text-center lg:ml-4">
+                  {/* <div className="flex flex-col self-center text-center"> */}
+                  {/* lg:ml-4 */}
                     <img
                       // src={profile}
                       src={`https://ui-avatars.com/api/?bold=true&name=${userdata.username}`}
                       height="40"
                       width="40"
-                      className="mr-2 self-center rounded-full"
+                      className=" self-center rounded-full"
+                      // mr-2
                       alt=""
                     />
-                  </div>
+                  {/* </div> */}
                 </div>
               </div>
             </div>
           </div>
+<div className=" relative md:flex flex-col md:items-left pl-4 py-4 px-10 md:py-4">
+          <div className="serchwrap self-center text-center justify-center sm:flex flex md:hidden xl:hidden">
+                  {(sorteddata && sorteddata.results) ||
+                  (sorteddata && sorteddata.results.length > 0) ? (
+                    <i
+                      className="fa fa-times  icnstyle"
+                      aria-hidden="true"
+                      onClick={clearsearch}
+                    ></i>
+                  ) : (
+                    <i className="fa fa-search icnstyle" aria-hidden="true"></i>
+                  )}
+
+                  <input
+                    type="text"
+                    name="search"
+                    value={search}
+                    onChange={(e) => searchrecords(e.target.value)}
+                    className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 
+                    focus:ring-red-300 focus:border-red-300 border-0
+               border-red-300 placeholder-slate-500 font-normal focus:outline-none 
+                        w-full  block text-slate-800  rounded-lg sm:text-sm focus:ring"
+                    placeholder="Search Games"
+                  />
+                </div>
+                </div>
+                </div>
         </section>
 
-        <section className="relative pt-6" id="home">
+        <section className="relative pt-6 px-2" id="home">
           {/* lg:ml-40 md:ml-40 sm:ml-40  */}
           <div className="mr-10 flex flex-col">
             <div>
-              <span className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
+              <span className="xl:text-3xl md:text-2xl sm:text-2xl text-xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
                 GAMES
               </span>
             </div>
@@ -470,11 +499,11 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="relative pt-6" id="favourites">
+        <section className="relative pt-6 px-2" id="favourites">
           {/* lg:ml-40 md:ml-40 sm:ml-40  */}
           <div className="mr-10 flex flex-col">
             <div>
-              <span className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
+              <span className="xl:text-3xl md:text-2xl sm:text-2xl text-xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
                 FAVORITES{" "}
               </span>
             </div>
@@ -743,8 +772,8 @@ const Home = () => {
         {/* <Game/> */}
       </div>
       <footer id="footer" className="mt-10" style={{ height: "5.5rem" }}>
-        <section className="relative bg-red-100">
-          <div className=" flex xl:flex-row md:flex-row sm:flex-col flex-col self-center text-center justify-between py-4 relative mx-auto container footer-align">
+        <section className="relative bg-red-100  footer-align">
+          <div className=" flex xl:flex-row md:flex-row sm:flex-col flex-col self-center text-center justify-between py-4 relative mx-auto container">
             <div className="flex flex-col self-center align-middle">
               <img
                 src={bbicon}
