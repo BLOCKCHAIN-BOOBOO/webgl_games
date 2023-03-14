@@ -12,6 +12,7 @@ import group from "../images/group.png";
 import settings from "../images/settings.png";
 import logout from "../images/logout.png";
 import profile from "../images/profile.png";
+import bbicon from "../images/bbicon.png"
 // import bbicon from "../../public/bbicon.png"
 
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -186,6 +187,7 @@ const Home = () => {
   }, []);
 
   return (
+    <div>
     <div className="pb-20 lg:ml-32 md:ml-32 sm:ml-32">
       {/* lg:ml-32 md:ml-32 sm:ml-32  */}
       {/* <li className="relative mb-5">
@@ -271,12 +273,12 @@ const Home = () => {
 </div> */}
 
       {/* pt-6 */}
-      <section className="">
+      <section className="mt-10" id="home">
         {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
 
         <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
           {/* container */}
-          <div className="lg:w-full text-left mt-20 sm:mt-10 md:mt-10 xl:mt-0">
+          <div className="lg:w-full text-left mt-5 sm:mt-5 md:mt-5 xl:mt-0">
             <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
               <img className="h-12 w-13 " src={bbglogo} />
               <div className="serchwrap">
@@ -325,7 +327,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative pt-6">
+      <section className="relative pt-6" id="home">
         {/* lg:ml-40 md:ml-40 sm:ml-40  */}
         <div className="mr-10 flex flex-col">
           <div>
@@ -737,6 +739,47 @@ const Home = () => {
       </section> */}
 
       {/* <Game/> */}
+
+     
+
+
+    </div>
+    <footer id="footer" className="mt-10" style={{height:"5.5rem"}}>
+      <section className="relative bg-red-100"> 
+          <div className=" flex xl:flex-row md:flex-row sm:flex-col flex-col self-center text-center justify-between py-4 relative mx-auto container footer-align">
+          <div className='flex flex-col self-center align-middle'>
+          <img
+                      src={bbicon}
+                      height="200" width="200"
+                      className="rounded-lg self-center"
+                      alt=""
+                    />
+                   
+          </div>
+          <div className='flex flex-col self-center align-middle'>
+          <span className='text-xl flex text-left  text-red-500 mt-5 mb-5 font-bold'>Get In Touch</span>
+          <div className='flex flex-col'>
+          <span className="flex font-semibold float-left">India - Ahmedabad |</span> 
+          <span className="flex font-semibold text-left float-left">Hyderabad</span> 
+          <span className="flex font-semibold float-left">Connect@booboo.games</span> 
+          <span className="flex font-semibold float-left"></span> 
+          
+          {/* DEFAULT */}
+          </div>
+          </div>
+          <div className='flex flex-col self-center align-middle'>
+          <span className='text-xl flex text-left  text-red-500 mt-5 mb-5 font-bold'>Quick Links</span>
+          <div className='flex flex-col'>
+          <span className="flex float-left font-semibold">Mobile Games</span> 
+          <span className="flex text-left font-semibold float-left">Websites</span> 
+          <span className="flex font-semibold float-left">Mobile Applications</span> 
+          <span className="flex font-semibold float-left">Blockchain</span> 
+          </div>
+          </div>
+          </div>
+      </section>
+    </footer>
+
     </div>
   );
 };

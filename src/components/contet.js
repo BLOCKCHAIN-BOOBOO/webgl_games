@@ -125,7 +125,7 @@ const Content = ({ id }) => {
             {/* <div> gfhsdg hfjsg fsjhg fjhdsg</div> */}
           </div>
         </Accordion>
-        <div>
+        <div className="flex float-right">
           <div
             style={{
               margin: "auto",

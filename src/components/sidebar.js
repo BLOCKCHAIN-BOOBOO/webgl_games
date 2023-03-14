@@ -41,13 +41,13 @@ const Sidebar = () => {
     <div>
       <div className="lg:w-32 md:w-32 sm:w-32 h-full z-40 absolute lg:fixed md:fixed sm:fixed">
         {/* h-20 lg:h-full md:h-full sm:h-full */}
-        <div className="z-40 relative h-full">
-          {/* bg-red-600  pt-5 pb-5 shadow-2xl*/}
+        <div className="z-40 fixed h-full">
+          {/* bg-red-600 relative pt-5 pb-5 shadow-2xl*/}
 
           <div id="mySidenav" className="sidenav">
             <div className="block text-3xl relative cursor-pointer md:hidden">
               <button
-                className="flex flex-col float-left text-left left-0 -top-9 relative mx-2 md:mx-0 bar-icon"
+                className="flex flex-col float-left text-left left-0 -top-5 relative mx-2 md:mx-0 bar-icon"
                 // float-right right-8
                 onClick={(e) => mobileMenutoggle(e)}
               ></button>
@@ -61,9 +61,21 @@ const Sidebar = () => {
             >
               {/* relative md:static top-[-400px] */}
 
-              <li className="relative mb-5">
-                <NavLink
-                  //  onClick={homepage}
+              <li className="relative mb-5" id="home">
+
+              <a   onClick={(e) => mobileMenutoggle(e)}
+         href="/home#home" 
+         className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
+         grow cursor-pointer transition duration-300 ease-in-out"
+        >
+        <span className="text-sm  ml-2 self-center font-bold ">
+                    {" "}
+                    Home
+                  </span>
+                  <img src={home} height="25" width="25" className="" alt="" />
+        </a>
+
+                {/* <NavLink
                   to="/home"
                   id="home"
                   onClick={(e) => mobileMenutoggle(e)}
@@ -75,14 +87,13 @@ const Sidebar = () => {
                     Home
                   </span>{" "}
                   <img src={home} height="25" width="25" className="" alt="" />
-                </NavLink>
+                </NavLink> */}
               </li>
 
-              <li className="relative mb-5" id="favourite">
-                <a
-                  onClick={(e) => mobileMenutoggle(e)}
-                  href="#favourites"
-                  className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
+              <li className="relative mb-5"  id="favourite">
+        <a   onClick={(e) => mobileMenutoggle(e)}
+         href="/home#favourites" 
+         className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
          grow cursor-pointer transition duration-300 ease-in-out"
                   //  className="hover:text-2xl active:text-2xl text-xl duration-500 xl:text-gray-200
                   //  md:text-gray-200 sm:text-black text-black"
