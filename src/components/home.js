@@ -523,7 +523,7 @@ const Home = () => {
             </div>
 
             <div
-              className="flex flex-wrap"
+              className="flex flex-wrap justify-center self-cenetr  sm:justify-start md:justify-start xl:justify-start sm:justify-left md:justify-left xl:justify-left"
           //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
           //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
             >
