@@ -365,7 +365,8 @@ const Home = () => {
         <section className="relative pt-6 px-2">
         {/* id="home" */}
           {/* lg:ml-40 md:ml-40 sm:ml-40  */}
-          <div className="mr-10 flex flex-col">
+          <div className=" flex flex-col">
+          {/* mr-10 */}
             <div>
               <span className="xl:text-3xl md:text-2xl sm:text-2xl text-xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
                 GAMES
@@ -392,7 +393,7 @@ const Home = () => {
             itemClass="carousel-item-padding-20-px "
           > */}
             <div
-              className="flex flex-wrap"
+              className="flex flex-wrap justify-center self-cenetr  sm:justify-start md:justify-start xl:justify-start sm:justify-left md:justify-left xl:justify-left"
           //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
           //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
             >
@@ -513,7 +514,8 @@ const Home = () => {
 
         <section className="relative pt-6 px-2" id="favourites">
           {/* lg:ml-40 md:ml-40 sm:ml-40  */}
-          <div className="mr-10 flex flex-col">
+          <div className=" flex flex-col">
+          {/* mr-10 */}
             <div>
               <span className="xl:text-3xl md:text-2xl sm:text-2xl text-xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
                 FAVORITES{" "}
