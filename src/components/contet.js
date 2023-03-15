@@ -84,7 +84,7 @@ const Content = ({ id }) => {
     try {
       if (event.target.checked) {
         let data = {
-          comment: params.id,
+          game_id: params.id,
         };
         await axios({
           method: "post",
@@ -95,6 +95,7 @@ const Content = ({ id }) => {
           data: data,
         }).then((res) => {
           console.log("comment added", res);
+              fetchgamedetails();
         });
       }
     } catch (error) {
@@ -113,29 +114,27 @@ const Content = ({ id }) => {
         <i class="fa fa-angle-down text-xl font-semibold self-center align-middle text-red-500"></i>
       </div> */}
       <div className="flex self-end  float-right">
-          <div
-            style={{
-              margin: "auto",
-              display: "block",
-              width: "fit-content",
-            }}
-          >
-            <FormControlLabel
-              control={
-                <Checkbox
-                  icon={<FavoriteBorder />}
-                  checkedIcon={<Favorite />}
-                  onChange={handleChange}
-                  checked={info.isFavorite === true ? true : false}
-                  name="checkedH"
-                />
-              }
-              label={
-                info.isFavorite === true ? "Favourite" : "Add To Favourite"
-              }
-            />
-          </div>
+        <div
+          style={{
+            margin: "auto",
+            display: "block",
+            width: "fit-content",
+          }}
+        >
+          <FormControlLabel
+            control={
+              <Checkbox
+                icon={<FavoriteBorder />}
+                checkedIcon={<Favorite />}
+                onChange={handleChange}
+                checked={info.isFavorite === true ? true : false}
+                name="checkedH"
+              />
+            }
+            label={info.isFavorite === true ? "Favourite" : "Add To Favourite"}
+          />
         </div>
+      </div>
       <div>
         <Accordion
           id="first"
@@ -149,7 +148,6 @@ const Content = ({ id }) => {
             {/* <div> gfhsdg hfjsg fsjhg fjhdsg</div> */}
           </div>
         </Accordion>
-        
       </div>
       <div className="flex flex-row self-center text-center py-5 align">
         <input
