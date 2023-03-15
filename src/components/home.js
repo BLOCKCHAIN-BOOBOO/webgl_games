@@ -275,46 +275,49 @@ const Home = () => {
         {/* pt-6 */}
         <section className="mt-5" id="home">
           {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
-<div className="flex flex-col">
-          <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
-            {/* container */}
-            <div className="lg:w-full text-left mt-5 sm:mt-5 md:mt-5 xl:mt-0">
-              <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
-               <div className="flex self-center m-2 align-middle">
-                 <img className="" height="120" width="120" src={bbglogo} />
-                 </div>
-                <div className="serchwrap sm:hidden hidden md:flex xl:flex">
-                  {(sorteddata && sorteddata.results) ||
-                  (sorteddata && sorteddata.results.length > 0) ? (
-                    <i
-                      className="fa fa-times  icnstyle"
-                      aria-hidden="true"
-                      onClick={clearsearch}
-                    ></i>
-                  ) : (
-                    <i className="fa fa-search icnstyle" aria-hidden="true"></i>
-                  )}
+          <div className="flex flex-col">
+            <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
+              {/* container */}
+              <div className="lg:w-full text-left mt-5 sm:mt-5 md:mt-5 xl:mt-0">
+                <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
+                  <div className="flex self-center m-2 align-middle">
+                    <img className="" height="120" width="120" src={bbglogo} />
+                  </div>
+                  <div className="serchwrap sm:hidden hidden md:flex xl:flex">
+                    {(sorteddata && sorteddata.results) ||
+                    (sorteddata && sorteddata.results.length > 0) ? (
+                      <i
+                        className="fa fa-times  icnstyle"
+                        aria-hidden="true"
+                        onClick={clearsearch}
+                      ></i>
+                    ) : (
+                      <i
+                        className="fa fa-search icnstyle"
+                        aria-hidden="true"
+                      ></i>
+                    )}
 
-                  <input
-                    type="text"
-                    name="search"
-                    value={search}
-                    onChange={(e) => searchrecords(e.target.value)}
-                    className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
+                    <input
+                      type="text"
+                      name="search"
+                      value={search}
+                      onChange={(e) => searchrecords(e.target.value)}
+                      className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
                border-red-300 placeholder-slate-500 font-normal focus:outline-none 
                         w-3/4  block text-slate-800  rounded-lg sm:text-sm focus:ring"
-                    placeholder="Search Games"
-                  />
-                </div>
-                <div className="flex xl:w-32 md:w-36 sm:w-32 w-28 flex-row header-search rounded-lg float-right bg-red-200">
-                  <div className="flex flex-col self-center ml-2">
-                    <span className="text-xs text-slate-500">Welcome</span>
-                    <span className="text-sm text-slate-500">
-                      {userdata.username}
-                    </span>
+                      placeholder="Search Games"
+                    />
                   </div>
-                  {/* <div className="flex flex-col self-center text-center"> */}
-                  {/* lg:ml-4 */}
+                  <div className="flex xl:w-32 md:w-36 sm:w-32 w-28 flex-row header-search rounded-lg float-right bg-red-200">
+                    <div className="flex flex-col self-center ml-2">
+                      <span className="text-xs text-slate-500">Welcome</span>
+                      <span className="text-sm text-slate-500">
+                        {userdata.username}
+                      </span>
+                    </div>
+                    {/* <div className="flex flex-col self-center text-center"> */}
+                    {/* lg:ml-4 */}
                     <img
                       // src={profile}
                       src={`https://ui-avatars.com/api/?bold=true&name=${userdata.username}`}
@@ -324,38 +327,38 @@ const Home = () => {
                       // mr-2
                       alt=""
                     />
-                  {/* </div> */}
+                    {/* </div> */}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-<div className=" relative md:flex flex-col md:items-left pl-4 py-4 px-10 md:py-4">
-          <div className="serchwrap self-center text-center justify-center sm:flex flex md:hidden xl:hidden">
-                  {(sorteddata && sorteddata.results) ||
-                  (sorteddata && sorteddata.results.length > 0) ? (
-                    <i
-                      className="fa fa-times  icnstyle"
-                      aria-hidden="true"
-                      onClick={clearsearch}
-                    ></i>
-                  ) : (
-                    <i className="fa fa-search icnstyle" aria-hidden="true"></i>
-                  )}
+            <div className=" relative md:flex flex-col md:items-left pl-4 py-4 px-10 md:py-4">
+              <div className="serchwrap self-center text-center justify-center sm:flex flex md:hidden xl:hidden">
+                {(sorteddata && sorteddata.results) ||
+                (sorteddata && sorteddata.results.length > 0) ? (
+                  <i
+                    className="fa fa-times  icnstyle"
+                    aria-hidden="true"
+                    onClick={clearsearch}
+                  ></i>
+                ) : (
+                  <i className="fa fa-search icnstyle" aria-hidden="true"></i>
+                )}
 
-                  <input
-                    type="text"
-                    name="search"
-                    value={search}
-                    onChange={(e) => searchrecords(e.target.value)}
-                    className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 
+                <input
+                  type="text"
+                  name="search"
+                  value={search}
+                  onChange={(e) => searchrecords(e.target.value)}
+                  className="header-search bg-red-200  b-2 px-3 p-4 h-full dark:focus:border-red-300 
                     focus:ring-red-300 focus:border-red-300 border-0
                border-red-300 placeholder-slate-500 font-normal focus:outline-none 
                         w-full  block text-slate-800  rounded-lg sm:text-sm focus:ring"
-                    placeholder="Search Games"
-                  />
-                </div>
-                </div>
-                </div>
+                  placeholder="Search Games"
+                />
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="relative pt-6 px-2" id="home">
@@ -446,7 +449,10 @@ const Home = () => {
                             <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
                               <div>
                                 <img
-                                  src={details.thumbnail}
+                                  src={
+                                    "https://html-game-api.kryptofam.com" +
+                                    details.thumbnail
+                                  }
                                   height="200px"
                                   className="rounded-lg self-center"
                                   alt=""
@@ -478,7 +484,10 @@ const Home = () => {
                             <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
                               <div>
                                 <img
-                                  src={details.data.thumbnail}
+                                  src={
+                                    "https://html-game-api.kryptofam.com" +
+                                    details.data.thumbnail
+                                  }
                                   height="200px"
                                   className="rounded-lg self-center"
                                   alt=""
@@ -564,7 +573,10 @@ const Home = () => {
                           <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
                             <div>
                               <img
-                                src={details.thumbnail}
+                                src={
+                                  "https://html-game-api.kryptofam.com" +
+                                  details.thumbnail
+                                }
                                 height="200px"
                                 className="rounded-lg self-center"
                                 alt=""

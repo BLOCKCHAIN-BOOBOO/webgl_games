@@ -43,7 +43,7 @@ const Game = () => {
       <div className="unity-div">
         <div className="unity-container">
           <Iframe
-            src={gamedetails.url}
+            src={"https://html-game-api.kryptofam.com" + gamedetails.url}
             id=""
             height="600px"
             width="100%"
