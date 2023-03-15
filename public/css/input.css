@@ -8,8 +8,21 @@ html, body {
 
 body {
   background: #fef2f2;
+  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
+footer{
+  margin-top: auto;
+  /* position: absolute; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+  position:relative;
+}
+.footer-content-align{
+  justify-content: space-between;
+}
 .game-card {
   background: #ff9191;
   height: 240px;

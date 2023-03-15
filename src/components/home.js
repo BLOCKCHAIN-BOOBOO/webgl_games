@@ -13,6 +13,7 @@ import settings from "../images/settings.png";
 import logout from "../images/logout.png";
 import profile from "../images/profile.png";
 import bbicon from "../images/bbicon.png";
+import Footer from "./footer";
 // import bbicon from "../../public/bbicon.png"
 
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -187,7 +188,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="h-screen relative">
       <div className="pb-20 lg:ml-32 md:ml-32 sm:ml-32">
         {/* lg:ml-32 md:ml-32 sm:ml-32  */}
         {/* <li className="relative mb-5">
@@ -273,7 +274,7 @@ const Home = () => {
 </div> */}
 
         {/* pt-6 */}
-        <section className="mt-5" id="home">
+        <section className="mt-5" id="homesec">
           {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
           <div className="flex flex-col">
             <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
@@ -361,7 +362,8 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="relative pt-6 px-2" id="home">
+        <section className="relative pt-6 px-2">
+        {/* id="home" */}
           {/* lg:ml-40 md:ml-40 sm:ml-40  */}
           <div className="mr-10 flex flex-col">
             <div>
@@ -390,8 +392,9 @@ const Home = () => {
             itemClass="carousel-item-padding-20-px "
           > */}
             <div
-              className="flex xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
-           my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0"
+              className="flex flex-wrap"
+          //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
+          //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
             >
               {/* {allGames.map((details, index) => {
               console.log(details._id);
@@ -437,7 +440,7 @@ const Home = () => {
                   allGames.map((details, index) => {
                     console.log("game list", details);
                     return (
-                      <div className="star-div">
+                      <div className="star-div m-2">
                         <NavLink to={"/game/" + details._id}>
                           <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                             <i className="fa fa-star text-white text-xs"></i>
@@ -472,7 +475,7 @@ const Home = () => {
                   sorteddata.results.map((details, index) => {
                     console.log("sorted  list", details);
                     return (
-                      <div className="star-div">
+                      <div className="star-div m-2">
                         <NavLink to={"/game/" + details.data._id}>
                           <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                             <i className="fa fa-star text-white text-xs"></i>
@@ -518,8 +521,9 @@ const Home = () => {
             </div>
 
             <div
-              className="flex xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
-           my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0"
+              className="flex flex-wrap"
+          //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
+          //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
             >
               {/* {allGames.map((details, index) => {
               console.log(details._id);
@@ -561,7 +565,7 @@ const Home = () => {
                 favoritegames.map((details, index) => {
                   console.log("favorite game list", details);
                   return (
-                    <div className="star-div">
+                    <div className="star-div m-2">
                       <NavLink to={"/game/" + details.game_id}>
                         <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                           <i className="fa fa-star text-white text-xs"></i>
@@ -782,60 +786,9 @@ const Home = () => {
       </section> */}
 
         {/* <Game/> */}
+       
       </div>
-      <footer id="footer" className="mt-10" style={{ height: "5.5rem" }}>
-        <section className="relative bg-red-100  footer-align">
-          <div className=" flex xl:flex-row md:flex-row sm:flex-col flex-col self-center text-center justify-between py-4 relative mx-auto container">
-            <div className="flex flex-col self-center align-middle">
-              <img
-                src={bbicon}
-                height="200"
-                width="200"
-                className="rounded-lg self-center"
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col self-center align-middle">
-              <span className="text-xl flex text-left  text-red-500 mt-5 mb-5 font-bold">
-                Get In Touch
-              </span>
-              <div className="flex flex-col">
-                <span className="flex font-semibold float-left">
-                  India - Ahmedabad |
-                </span>
-                <span className="flex font-semibold text-left float-left">
-                  Hyderabad
-                </span>
-                <span className="flex font-semibold float-left">
-                  Connect@booboo.games
-                </span>
-                <span className="flex font-semibold float-left"></span>
-
-                {/* DEFAULT */}
-              </div>
-            </div>
-            <div className="flex flex-col self-center align-middle">
-              <span className="text-xl flex text-left  text-red-500 mt-5 mb-5 font-bold">
-                Quick Links
-              </span>
-              <div className="flex flex-col">
-                <span className="flex float-left font-semibold">
-                  Mobile Games
-                </span>
-                <span className="flex text-left font-semibold float-left">
-                  Websites
-                </span>
-                <span className="flex font-semibold float-left">
-                  Mobile Applications
-                </span>
-                <span className="flex font-semibold float-left">
-                  Blockchain
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
-      </footer>
+      <Footer/>
     </div>
   );
 };
