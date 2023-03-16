@@ -64,7 +64,7 @@ const Sidebar = () => {
               <li className="relative mb-5"  id="home">
 
               <a   onClick={(e) => mobileMenutoggle(e)}
-         href="/home#homesec" 
+         href="/home#games" 
          className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
          grow cursor-pointer transition duration-300 ease-in-out"
         >

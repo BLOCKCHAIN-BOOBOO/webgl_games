@@ -274,7 +274,7 @@ const Home = () => {
 </div> */}
 
         {/* pt-6 */}
-        <section className="mt-5" id="homesec">
+        <section className="mt-5" id="games">
           {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
           <div className="flex flex-col">
             <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
@@ -790,7 +790,7 @@ const Home = () => {
         {/* <Game/> */}
        
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };
