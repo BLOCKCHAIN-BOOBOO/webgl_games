@@ -38,7 +38,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div>
+    // <div>
       <div className="lg:w-32 md:w-32 sm:w-32 h-full z-40 absolute lg:fixed md:fixed sm:fixed">
         {/* h-20 lg:h-full md:h-full sm:h-full */}
         <div className="z-40 fixed h-full">
@@ -196,7 +196,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
