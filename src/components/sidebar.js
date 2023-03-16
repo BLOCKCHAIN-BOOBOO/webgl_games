@@ -38,7 +38,7 @@ const Sidebar = () => {
   };
 
   return (
-    // <div>
+    <div>
       <div className="lg:w-32 md:w-32 sm:w-32 h-full z-40 absolute lg:fixed md:fixed sm:fixed">
         {/* h-20 lg:h-full md:h-full sm:h-full */}
         <div className="z-40 fixed h-full">
@@ -47,7 +47,7 @@ const Sidebar = () => {
           <div id="mySidenav" className="sidenav">
             <div className="block text-3xl relative cursor-pointer md:hidden">
               <button
-                className="flex flex-col float-left text-left left-0 top-0 relative mx-2 md:mx-0 bar-icon"
+                className="flex flex-col float-left text-left left-0 -top-2 relative mx-2 md:mx-0 bar-icon"
                 // float-right right-8
                 onClick={(e) => mobileMenutoggle(e)}
               ></button>
@@ -196,7 +196,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-    // </div>
+    </div>
   );
 };
 
