@@ -15,17 +15,22 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Favorite from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 
-const Content = ({ id }) => {
+const Content = () => {
   const [gamecomments, setgamecomments] = useState([]);
   const [info, setinfo] = useState([]);
   const [isClick, setClick] = useState(false);
   const [comment, setcomment] = useState("");
-  const params = useParams("");
-  console.log("asdfds", params);
+  // const params = useParams("");
+
   let dispatch = useDispatch();
   let userdata = useSelector((state) => {
     console.log("home token", state);
     return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
+  });
+
+  let gameId = useSelector((state) => {
+    console.log("gameid state", state);
+    return state?.GameiD?.gameId ? state?.GameiD?.gameId : state?.GameiD;
   });
 
   let token = sessionStorage.getItem("token");
@@ -39,7 +44,7 @@ const Content = ({ id }) => {
       };
       await axios({
         method: "post",
-        url: `https://html-game-api.kryptofam.com/add_comments?id=${params.id}`,
+        url: `https://html-game-api.kryptofam.com/add_comments?id=${gameId}`,
         headers: {
           Authorization: `Bearer ${userdata.token}`,
         },
@@ -58,13 +63,14 @@ const Content = ({ id }) => {
 
   const fetchgamedetails = async () => {
     try {
+      let gameid = { id: gameId };
       await axios({
         method: "get",
         url: "https://html-game-api.kryptofam.com/game",
         headers: {
           Authorization: `Bearer ${userdata.token}`,
         },
-        params: params,
+        params: gameid,
       }).then((res) => {
         console.log("comments deta", res);
         setinfo(res?.data?.data);
@@ -84,7 +90,7 @@ const Content = ({ id }) => {
     try {
       if (event.target.checked) {
         let data = {
-          game_id: params.id,
+          game_id: gameId,
         };
         await axios({
           method: "post",
@@ -95,7 +101,7 @@ const Content = ({ id }) => {
           data: data,
         }).then((res) => {
           console.log("comment added", res);
-              fetchgamedetails();
+          fetchgamedetails();
         });
       }
     } catch (error) {

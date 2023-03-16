@@ -8,23 +8,32 @@ import { useSelector } from "react-redux";
 
 const Game = () => {
   const [gamedetails, setgamedetails] = useState([]);
-  const params = useParams("");
-  console.log(params);
+  // const params = useParams("");
+  // console.log(params);
   let userdata = useSelector((state) => {
     console.log("home token", state);
     return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
   });
 
-  let token = sessionStorage.getItem("token");
+  let gameId = useSelector((state) => {
+    console.log("gameid state", state);
+    return state?.GameiD?.gameId
+      ? state?.GameiD?.gameId
+      : state?.GameiD;
+  });
+
+  console.log("gameid", gameId);
+
   const fetchgamedetails = async () => {
     try {
+      let gameid = { id: gameId };
       await axios({
         method: "get",
         url: "https://html-game-api.kryptofam.com/game",
         headers: {
           Authorization: `Bearer ${userdata.token}`,
         },
-        params: params,
+        params: gameid,
       }).then((res) => {
         console.log(res);
         setgamedetails(res?.data?.data);
@@ -35,6 +44,7 @@ const Game = () => {
   };
 
   useEffect(() => {
+    console.log(gameId);
     fetchgamedetails();
   }, []);
   return (
@@ -52,7 +62,7 @@ const Game = () => {
             display="block"
             position="relative"
           />
-          <Content id={params.id} />
+          <Content id={gameId} />
         </div>
       </div>
     </div>

@@ -17,21 +17,24 @@ import Footer from "./footer";
 // import bbicon from "../../public/bbicon.png"
 
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import bbglogo from "../images/bbfulllogo.png";
 import axios from "axios";
+import { GAMEID } from "../actiontypes/Types";
 
 const Home = () => {
   const [allGames, setallGames] = useState([]);
   const [sorteddata, setsorteddata] = useState({ results: "" });
   const [search, setsearch] = useState("");
   const [favoritegames, setfavoritegames] = useState([]);
+  const dispatch = useDispatch();
 
   let userdata = useSelector((state) => {
     console.log("home token", state);
     return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
   });
   let token = sessionStorage.getItem("token");
+  localStorage.setItem("gameId", "");
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -180,6 +183,16 @@ const Home = () => {
   const clearsearch = () => {
     setsearch("");
     setsorteddata({ results: "" });
+  };
+
+  const getGameId = (id) => {
+    console.log("gameId", id);
+    if (id) {
+      let gameId = id;
+      localStorage.setItem("gameId", gameId);
+
+      dispatch({ type: GAMEID, payload: gameId });
+    }
   };
 
   useEffect(() => {
@@ -363,10 +376,10 @@ const Home = () => {
         </section>
 
         <section className="relative pt-6 px-2">
-        {/* id="home" */}
+          {/* id="home" */}
           {/* lg:ml-40 md:ml-40 sm:ml-40  */}
           <div className=" flex flex-col">
-          {/* mr-10 */}
+            {/* mr-10 */}
             <div>
               <span className="xl:text-3xl md:text-2xl sm:text-2xl text-xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
                 GAMES
@@ -394,8 +407,8 @@ const Home = () => {
           > */}
             <div
               className="flex flex-wrap justify-center self-cenetr  sm:justify-start md:justify-start xl:justify-start sm:justify-left md:justify-left xl:justify-left"
-          //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
-          //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
+              //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
+              //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
             >
               {/* {allGames.map((details, index) => {
               console.log(details._id);
@@ -442,7 +455,11 @@ const Home = () => {
                     console.log("game list", details);
                     return (
                       <div className="star-div m-2">
-                        <NavLink to={"/game/" + details._id}>
+                        <NavLink
+                          to={
+                            "/game/" + "?" + details.name.split(" ").join("_")
+                          }
+                        >
                           <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
@@ -460,6 +477,7 @@ const Home = () => {
                                   height="200px"
                                   className="rounded-lg self-center"
                                   alt=""
+                                  onClick={(e) => getGameId(details._id)}
                                 />
 
                                 <span className="text-sm text-white font-semibold float-left justify-start  text-left">
@@ -515,7 +533,7 @@ const Home = () => {
         <section className="relative pt-6 px-2" id="favourites">
           {/* lg:ml-40 md:ml-40 sm:ml-40  */}
           <div className=" flex flex-col">
-          {/* mr-10 */}
+            {/* mr-10 */}
             <div>
               <span className="xl:text-3xl md:text-2xl sm:text-2xl text-xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
                 FAVORITES{" "}
@@ -524,8 +542,8 @@ const Home = () => {
 
             <div
               className="flex flex-wrap justify-center self-cenetr  sm:justify-start md:justify-start xl:justify-start sm:justify-left md:justify-left xl:justify-left"
-          //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
-          //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
+              //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
+              //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
             >
               {/* {allGames.map((details, index) => {
               console.log(details._id);
@@ -788,7 +806,6 @@ const Home = () => {
       </section> */}
 
         {/* <Game/> */}
-       
       </div>
       {/* <Footer/> */}
     </div>
