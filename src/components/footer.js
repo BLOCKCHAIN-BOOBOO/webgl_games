@@ -7,13 +7,15 @@ const Footer = () => {
 <section className="relative bg-red-100  footer-align">
   <div className=" px-2 sm:px-2 md:px-2 xl:px-0 flex flex-wrap xl:flex-row md:flex-row sm:flex-row flex-row self-center text-center justify-between py-4 relative mx-auto container">
     {/* <div className="flex flex-col self-center align-middle"> */}
+    <a target="_blank" href="https://booboogames.com/"  className="rounded-lg cursor-pointer self-center w-1/6 h-1/6">
       <img
         src={bbicon}
         // height="200"
         // width="200"
-        className="rounded-lg self-center w-1/6 h-1/6"
+        className=" cursor-pointer self-center"
         alt=""
       />
+      </a>
     {/* </div> */}
     <div className="flex flex-col align-middle">
       <span className="xl:text-xl md:text-lg sm:text-md text-md flex text-left  text-red-500 mt-5 mb-5 font-bold">

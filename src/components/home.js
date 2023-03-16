@@ -323,7 +323,7 @@ const Home = () => {
                       placeholder="Search Games"
                     />
                   </div>
-                  <div className="flex xl:w-32 md:w-36 sm:w-32 w-28 flex-row header-search rounded-lg float-right bg-red-200">
+                  <div className="flex xl:w-32 md:w-40 sm:w-32 w-32 flex-row header-search rounded-lg float-right bg-red-200">
                     <div className="flex flex-col self-center ml-2">
                       <span className="text-xs text-slate-500">Welcome</span>
                       <span className="text-sm text-slate-500">
@@ -465,6 +465,7 @@ const Home = () => {
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
+                            <i className="fa fa-star text-white text-xs"></i>
                           </div>
                           <div className="game-card z-0 rounded-xl">
                             <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
@@ -480,7 +481,7 @@ const Home = () => {
                                   onClick={(e) => getGameId(details._id)}
                                 />
 
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                                <span className="text-sm text-white uppercase font-semibold float-left justify-start  text-left">
                                   {details.name}
                                 </span>
                               </div>
@@ -501,6 +502,7 @@ const Home = () => {
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
+                            <i className="fa fa-star text-white text-xs"></i>
                           </div>
                           <div className="game-card z-0 rounded-xl">
                             <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
@@ -515,7 +517,7 @@ const Home = () => {
                                   alt=""
                                 />
 
-                                <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                                <span className="text-sm text-white uppercase font-semibold float-left justify-start  text-left">
                                   {details.data.name}
                                 </span>
                               </div>
@@ -592,6 +594,7 @@ const Home = () => {
                           <i className="fa fa-star text-white text-xs"></i>
                           <i className="fa fa-star text-white text-xs"></i>
                           <i className="fa fa-star text-white text-xs"></i>
+                          <i className="fa fa-star text-white text-xs"></i>
                         </div>
                         <div className="game-card z-0 rounded-xl">
                           <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
@@ -606,7 +609,7 @@ const Home = () => {
                                 alt=""
                               />
 
-                              <span className="text-sm text-white font-semibold float-left justify-start  text-left">
+                              <span className="text-sm text-white font-semibold uppercase float-left justify-start  text-left">
                                 {details.name}
                               </span>
                             </div>
