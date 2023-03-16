@@ -108,7 +108,7 @@ const Content = ({ id }) => {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col xl:p-0 md:p-0 sm:p-2 p-2">
       {/* <div className="flex text-red-500 text-lg float-left text-left  font-semibold py-5">
         <span className="border-b-2 border-red-500">More Information</span>
         <i class="fa fa-angle-down text-xl font-semibold self-center align-middle text-red-500"></i>
@@ -160,14 +160,14 @@ const Content = ({ id }) => {
           className="header-search bg-red-200 
          b-2 px-3 p-4 h-full dark:focus:border-red-300 focus:ring-red-300 focus:border-red-300 border-0
       border-red-300 placeholder-white font-semibold focus:outline-none 
-              xl:w-96 md:w-96 sm:w-60 w-40 block text-white  rounded-full sm:text-sm focus:ring"
+      xl:w-96 md:w-96 sm:w-full w-full block text-white  rounded-full sm:text-sm focus:ring"
           placeholder="Type Comments...."
         />
 
         <button
           type="button"
           onClick={savecomment}
-          className="bg-red-500 w-60 text-white font-semibold -ml-20 px-12 text-xs rounded-full "
+          className="bg-red-500 xl:w-60 md:w-60 sm:w-40 w-40 text-white font-semibold -ml-20  xl:px-12 md:px-6 sm:px-6 px-6 text-xs rounded-full "
         >
           Send Comment
         </button>
