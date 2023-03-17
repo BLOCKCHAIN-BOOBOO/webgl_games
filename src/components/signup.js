@@ -18,6 +18,8 @@ const Signup = () => {
   const [smallalpha, setsmallPha] = useState(false);
   const [capiatlalpha, setCapitalAlpha] = useState(false);
   const [number, setnumber] = useState(false);
+  const [showconfirm, setshowconfirm] = useState(false);
+  const [showpass, setshowpass] = useState(false);
 
   const BaseURL = "https://booboo-login.kryptofam.com/";
   let navigate = useNavigate();
@@ -139,7 +141,7 @@ const Signup = () => {
       // } else {
       //   setsmallPha(false);
       // }
-      
+
       // check numbers
       if (numbers.test(psw)) {
         setnumber(true);
@@ -213,7 +215,8 @@ const Signup = () => {
 
               <label className="block w-full mb-5 self-center">
                 <input
-                  type="password"
+                  type={showpass ? "text" : "password"}
+                  required
                   name="password"
                   onChange={(e) => getPassword(e)}
                   className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
@@ -221,6 +224,14 @@ const Signup = () => {
                   placeholder="Password"
 
                 />
+{showpass ? (
+                <i className="fa fa-eye float-right relative -mt-6 mr-2 z-10 cursor-pointer"  onClick={(e) => setshowpass(false)}></i>
+              ) : (
+                <i className="fa fa-eye-slash float-right relative -mt-6 z-10 mr-2 cursor-pointer"  onClick={(e) => setshowpass(true)}></i>
+              )}
+
+
+
                 {/* <div className="box arrow-left"> */}
                   <div className="text-left text-xs flex float-left">
                     <span className={minchar ? "text-green-500" : "text-red-500"}>
@@ -249,10 +260,7 @@ const Signup = () => {
                     </span>
                     </span>
                   </div>
-    {/* <div>
-    <i className="fa fa-eye float-right -mt-6 mr-2 cursor-pointer"></i>           
-                <i className="fa fa-eye-slash float-right -mt-6 mr-2 cursor-pointer"></i>
-                </div> */}
+   
 
 
 
@@ -261,7 +269,7 @@ const Signup = () => {
               </label>
               <label className="block w-full mb-5 self-center">
                 <input
-                  type="password"
+                  type={showconfirm ? "text" : "password"}
                   name="confirmPassword"
                   onChange={(e) => {
                     handleChange(e);
@@ -270,6 +278,11 @@ const Signup = () => {
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Confirm Password"
                 />
+                {showconfirm ? (
+                <i className="fa fa-eye float-right relative -mt-6 mr-2 z-10  cursor-pointer"  onClick={(e) => setshowconfirm(false)}></i>
+              ) : (
+                <i className="fa fa-eye-slash float-right relative -mt-6 z-10 mr-2 cursor-pointer"  onClick={(e) => setshowconfirm(true)}></i>
+              )}
               </label>
 
               <label className="block w-full mb-5 self-center">
