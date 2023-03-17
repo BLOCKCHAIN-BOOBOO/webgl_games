@@ -108,7 +108,7 @@ const Signup = () => {
 
     // const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     const capitalAlpha = new RegExp("^(?=.*[A-Z])(?=.{0,})");
-    const smallAlpha = new RegExp("^(?=.*[a-z])(?=.{0,})");
+    // const smallAlpha = new RegExp("^(?=.*[a-z])(?=.{0,})");
     const numbers = new RegExp("^(?=.*[0-9])(?=.{0,})");
 
     const specialChar = new RegExp("^(?=.*[!.@#$%^&*])(?=.{0,})");
@@ -133,11 +133,13 @@ const Signup = () => {
         setCapitalAlpha(false);
       }
       // check small alpha
-      if (smallAlpha.test(psw)) {
-        setsmallPha(true);
-      } else {
-        setsmallPha(false);
-      }
+
+      // if (smallAlpha.test(psw)) {
+      //   setsmallPha(true);
+      // } else {
+      //   setsmallPha(false);
+      // }
+      
       // check numbers
       if (numbers.test(psw)) {
         setnumber(true);
@@ -217,7 +219,45 @@ const Signup = () => {
                   className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Password"
+
                 />
+                {/* <div className="box arrow-left"> */}
+                  <div className="text-left text-xs flex float-left">
+                    <span className={minchar ? "text-green-500" : "text-red-500"}>
+                      should have minimum 8 characters,
+                    
+                    <span  className={
+                        specialchar ? "text-green-500" : "text-red-500"
+                      }
+                    >
+                      1 special character, 
+                    </span>
+                    <span
+                      className={
+                        capiatlalpha ? "text-green-500" : "text-red-500"
+                      }
+                    >
+                       1 capital letter,
+                    </span>
+                    {/* <span
+                      className={smallalpha ? "text-green-500" : "text-red-500"}
+                    >
+                      1 special character,
+                    </span> */}
+                    <span className={number ? "text-green-500" : "text-red-500"}>
+                     1 number.
+                    </span>
+                    </span>
+                  </div>
+    {/* <div>
+    <i className="fa fa-eye float-right -mt-6 mr-2 cursor-pointer"></i>           
+                <i className="fa fa-eye-slash float-right -mt-6 mr-2 cursor-pointer"></i>
+                </div> */}
+
+
+
+
+
               </label>
               <label className="block w-full mb-5 self-center">
                 <input
