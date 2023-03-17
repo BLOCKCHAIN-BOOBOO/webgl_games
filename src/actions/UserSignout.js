@@ -2,10 +2,10 @@ import { SIGNOUT } from "../actiontypes/Types";
 
 const UserSignOut = () => async (dispatch) => {
   try {
-    localStorage.clear();
-    const token = localStorage.setItem("token", "");
-    const email = localStorage.setItem("email", "");
-    const username = localStorage.setItem("username", "");
+    sessionStorage.clear();
+    const token = sessionStorage.setItem("token", "");
+    const email = sessionStorage.setItem("email", "");
+    const username = sessionStorage.setItem("username", "");
     const userdata = {
       email: email,
       token: token,

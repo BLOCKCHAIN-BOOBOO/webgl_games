@@ -34,7 +34,7 @@ const Home = () => {
     return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
   });
   let token = sessionStorage.getItem("token");
-  localStorage.setItem("gameId", "");
+  sessionStorage.setItem("gameId", "");
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -189,7 +189,7 @@ const Home = () => {
     console.log("gameId", id);
     if (id) {
       let gameId = id;
-      localStorage.setItem("gameId", gameId);
+      sessionStorage.setItem("gameId", gameId);
 
       dispatch({ type: GAMEID, payload: gameId });
     }

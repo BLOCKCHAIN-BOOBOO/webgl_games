@@ -2,8 +2,8 @@ import { GAMEID } from "../actiontypes/Types";
 
 const GameiD = (
   state = {
-    gameId: localStorage.getItem("gameId")
-      ? localStorage.getItem("gameId")
+    gameId: sessionStorage.getItem("gameId")
+      ? sessionStorage.getItem("gameId")
       : null,
   },
   action

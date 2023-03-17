@@ -2,11 +2,15 @@ import { SIGNIN, SIGNOUT } from "../actiontypes/Types";
 
 const userToken = (
   state = {
-    token: localStorage.getItem("token") ? localStorage.getItem("token") : null,
-    username: localStorage.getItem("username")
-      ? localStorage.getItem("username")
+    token: sessionStorage.getItem("token")
+      ? sessionStorage.getItem("token")
+      : null,
+    username: sessionStorage.getItem("username")
+      ? sessionStorage.getItem("username")
       : "",
-    email: localStorage.getItem("email") ? localStorage.getItem("email") : "",
+    email: sessionStorage.getItem("email")
+      ? sessionStorage.getItem("email")
+      : "",
   },
   action
 ) => {

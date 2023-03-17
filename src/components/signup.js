@@ -132,14 +132,7 @@ const Signup = () => {
       } else {
         setCapitalAlpha(false);
       }
-      // check small alpha
 
-      // if (smallAlpha.test(psw)) {
-      //   setsmallPha(true);
-      // } else {
-      //   setsmallPha(false);
-      // }
-      
       // check numbers
       if (numbers.test(psw)) {
         setnumber(true);
@@ -150,6 +143,20 @@ const Signup = () => {
         ...details,
         [e.target.name]: psw,
       });
+    }
+  };
+
+  const validateContact = (e) => {
+    let number = e.target.value;
+    var regex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+    if (regex.test(number) && number.lenght >= 10 && number.lenght <= 12) {
+      seterrMsg("");
+      setdetails({
+        ...details,
+        [e.target.name]: number,
+      });
+    } else {
+      seterrMsg(" Invalid phone number");
     }
   };
 
@@ -219,45 +226,41 @@ const Signup = () => {
                   className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Password"
-
                 />
                 {/* <div className="box arrow-left"> */}
-                  <div className="text-left text-xs flex float-left">
-                    <span className={minchar ? "text-green-500" : "text-red-500"}>
-                      should have minimum 8 characters,
-                    
-                    <span  className={
+                <div className="text-left text-xs flex float-left">
+                  <span className={minchar ? "text-green-500" : "text-red-500"}>
+                    should have minimum 8 characters,
+                    <span
+                      className={
                         specialchar ? "text-green-500" : "text-red-500"
                       }
                     >
-                      1 special character, 
+                      1 special character,
                     </span>
                     <span
                       className={
                         capiatlalpha ? "text-green-500" : "text-red-500"
                       }
                     >
-                       1 capital letter,
+                      1 capital letter,
                     </span>
                     {/* <span
                       className={smallalpha ? "text-green-500" : "text-red-500"}
                     >
                       1 special character,
                     </span> */}
-                    <span className={number ? "text-green-500" : "text-red-500"}>
-                     1 number.
+                    <span
+                      className={number ? "text-green-500" : "text-red-500"}
+                    >
+                      1 number.
                     </span>
-                    </span>
-                  </div>
-    {/* <div>
+                  </span>
+                </div>
+                {/* <div>
     <i className="fa fa-eye float-right -mt-6 mr-2 cursor-pointer"></i>           
                 <i className="fa fa-eye-slash float-right -mt-6 mr-2 cursor-pointer"></i>
                 </div> */}
-
-
-
-
-
               </label>
               <label className="block w-full mb-5 self-center">
                 <input
@@ -277,7 +280,7 @@ const Signup = () => {
                   type="phone"
                   name="phoneNo"
                   onChange={(e) => {
-                    handleChange(e);
+                    validateContact(e);
                   }}
                   className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"

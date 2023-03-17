@@ -9,12 +9,12 @@ export const UsersignIn = (userdata) => async (dispatch) => {
     );
     console.log("data token", data);
     if (data?.code === "success") {
-      localStorage.setItem("token", data?.data?.token);
-      localStorage.setItem("email", data?.data?.email);
-      localStorage.setItem("username", data?.data?.username);
-      let token = localStorage.getItem("token");
-      let email = localStorage.getItem("email");
-      let username = localStorage.getItem("username");
+      sessionStorage.setItem("token", data?.data?.token);
+      sessionStorage.setItem("email", data?.data?.email);
+      sessionStorage.setItem("username", data?.data?.username);
+      let token = sessionStorage.getItem("token");
+      let email = sessionStorage.getItem("email");
+      let username = sessionStorage.getItem("username");
       const userdata = {
         token: token,
         username: username,
