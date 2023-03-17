@@ -50,11 +50,6 @@ const AppRoutes = () => {
 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Login />}></Route>
-        <Route path="*" element={<Login />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-      </Routes>
       {userdata.token && ValidateToken(userdata.token) ? (
         <Routes>
           <Route element={<SidebarLayout />}>
@@ -66,7 +61,10 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="*" element={<Login />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
         </Routes>
       )}
     </div>
