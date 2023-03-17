@@ -496,7 +496,13 @@ const Home = () => {
                     console.log("sorted  list", details);
                     return (
                       <div className="star-div m-2">
-                        <NavLink to={"/game/" + details.data._id}>
+                        <NavLink
+                          to={
+                            "/game/" +
+                            "?" +
+                            details.data.name.split(" ").join("_")
+                          }
+                        >
                           <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
@@ -515,6 +521,7 @@ const Home = () => {
                                   height="200px"
                                   className="rounded-lg self-center"
                                   alt=""
+                                  onClick={(e) => getGameId(details.data._id)}
                                 />
 
                                 <span className="text-sm text-white uppercase font-semibold float-left justify-start  text-left">
@@ -588,7 +595,9 @@ const Home = () => {
                   console.log("favorite game list", details);
                   return (
                     <div className="star-div m-2">
-                      <NavLink to={"/game/" + details.game_id}>
+                      <NavLink
+                        to={"/game/" + "?" + details.name.split(" ").join("_")}
+                      >
                         <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
                           <i className="fa fa-star text-white text-xs"></i>
                           <i className="fa fa-star text-white text-xs"></i>
@@ -607,6 +616,7 @@ const Home = () => {
                                 height="200px"
                                 className="rounded-lg self-center"
                                 alt=""
+                                onClick={(e) => getGameId(details.game_id)}
                               />
 
                               <span className="text-sm text-white font-semibold uppercase float-left justify-start  text-left">
