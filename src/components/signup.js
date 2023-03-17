@@ -188,7 +188,7 @@ const Signup = () => {
               </div>
 
               <div className="text-1xl text-red-500  mt-2 font-bold self-center mb-5">
-                WELCOME TO BOOBOO GAMES
+                WELCOME TO WEBGL GAMES
               </div>
               <div>
                 <span className="after:content-[''] after:ml-0.5 text-justify text-red-700 red text-xs font-medium text-red text-left">
@@ -230,13 +230,17 @@ const Signup = () => {
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Password"
                 />
-{showpass ? (
-                <i className="fa fa-eye float-right relative -mt-6 mr-2 z-10 cursor-pointer"  onClick={(e) => setshowpass(false)}></i>
-              ) : (
-                <i className="fa fa-eye-slash float-right relative -mt-6 z-10 mr-2 cursor-pointer"  onClick={(e) => setshowpass(true)}></i>
-              )}
-
-
+                {showpass ? (
+                  <i
+                    className="fa fa-eye float-right relative -mt-6 mr-2 z-10 cursor-pointer"
+                    onClick={(e) => setshowpass(false)}
+                  ></i>
+                ) : (
+                  <i
+                    className="fa fa-eye-slash float-right relative -mt-6 z-10 mr-2 cursor-pointer"
+                    onClick={(e) => setshowpass(true)}
+                  ></i>
+                )}
 
                 {/* <div className="box arrow-left"> */}
                 <div className="text-left text-xs flex float-left">
@@ -285,10 +289,16 @@ const Signup = () => {
                   placeholder="Confirm Password"
                 />
                 {showconfirm ? (
-                <i className="fa fa-eye float-right relative -mt-6 mr-2 z-10  cursor-pointer"  onClick={(e) => setshowconfirm(false)}></i>
-              ) : (
-                <i className="fa fa-eye-slash float-right relative -mt-6 z-10 mr-2 cursor-pointer"  onClick={(e) => setshowconfirm(true)}></i>
-              )}
+                  <i
+                    className="fa fa-eye float-right relative -mt-6 mr-2 z-10  cursor-pointer"
+                    onClick={(e) => setshowconfirm(false)}
+                  ></i>
+                ) : (
+                  <i
+                    className="fa fa-eye-slash float-right relative -mt-6 z-10 mr-2 cursor-pointer"
+                    onClick={(e) => setshowconfirm(true)}
+                  ></i>
+                )}
               </label>
 
               <label className="block w-full mb-5 self-center">
