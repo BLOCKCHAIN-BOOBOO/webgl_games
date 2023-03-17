@@ -14,6 +14,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { googleAuth } from "../actions/googlelAuth";
 import bblogo from "../images/bbfulllogo.png";
 const Login = () => {
+  const [showconfirm, setshowconfirm] = useState(false);
   const [details, setdetails] = useState({});
   const [errMsg, seterrMsg] = useState("");
   const dispatch = useDispatch();
@@ -158,7 +159,7 @@ const Login = () => {
 
               <label className="block w-full mb-5 self-center">
                 <input
-                  type="password"
+                type={showconfirm ? "text" : "password"}
                   name="password"
                   onChange={(e) => {
                     handleChange(e);
@@ -167,6 +168,11 @@ const Login = () => {
                                     placeholder-black font-semibold focus:outline-none text-md"
                   placeholder="Password"
                 />
+                {showconfirm ? (
+                <i className="fa fa-eye float-right relative -mt-6 mr-2 z-10 cursor-pointer"  onClick={(e) => setshowconfirm(false)}></i>
+              ) : (
+                <i className="fa fa-eye-slash float-right relative -mt-6 z-10 mr-2 cursor-pointer"  onClick={(e) => setshowconfirm(true)}></i>
+              )}
               </label>
               <div className="text-md flex text-right justify-end self-end font-semibold float-right">
                 Forgot Password?
