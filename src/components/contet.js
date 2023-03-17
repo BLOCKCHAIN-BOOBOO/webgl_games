@@ -109,6 +109,11 @@ const Content = () => {
     }
   };
 
+
+
+
+
+
   useEffect(() => {
     fetchgamedetails();
   }, []);

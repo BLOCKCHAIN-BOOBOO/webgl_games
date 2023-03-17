@@ -7,10 +7,18 @@ import logologin from "../../src/images/logo-login.png";
 
 import { useNavigate } from "react-router-dom";
 import bblogo from "../images/bbfulllogo.png";
+import validator from "validator";
 
 const Signup = () => {
   const [details, setdetails] = useState({});
   const [errMsg, seterrMsg] = useState("");
+  const [pswrules, setpswrules] = useState({});
+  const [minchar, setMinchar] = useState(false);
+  const [specialchar, setSpecialchar] = useState(false);
+  const [smallalpha, setsmallPha] = useState(false);
+  const [capiatlalpha, setCapitalAlpha] = useState(false);
+  const [number, setnumber] = useState(false);
+
   const BaseURL = "https://booboo-login.kryptofam.com/";
   let navigate = useNavigate();
   const handleChange = (evt) => {
@@ -22,6 +30,7 @@ const Signup = () => {
   };
 
   const Submit = async () => {
+    console.log("rules", pswrules);
     console.log("details", details);
     if (
       !(
@@ -71,6 +80,75 @@ const Signup = () => {
   const gotosign = () => {
     // console.log()
     navigate("/login");
+  };
+
+  const validateEmail = (e) => {
+    var email = e.target.value;
+
+    if (validator.isEmail(email)) {
+      seterrMsg();
+      // setmail(email);
+      setdetails({
+        ...details,
+        [e.target.name]: email,
+      });
+    } else if (
+      email.length === " " ||
+      email.length === null ||
+      email.length === 0
+    ) {
+      seterrMsg("");
+    } else {
+      seterrMsg("Enter valid Email!");
+    }
+  };
+
+  const getPassword = (e) => {
+    let psw = e.target.value;
+
+    // const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    const capitalAlpha = new RegExp("^(?=.*[A-Z])(?=.{0,})");
+    const smallAlpha = new RegExp("^(?=.*[a-z])(?=.{0,})");
+    const numbers = new RegExp("^(?=.*[0-9])(?=.{0,})");
+
+    const specialChar = new RegExp("^(?=.*[!.@#$%^&*])(?=.{0,})");
+    if (!(psw.lenght === 0 || psw === null || psw === " ")) {
+      // check length
+      if (psw.length > 6) {
+        setMinchar(true);
+      } else {
+        setMinchar(false);
+      }
+      // check special char
+      if (specialChar.test(psw)) {
+        setSpecialchar(true);
+      } else {
+        setSpecialchar(false);
+      }
+
+      // check capital alphabits
+      if (capitalAlpha.test(psw)) {
+        setCapitalAlpha(true);
+      } else {
+        setCapitalAlpha(false);
+      }
+      // check small alpha
+      if (smallAlpha.test(psw)) {
+        setsmallPha(true);
+      } else {
+        setsmallPha(false);
+      }
+      // check numbers
+      if (numbers.test(psw)) {
+        setnumber(true);
+      } else {
+        setnumber(false);
+      }
+      setdetails({
+        ...details,
+        [e.target.name]: psw,
+      });
+    }
   };
 
   return (
@@ -124,9 +202,7 @@ const Signup = () => {
                 <input
                   type="email"
                   name="email"
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
+                  onChange={(e) => validateEmail(e)}
                   className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Email"
@@ -137,9 +213,7 @@ const Signup = () => {
                 <input
                   type="password"
                   name="password"
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
+                  onChange={(e) => getPassword(e)}
                   className="mt-1 w-full px-3 py-3 bg-transparent border-red-500 border-b-2 
                                     placeholder-slate-500 font-semibold focus:outline-none text-md"
                   placeholder="Password"
