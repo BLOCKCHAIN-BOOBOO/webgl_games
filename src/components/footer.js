@@ -8,7 +8,7 @@ const Footer = () => {
   <div className=" px-2 sm:px-2 md:px-2 xl:px-0 flex flex-wrap xl:flex-row md:flex-row sm:flex-row flex-row self-center text-center justify-between py-4 relative mx-auto container">
     {/* <div className="flex flex-col self-center align-middle"> */}
     <a target="_blank" href="https://booboogames.com/"  className="rounded-lg cursor-pointer self-center w-1/6 h-1/6">
-      <img
+      <img  
         src={bbicon}
         // height="200"
         // width="200"
@@ -41,18 +41,26 @@ const Footer = () => {
         Quick Links
       </span>
       <div className="flex flex-col">
+      <a target="_blank" href="https://booboogames.com/mobile-games"  className="cursor-pointer">
         <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs float-left font-semibold">
           Mobile Games
         </span>
+        </a>
+        <a target="_blank" href="https://booboogames.com/websites"  className="cursor-pointer">
         <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs text-left font-semibold float-left">
           Websites
         </span>
+        </a>
+        <a target="_blank" href="https://booboogames.com/mobile-applications"  className="cursor-pointer">
         <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs font-semibold float-left">
           Mobile Applications
         </span>
+        </a>
+        <a target="_blank" href="https://booboogames.com/blockchain"  className="cursor-pointer">
         <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs font-semibold float-left">
           Blockchain
         </span>
+        </a>
       </div>
     </div>
   </div>
