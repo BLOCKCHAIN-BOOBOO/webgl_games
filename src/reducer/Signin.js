@@ -4,7 +4,7 @@ const userToken = (
   state = {
     token: sessionStorage.getItem("token")
       ? sessionStorage.getItem("token")
-      : null,
+      : "",
     username: sessionStorage.getItem("username")
       ? sessionStorage.getItem("username")
       : "",

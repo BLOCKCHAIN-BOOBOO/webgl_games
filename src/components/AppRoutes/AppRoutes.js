@@ -26,33 +26,38 @@ const AppRoutes = () => {
 
   const clearSession = async () => {
     console.log("clear sessions");
+    sessionStorage.setItem("token","")
     navigate("/login");
     dispatch(UserSignOut());
     sessionStorage.clear();
   };
 
   useEffect(() => {
-    if (userdata.token) {
-      if (ValidateToken(userdata.token)) {
-        console.log("Token Valid");
-        return;
-      } else {
-        console.log("Session Expired, Signingout");
-        navigate("/login");
-        clearSession();
+    const load = async () => {
+      if (userdata.token) {
+        let isvalidtoken = await ValidateToken();
+        console.log("isvalidtoken", isvalidtoken);
+        if (!isvalidtoken) {
+          console.log("Session Expired, Signingout");
+
+          console.log("Token notValid");
+          clearSession();
+        } else {
+          console.log("token valid");
+        }
       }
-    } else {
-      navigate("/login");
-      clearSession();
-    }
+      load();
+    };
+
     return () => {};
   }, [userdata.token]);
 
   return (
     <div className="App">
-      {userdata.token && ValidateToken(userdata.token) ? (
+      {!(userdata.token === "" || ValidateToken() === false) ? (
         <Routes>
           <Route element={<SidebarLayout />}>
+            <Route path="*" element={<Login />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/settings" element={<Settings />}></Route>
             <Route path="/favourite" element={<Favourite />}></Route>

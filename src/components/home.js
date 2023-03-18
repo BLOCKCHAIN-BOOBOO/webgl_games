@@ -21,6 +21,8 @@ import { useSelector, useDispatch } from "react-redux";
 import bbglogo from "../images/bbfulllogo.png";
 import axios from "axios";
 import { GAMEID } from "../actiontypes/Types";
+import { ValidateToken } from "./tokenvalidator/TokenValidate";
+import UserSignOut from "../actions/UserSignout";
 
 const Home = () => {
   const [allGames, setallGames] = useState([]);
@@ -33,6 +35,9 @@ const Home = () => {
     console.log("home token", state);
     return state?.userToken?.state ? state?.userToken?.state : state?.userToken;
   });
+
+  let navigate = useNavigate();
+
   let token = sessionStorage.getItem("token");
   sessionStorage.setItem("gameId", "");
   const responsive = {
@@ -74,6 +79,10 @@ const Home = () => {
       });
     } catch (err) {
       console.log(err);
+      if (err.response?.data?.data?.message === "Invalid Token") {
+        console.log("invalid token");
+        navigate("/login");
+      }
     }
   };
 
@@ -92,6 +101,10 @@ const Home = () => {
       });
     } catch (err) {
       console.log(err);
+      if (err.response?.data?.data?.message === "Invalid Token") {
+        console.log("invalid token");
+        navigate("/login");
+      }
     }
   };
 

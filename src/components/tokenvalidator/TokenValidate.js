@@ -48,8 +48,10 @@
 //   }
 // };
 import axios from "axios";
-export const ValidateToken = async (token) => {
+export const ValidateToken = async () => {
+  console.log("check token");
   try {
+    let token = sessionStorage.getItem("token");
     let currentDate = new Date();
     await axios({
       method: "get",
@@ -59,16 +61,18 @@ export const ValidateToken = async (token) => {
       },
     }).then((res) => {
       console.log("token val", res);
-      if (
-        res.data.code === "success" &&
-        !(res?.data?.data?.exp_time * 1000 * 60 < currentDate.getTime())
-      ) {
-        return true;
-      } else {
+      if (!(res.data.code === "success" && res?.data?.data?.is_valid)) {
+        sessionStorage.setItem("token", "");
         return false;
+      } else {
+        return true;
       }
     });
   } catch (error) {
-    return false;
+    console.log("cathch", error);
+    if (error) {
+      sessionStorage.setItem("token", "");
+      return false;
+    }
   }
 };
