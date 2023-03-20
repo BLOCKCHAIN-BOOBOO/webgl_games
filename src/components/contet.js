@@ -87,32 +87,29 @@ const Content = () => {
 
   const handleChange = async (event) => {
     console.log("like ", event.target.checked);
+    let isfav = event.target.checked;
     try {
-      if (event.target.checked) {
-        let data = {
-          game_id: gameId,
-        };
-        await axios({
-          method: "post",
-          url: "https://html-game-api.kryptofam.com/add_favorite_game",
-          headers: {
-            Authorization: `Bearer ${userdata.token}`,
-          },
-          data: data,
-        }).then((res) => {
-          console.log("comment added", res);
-          fetchgamedetails();
-        });
-      }
+      // if (event.target.checked) {
+      let data = {
+        game_id: gameId,
+        is_favorite: isfav,
+      };
+      await axios({
+        method: "post",
+        url: "https://html-game-api.kryptofam.com/update_favorite_game",
+        headers: {
+          Authorization: `Bearer ${userdata.token}`,
+        },
+        data: data,
+      }).then((res) => {
+        console.log("fav added", res);
+        fetchgamedetails();
+      });
+      // }
     } catch (error) {
       console.log(error);
     }
   };
-
-
-
-
-
 
   useEffect(() => {
     fetchgamedetails();

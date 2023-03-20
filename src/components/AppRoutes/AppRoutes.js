@@ -26,7 +26,7 @@ const AppRoutes = () => {
 
   const clearSession = async () => {
     console.log("clear sessions");
-    sessionStorage.setItem("token","")
+    sessionStorage.setItem("token", "");
     navigate("/login");
     dispatch(UserSignOut());
     sessionStorage.clear();
@@ -54,24 +54,23 @@ const AppRoutes = () => {
 
   return (
     <div className="App">
-      {!(userdata.token === "" || ValidateToken() === false) ? (
-        <Routes>
+      <Routes>
+        <Route path="*" element={<Login />}></Route>
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+        {!(userdata.token === "" || ValidateToken() === false) ? (
           <Route element={<SidebarLayout />}>
-            <Route path="*" element={<Login />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/settings" element={<Settings />}></Route>
             <Route path="/favourite" element={<Favourite />}></Route>
             <Route path="/game/" element={<Game />}></Route>
           </Route>
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-          <Route path="*" element={<Login />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
-        </Routes>
-      )}
+        ) : (
+          <>
+            <Route path="/login" element={<Login />}></Route>
+          </>
+        )}
+      </Routes>
     </div>
   );
 };
