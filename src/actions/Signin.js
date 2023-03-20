@@ -10,10 +10,10 @@ export const UsersignIn = (userdata) => async (dispatch) => {
     console.log("data token", data);
     if (data?.code === "success") {
       sessionStorage.setItem("token", data?.data?.token);
-      sessionStorage.setItem("email", data?.data?.email);
-      sessionStorage.setItem("username", data?.data?.username);
       let token = sessionStorage.getItem("token");
+      sessionStorage.setItem("email", data?.data?.email);
       let email = sessionStorage.getItem("email");
+      sessionStorage.setItem("username", data?.data?.username);
       let username = sessionStorage.getItem("username");
       const userdata = {
         token: token,
