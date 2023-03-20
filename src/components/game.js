@@ -24,6 +24,10 @@ const Game = () => {
 
   console.log("gameid", gameId);
 
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
+
   const fetchgamedetails = async () => {
     try {
       let gameid = { id: gameId };

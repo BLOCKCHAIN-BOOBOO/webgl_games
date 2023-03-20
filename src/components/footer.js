@@ -23,10 +23,7 @@ const Footer = () => {
       </span>
       <div className="flex flex-col">
         <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs font-semibold float-left">
-          India - Ahmedabad |
-        </span>
-        <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs font-semibold text-left float-left">
-          Hyderabad
+          India - Ahmedabad | Hyderabad
         </span>
         <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs font-semibold float-left">
           Connect@booboo.games
@@ -42,22 +39,22 @@ const Footer = () => {
       </span>
       <div className="flex flex-col">
       <a target="_blank" href="https://booboogames.com/mobile-games"  className="cursor-pointer">
-        <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs float-left font-semibold">
+        <span className="flex xl:text-sm hover:text-red-500 md:text-sm sm:text-sm text-xs float-left font-semibold">
           Mobile Games
         </span>
         </a>
         <a target="_blank" href="https://booboogames.com/websites"  className="cursor-pointer">
-        <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs text-left font-semibold float-left">
+        <span className="flex xl:text-sm hover:text-red-500 md:text-sm sm:text-sm text-xs text-left font-semibold float-left">
           Websites
         </span>
         </a>
         <a target="_blank" href="https://booboogames.com/mobile-applications"  className="cursor-pointer">
-        <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs font-semibold float-left">
+        <span className="flex xl:text-sm hover:text-red-500 md:text-sm sm:text-sm text-xs font-semibold float-left">
           Mobile Applications
         </span>
         </a>
         <a target="_blank" href="https://booboogames.com/blockchain"  className="cursor-pointer">
-        <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs font-semibold float-left">
+        <span className="flex xl:text-sm md:text-sm hover:text-red-500 sm:text-sm text-xs font-semibold float-left">
           Blockchain
         </span>
         </a>
