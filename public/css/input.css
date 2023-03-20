@@ -124,7 +124,8 @@ footer{
   background-color: #dc2626
 } */
 
-@media (min-width: 260px) and (max-width: 767px) {
+/* @media (min-width: 260px) and (max-width: 767px) */
+@media (min-width: 260px) and (max-width: 639px){
 .sidenav-bg{
   position: fixed;
   top: 0;
@@ -328,34 +329,39 @@ footer{
 }
 
 /* Mobile view bar icon */
+@media (min-width: 260px) and (max-width: 639px){
 .bar-icon::before {
   content: "\f0c9";
   font-size: 25px;
   font-family: FontAwesome;
   color: black;
+  margin-top:10px;
   z-index:9999999;
-  position:absolute;
+  /* position:absolute; */
+  position:fixed !important;
 }
+
 
 .bar-icon.close-icon::before {
   /* content: "\2612" !important; */
   content:"\2716" !important;
   font-size: 25px;
   font-family: FontAwesome;
-  /* color:#fff; */
-  color: #000;
+  color:#fff;
+  /* color: #000; */
+  margin-top:10px;
   z-index:9999999;
   position:fixed;
   /* position:absolute; */
 }
-
+}
 /* close navbar */
 .ul-close {
   /* top:25px !important; */
   /* top: 10px; */
-  display: flex;
+  display: flex !important;
   opacity: 100 !important;
-  z-index: 0 !important;
+  z-index: 0px;
 }
 
 .ul-open {

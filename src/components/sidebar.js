@@ -39,9 +39,9 @@ const Sidebar = () => {
 
   return (
     <div>
-      <div className="lg:w-32 md:w-32 sm:w-32 h-full z-40 absolute lg:fixed md:fixed sm:fixed">
+      {/* <div className="lg:w-32 md:w-32 sm:w-32 h-full z-40 absolute lg:fixed md:fixed sm:fixed"> */}
         {/* h-20 lg:h-full md:h-full sm:h-full */}
-        <div className="z-40 fixed h-full">
+        {/* <div className="z-40 fixed h-full"> */}
           {/* bg-red-600 relative pt-5 pb-5 shadow-2xl*/}
 
           <div id="mySidenav" className="sidenav">
@@ -54,11 +54,12 @@ const Sidebar = () => {
             </div>
 
             <ul
-              className="fixed z-10 flex flex-col
-  sm:mt-20 mt-0 md:mt-20 xl:mt-20
-   font-bold md:flex md:items-center absolute z-[1] md:z-auto
-  left-0 py-2 opacity-0 md:opacity-100 transition-all ease-in duration-500"
+              className=" flex flex-col
+  sm:mt-20 mt-0 md:mt-20 xl:mt-20 sidenav-bg hidden fixed sm:flex md:flex xl:flex
+   font-bold md:flex md:items-center 
+  left-0 py-2  transition-all ease-in duration-500"
             >
+              {/* absolute opacity-0 md:opacity-100 z-10 z-[1] md:z-auto */}
               {/*  sidenav-bg bg-slate-800 sm:bg-slate-800 md:bg-slate-800 lg:bg-transparent */}
               {/* relative md:static top-[-400px] */}
 
@@ -195,8 +196,8 @@ const Sidebar = () => {
             </ul>
             {/* </div> */}
           </div>
-        </div>
-      </div>
+        {/* </div>
+      </div> */}
     </div>
   );
 };
