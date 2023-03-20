@@ -26,6 +26,20 @@ footer{
 .footer-content-align{
   justify-content: space-between;
 }
+
+@media (min-width: 260px) and (max-width: 430px) {
+  .game-card {
+    background: #ff9191;
+    height: 190px;
+    width: 140px;
+  }
+  .game-card img {
+    height: 160px;
+    /* width:150px; */
+  }
+  }
+
+  @media (min-width: 430px) {
 .game-card {
   background: #ff9191;
   height: 240px;
@@ -33,13 +47,29 @@ footer{
 }
 
 .game-card img {
-  height: 200px;
+  /* height: 200px; */
   /* width:150px; */
 }
+  }
 
+  @media (min-width: 430px) and (max-width:640px){
+.game-card img {
+    height: 210px;
+    /* width: 150px; */
+}
+  }
+  @media (min-width: 640px){
+    .game-card img {
+        height: 200px;
+        /* width: 150px; */
+    }
+      }
+
+  @media (min-width: 430px) {
 .star-div {
   width: 190px;
 }
+  }
 
 .react-multi-carousel-item {
   transform-style: preserve-3d;

@@ -419,7 +419,7 @@ const Home = () => {
             itemClass="carousel-item-padding-20-px "
           > */}
             <div
-              className="flex flex-wrap justify-center self-cenetr  sm:justify-start md:justify-start xl:justify-start sm:justify-left md:justify-left xl:justify-left"
+              className="flex flex-wrap justify-start"
               //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
               //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
             >
@@ -473,7 +473,7 @@ const Home = () => {
                             "/game/" + "?" + details.name.split(" ").join("_")
                           }
                         >
-                          <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                          <div className="bg-red-600 z-10 relative rounded-xl xl:w-3/4 md:w-3/4 sm:w-3/4 w-3/4 self-center justify-center mx-auto">
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
@@ -481,7 +481,7 @@ const Home = () => {
                             <i className="fa fa-star text-white text-xs"></i>
                           </div>
                           <div className="game-card z-0 rounded-xl">
-                            <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                            <div className="flex flex-col -mt-3 xl:p-4 md:p-4 sm:p-4 p-2 w-full self-center text-center mx-auto">
                               <div>
                                 <img
                                   src={
@@ -489,12 +489,12 @@ const Home = () => {
                                     details.thumbnail
                                   }
                                   height="200px"
-                                  className="rounded-lg self-center"
+                                  className="rounded-lg self-center w-full"
                                   alt=""
                                   onClick={(e) => getGameId(details._id)}
                                 />
 
-                                <span className="text-sm text-white uppercase font-semibold float-left justify-start  text-left">
+                                <span className="xl:text-sm md:text-sm sm:text-sm text-xs text-white uppercase font-semibold float-left justify-start  text-left">
                                   {details.name}
                                 </span>
                               </div>
@@ -516,7 +516,7 @@ const Home = () => {
                             details.data.name.split(" ").join("_")
                           }
                         >
-                          <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                          <div className="bg-red-600 z-10 relative rounded-xl xl:w-3/4 md:w-3/4 sm:w-3/4 w-3/4 self-center justify-center mx-auto">
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
@@ -524,7 +524,7 @@ const Home = () => {
                             <i className="fa fa-star text-white text-xs"></i>
                           </div>
                           <div className="game-card z-0 rounded-xl">
-                            <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                            <div className="flex flex-col -mt-3 xl:p-4 md:p-4 sm:p-4 p-2 w-full self-center text-center mx-auto">
                               <div>
                                 <img
                                   src={
@@ -532,12 +532,12 @@ const Home = () => {
                                     details.data.thumbnail
                                   }
                                   height="200px"
-                                  className="rounded-lg self-center"
+                                  className="rounded-lg self-center w-full"
                                   alt=""
                                   onClick={(e) => getGameId(details.data._id)}
                                 />
 
-                                <span className="text-sm text-white uppercase font-semibold float-left justify-start  text-left">
+                                <span className="xl:text-sm md:text-sm sm:text-sm text-xs text-white uppercase font-semibold float-left justify-start  text-left">
                                   {details.data.name}
                                 </span>
                               </div>
@@ -558,12 +558,12 @@ const Home = () => {
             {/* mr-10 */}
             <div>
               <span className="xl:text-3xl md:text-2xl sm:text-2xl text-xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
-                FAVORITES{" "}
+                FAVOURITES{" "}
               </span>
             </div>
 
             <div
-              className="flex flex-wrap justify-center self-cenetr  sm:justify-start md:justify-start xl:justify-start sm:justify-left md:justify-left xl:justify-left"
+              className="flex flex-wrap justify-start"
               //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
               //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
             >
@@ -611,7 +611,7 @@ const Home = () => {
                       <NavLink
                         to={"/game/" + "?" + details.name.split(" ").join("_")}
                       >
-                        <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
+                        <div className="bg-red-600 z-10 relative rounded-xl xl:w-3/4 md:w-3/4 sm:w-3/4 w-3/4 self-center justify-center mx-auto">
                           <i className="fa fa-star text-white text-xs"></i>
                           <i className="fa fa-star text-white text-xs"></i>
                           <i className="fa fa-star text-white text-xs"></i>
@@ -619,7 +619,7 @@ const Home = () => {
                           <i className="fa fa-star text-white text-xs"></i>
                         </div>
                         <div className="game-card z-0 rounded-xl">
-                          <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
+                          <div className="flex flex-col -mt-3 xl:p-4 md:p-4 sm:p-4 p-2 w-full self-center text-center mx-auto">
                             <div>
                               <img
                                 src={
@@ -627,12 +627,12 @@ const Home = () => {
                                   details.thumbnail
                                 }
                                 height="200px"
-                                className="rounded-lg self-center"
+                                className="rounded-lg self-center w-full"
                                 alt=""
                                 onClick={(e) => getGameId(details.game_id)}
                               />
 
-                              <span className="text-sm text-white font-semibold uppercase float-left justify-start  text-left">
+                              <span className="xl:text-sm md:text-sm sm:text-sm text-xs text-white font-semibold uppercase float-left justify-start  text-left">
                                 {details.name}
                               </span>
                             </div>
