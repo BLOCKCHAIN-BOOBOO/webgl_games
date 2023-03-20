@@ -8,9 +8,20 @@ html, body {
 
 body {
   background: #fef2f2;
-  min-height: 100vh;
+  /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
+   min-height: 100%;
+   height:auto;
+    overflow:scroll;
+}
+body.sidenav-bg {
+  bottom: 0;
+  left: 0;
+  position: fixed !important;
+  right: 0;
+  top: 0;
+  overflow: hidden !important;
 }
 footer{
   margin-top: auto;
@@ -113,8 +124,22 @@ footer{
   background-color: #dc2626
 } */
 
-
-
+@media (min-width: 260px) and (max-width: 767px) {
+.sidenav-bg{
+  position: fixed;
+  top: 0;
+  /* top:-70px; */
+  overflow: scroll; 
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  /* background-color: #00000066; */
+  background-color:#141212b8;
+  display: flex;
+  z-index: 99999 !important;
+}
+}
 
 #mySidenav a {
   background-color: #dc2626;
@@ -144,14 +169,15 @@ footer{
 
 /* defining position of each nav bar */
 #home {
-  top: 20px;
+  /* top: 20px; */
+  top:50px;
   /* width: 210px;
   height: 30px; */
 }
 
 #favourite {
-  top: 80px;
-  /* top:70px; */
+  /* top: 80px; */
+  top:100px;
   /* width: 210px;
   height: 30px; */
 }
@@ -165,8 +191,8 @@ footer{
 
 #logout {
   /* top: 60px; */
-  top: 140px;
-  /* top:200px; */
+  /* top: 140px; */
+  top:150px;
   /* width: 210px;
   height: 30px; */
 }
@@ -307,6 +333,8 @@ footer{
   font-size: 25px;
   font-family: FontAwesome;
   color: black;
+  z-index:9999999;
+  position:absolute;
 }
 
 .bar-icon.close-icon::before {
@@ -314,7 +342,11 @@ footer{
   content:"\2716" !important;
   font-size: 25px;
   font-family: FontAwesome;
+  /* color:#fff; */
   color: #000;
+  z-index:9999999;
+  position:fixed;
+  /* position:absolute; */
 }
 
 /* close navbar */
@@ -323,6 +355,7 @@ footer{
   /* top: 10px; */
   display: flex;
   opacity: 100 !important;
+  z-index: 0 !important;
 }
 
 .ul-open {

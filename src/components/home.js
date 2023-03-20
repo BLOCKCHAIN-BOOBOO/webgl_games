@@ -300,8 +300,8 @@ const Home = () => {
 </div> */}
 
         {/* pt-6 */}
-        <section className="mt-5" id="games">
-          {/* lg:ml-40 md:ml-40 sm:ml-40 relative  */}
+        <section className="" id="games">
+          {/* mt-5 lg:ml-40 md:ml-40 sm:ml-40 relative  */}
           <div className="flex flex-col">
             <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
               {/* container */}
@@ -473,14 +473,14 @@ const Home = () => {
                             "/game/" + "?" + details.name.split(" ").join("_")
                           }
                         >
-                          <div className="bg-red-600 z-10 relative rounded-xl xl:w-3/4 md:w-3/4 sm:w-3/4 w-3/4 self-center justify-center mx-auto">
+                          <div className="bg-red-600 z-10 relative flex align-middle py-1 rounded-xl xl:w-3/4 md:w-3/4 sm:w-3/4 w-3/4 self-center justify-center mx-auto">
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
                           </div>
-                          <div className="game-card z-0 rounded-xl">
+                          <div className="game-card z-40 rounded-xl">
                             <div className="flex flex-col -mt-3 xl:p-4 md:p-4 sm:p-4 p-2 w-full self-center text-center mx-auto">
                               <div>
                                 <img
@@ -611,7 +611,7 @@ const Home = () => {
                       <NavLink
                         to={"/game/" + "?" + details.name.split(" ").join("_")}
                       >
-                        <div className="bg-red-600 z-10 relative rounded-xl xl:w-3/4 md:w-3/4 sm:w-3/4 w-3/4 self-center justify-center mx-auto">
+                        <div className="bg-red-600 z-10 relative flex align-middle py-1 rounded-xl xl:w-3/4 md:w-3/4 sm:w-3/4 w-3/4 self-center justify-center mx-auto">
                           <i className="fa fa-star text-white text-xs"></i>
                           <i className="fa fa-star text-white text-xs"></i>
                           <i className="fa fa-star text-white text-xs"></i>

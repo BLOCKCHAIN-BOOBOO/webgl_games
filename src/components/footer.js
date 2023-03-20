@@ -31,7 +31,7 @@ const Footer = () => {
           India - Ahmedabad | Hyderabad
         </span>
         <span className="flex xl:text-sm md:text-sm sm:text-sm text-xs font-semibold float-left text-left">
-          Connect@booboo.games
+          connect@booboo.games
         </span>
         <span className="flex font-semibold float-left"></span>
 

@@ -55,10 +55,11 @@ const Sidebar = () => {
 
             <ul
               className="fixed z-10 flex flex-col
-  sm:mt-20 mt-10 md:mt-20 xl:mt-20 bg-slate-800 sm:bg-slate-800 md:bg-slate-800 lg:bg-transparent
+  sm:mt-20 mt-0 md:mt-20 xl:mt-20
    font-bold md:flex md:items-center absolute z-[1] md:z-auto
   left-0 py-2 opacity-0 md:opacity-100 transition-all ease-in duration-500"
             >
+              {/*  sidenav-bg bg-slate-800 sm:bg-slate-800 md:bg-slate-800 lg:bg-transparent */}
               {/* relative md:static top-[-400px] */}
 
               <li className="relative mb-5"  id="home">
