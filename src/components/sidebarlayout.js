@@ -6,7 +6,7 @@ import Sidebar from "./sidebar";
 const SidebarLayout = () => {
 return (
 
-<div className="" id="page-container">
+<div className="pageblock" id="page-container" >
 <Sidebar />
 <div className="z-0">
 <Outlet />
