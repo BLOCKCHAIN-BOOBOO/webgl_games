@@ -4,7 +4,7 @@ import { SIGNIN } from "../actiontypes/Types";
 export const UsersignIn = (userdata) => async (dispatch) => {
   try {
     const { data } = await axios.post(
-      "https://booboo-login.kryptofam.com/users/login",
+      "http://143.110.180.131:6060/users/login",
       userdata
     );
     console.log("data token", data);

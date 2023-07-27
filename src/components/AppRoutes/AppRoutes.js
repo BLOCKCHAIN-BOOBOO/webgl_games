@@ -37,7 +37,7 @@ const AppRoutes = () => {
       if (token) {
         let isvalidtoken = await axios({
           method: "get",
-          url: "https://booboo-login.kryptofam.com/users/token_validity",
+          url: "http://143.110.180.131:6060/users/token_validity",
           headers: {
             Authorization: `Bearer ${token}`,
           },
