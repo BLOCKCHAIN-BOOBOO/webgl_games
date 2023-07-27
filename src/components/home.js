@@ -214,97 +214,11 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <div className="pb-20 h-full lg:ml-32 md:ml-32 sm:ml-32">
-        {/* lg:ml-32 md:ml-32 sm:ml-32  */}
-        {/* <li className="relative mb-5">
-      <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-       <img src={games} height="25" width="25" className="mr-2" alt="" />      
-      </a>
-    </li>
-    <li className="relative mb-5">
-      <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-       <img src={wallet} height="25" width="25" className="mr-2" alt="" />       
-      </a>
-    </li>   
-       <li className="relative mb-5">
-      <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-       <img src={notification} height="25" width="25" className="mr-2" alt="" />       
-      </a>
-    </li>   */}
-        {/* <li className="relative mb-5">
-      <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-       <img src={line} height="25" width="25" className="mr-2" alt="" />
-      </a>
-    </li>
-
-    <li className="relative mb-5">
-      <a className="py-1 justify-center flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-       <img src={group} height="25" width="25" className="mr-2" alt="" />
-      </a>
-    </li> */}
-        {/* hidden */}
-        {/* <a href="javascript:void(0)" className="closebtn md:hidden lg:hidden " >&times;</a> */}
-        {/* onClick={closeMenu()} */}
-        {/* bg-red-600  shadow-2xl*/}
-
-        {/* <div className="lg:w-32 md:w-32 sm:w-40 h-20 lg:h-full md:h-full sm:h-full lg:fixed md:fixed sm:fixed" id="sidenavExample">
-<div className="mb-10 h-full pt-5 pb-5">
-
-
-<div  id="show-menu" className=" mobile-menu sm:mobile-menu md:desktop-menu lg:desktop-menu text-white lg:text-black
- block sm:block md:block lg:block xl:block md:text-black sm:text-black">
- 
-
-<div id="mySidenav" className="sidenav">
-  <ul className="fixed z-10">
-  <li className="relative mb-5">
-      <a id="home" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
-       grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-   <span className="text-sm self-center font-bold "> Home</span>   <img src={home} height="25" width="25" className="" alt="" />        
-      </a>
-    </li>
-   
-
- <li className="relative mb-5">
-      <a id="favourite" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
-       grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-      <span className="text-sm self-center font-bold "> Favourite</span> <img src={star} height="25" width="25" className="" alt="" />
-      </a>
-    </li>
-
-  
-
-    <li className="relative mb-5">
-      <a id="settings" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
-       grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-      <span className="text-sm self-center font-bold "> Settings</span> <img src={settings} height="25" width="25" className="" alt="" />
-      </a>
-    </li>
-
-
-    <li className="bottom-0 relative mt-28">
-      <a id="logout" className="py-1 justify-center flex justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded 
-       grow cursor-pointer transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-      <span className="text-sm self-center font-bold ">  Logout </span> <img src={logout} height="25" width="25" className="" alt="" />
-      </a>
-    </li>
-  </ul>
-  </div>
-
-</div>
-</div>
-
-
-
-</div> */}
-
-        {/* pt-6 */}
+    <div className="min-height-100">
+      <div className="pb-20 lg:ml-32 md:ml-32 sm:ml-32">
         <section className="" id="games">
-          {/* mt-5 lg:ml-40 md:ml-40 sm:ml-40 relative  */}
           <div className="flex flex-col">
             <div className=" relative md:flex flex-col md:items-left md:justify-between pl-4 py-4 px-10 md:py-4">
-              {/* container */}
               <div className="lg:w-full text-left mt-5 sm:mt-5 md:mt-5 xl:mt-0">
                 <div className="flex justify-between flex-row xl:flex-row md:flex-row sm:flex-row ">
                   <div className="flex self-center m-2 align-middle">
@@ -343,18 +257,13 @@ const Home = () => {
                         {userdata.username}
                       </span>
                     </div>
-                    {/* <div className="flex flex-col self-center text-center"> */}
-                    {/* lg:ml-4 */}
                     <img
-                      // src={profile}
                       src={`https://ui-avatars.com/api/?bold=true&name=${userdata.username}`}
                       height="40"
                       width="40"
                       className=" self-center rounded-full"
-                      // mr-2
                       alt=""
                     />
-                    {/* </div> */}
                   </div>
                 </div>
               </div>
@@ -389,76 +298,15 @@ const Home = () => {
         </section>
 
         <section className="relative pt-6 px-2">
-          {/* id="home" */}
-          {/* lg:ml-40 md:ml-40 sm:ml-40  */}
           <div className=" flex flex-col">
-            {/* mr-10 */}
             <div>
               <span className="xl:text-3xl md:text-2xl sm:text-2xl text-xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
                 GAMES
               </span>
             </div>
-
-            {/* <Carousel
-            swipeable={true}
-            draggable={true}
-            showDots={false}
-            centerMode={true}
-            responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
-            infinite={true}
-            // autoPlay={window.deviceType !== "mobile" ? true : false}
-            // autoPlaySpeed={2000}
-            keyBoardControl={true}
-            customTransition="all .5"
-            transitionDuration={500}
-            containerClass="carousel-container w-full"
-            // removeArrowOnDeviceType={["tablet", "mobile"]}
-            // deviceType={this.props.deviceType}
-            dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-20-px "
-          > */}
             <div
-              className="flex flex-wrap justify-center sm:justify-start md:justify-start xl:justify-start"
-              //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
-              //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
-            >
-              {/* {allGames.map((details, index) => {
-              console.log(details._id);
-              return (
-                <div className="star-div" key={details._id}>
-                  <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                    <i className="fa fa-star text-white text-xs"></i>
-                    <i className="fa fa-star text-white text-xs"></i>
-                    <i className="fa fa-star text-white text-xs"></i>
-                    <i className="fa fa-star text-white text-xs"></i>
-                  </div>
-                  <div className="game-card z-0 rounded-xl">
-                    <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                      <div>
-                        <NavLink to={"/game/" + details._id}>
-                          <img
-                            // src={
-                            //   "https://html-game-api.kryptofam.com/" +
-                            //   details.thumbnail
-                            // }
-                            src={game3}
-                            height="200px"
-                            // width="150px"
-                            className="rounded-lg self-center"
-                            alt=""
-                          />
-                        </NavLink>
-                        <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                          {details.name}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })} */}
-
+              className="flex flex-wrap justify-center sm:justify-start md:justify-start xl:justify-start" >
+           
               {!(
                 (sorteddata && sorteddata.results) ||
                 (sorteddata && sorteddata.results.length > 0)
@@ -494,7 +342,7 @@ const Home = () => {
                                   onClick={(e) => getGameId(details._id)}
                                 />
 
-                                <span className="xl:text-sm md:text-sm sm:text-sm text-xs text-white uppercase font-semibold float-left justify-start  text-left">
+                                <span className="text-truncate xl:text-sm md:text-sm sm:text-sm text-xs text-white uppercase font-semibold float-left justify-start  text-left">
                                   {details.name}
                                 </span>
                               </div>
@@ -516,7 +364,7 @@ const Home = () => {
                             details.data.name.split(" ").join("_")
                           }
                         >
-                          <div className="bg-red-600 z-10 relative rounded-xl xl:w-3/4 md:w-3/4 sm:w-3/4 w-3/4 self-center justify-center mx-auto">
+                          <div className="bg-red-600 z-10 relative rounded-xl align-middle py-1 xl:w-3/4 md:w-3/4 sm:w-3/4 w-3/4 self-center justify-center mx-auto">
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
                             <i className="fa fa-star text-white text-xs"></i>
@@ -537,7 +385,7 @@ const Home = () => {
                                   onClick={(e) => getGameId(details.data._id)}
                                 />
 
-                                <span className="xl:text-sm md:text-sm sm:text-sm text-xs text-white uppercase font-semibold float-left justify-start  text-left">
+                                <span className="text-truncate xl:text-sm md:text-sm sm:text-sm text-xs text-white uppercase font-semibold float-left justify-start  text-left">
                                   {details.data.name}
                                 </span>
                               </div>
@@ -548,14 +396,11 @@ const Home = () => {
                     );
                   })}
             </div>
-            {/* </Carousel> */}
           </div>
         </section>
 
         <section className="relative pt-6 px-2" id="favourites">
-          {/* lg:ml-40 md:ml-40 sm:ml-40  */}
           <div className=" flex flex-col">
-            {/* mr-10 */}
             <div>
               <span className="xl:text-3xl md:text-2xl sm:text-2xl text-xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
                 FAVOURITES{" "}
@@ -563,46 +408,8 @@ const Home = () => {
             </div>
 
             <div
-              className="flex flex-wrap justify-center sm:justify-start md:justify-start xl:justify-start"
-              //     xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
-              //  my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0
-            >
-              {/* {allGames.map((details, index) => {
-              console.log(details._id);
-              return (
-                <div className="star-div" key={details._id}>
-                  <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                    <i className="fa fa-star text-white text-xs"></i>
-                    <i className="fa fa-star text-white text-xs"></i>
-                    <i className="fa fa-star text-white text-xs"></i>
-                    <i className="fa fa-star text-white text-xs"></i>
-                  </div>
-                  <div className="game-card z-0 rounded-xl">
-                    <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                      <div>
-                        <NavLink to={"/game/" + details._id}>
-                          <img
-                            // src={
-                            //   "https://html-game-api.kryptofam.com/" +
-                            //   details.thumbnail
-                            // }
-                            src={game3}
-                            height="200px"
-                            // width="150px"
-                            className="rounded-lg self-center"
-                            alt=""
-                          />
-                        </NavLink>
-                        <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                          {details.name}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })} */}
-
+              className="flex flex-wrap justify-center sm:justify-start md:justify-start xl:justify-start">
+            
               {favoritegames &&
                 favoritegames.map((details, index) => {
                   console.log("favorite game list", details);
@@ -632,7 +439,7 @@ const Home = () => {
                                 onClick={(e) => getGameId(details.game_id)}
                               />
 
-                              <span className="xl:text-sm md:text-sm sm:text-sm text-xs text-white font-semibold uppercase float-left justify-start  text-left">
+                              <span className="text-truncate xl:text-sm md:text-sm sm:text-sm text-xs text-white font-semibold uppercase float-left justify-start  text-left">
                                 {details.name}
                               </span>
                             </div>
@@ -643,197 +450,9 @@ const Home = () => {
                   );
                 })}
             </div>
-            {/* </Carousel> */}
           </div>
         </section>
-
-        {/* <section className=" relative pt-6">
-        <div className="mr-10 flex flex-col">
-          <div>
-          <span className="text-3xl border-b-4 border-red-500 mb-10 float-left text-left font-bold border-b-600">
-            MOST POPULAR GAMES
-          </span>
-          </div>
-          <div className="flex xl:justify-between grid grid-cols-1  gap-4  sm:grid sm:grid-cols-3
-           my-3 sm:gap-5 md:grid md:grid-cols-4 md:gap-7 xl:grid xl:grid-cols-6 xl:gap-7 mx-4 sm:mx-0 xl:mx-0">
-
-          <Carousel
-             swipeable={true}
-             draggable={true}
-             showDots={false}
-             centerMode={true}
-             responsive={responsive}
-             ssr={true} // means to render carousel on server-side.
-             infinite={true}
-             // autoPlay={window.deviceType !== "mobile" ? true : false}
-             // autoPlaySpeed={2000}
-             keyBoardControl={true}
-             customTransition="all .5"
-             transitionDuration={500}
-             containerClass="carousel-container w-full"
-             // removeArrowOnDeviceType={["tablet", "mobile"]}
-             // deviceType={this.props.deviceType}
-             dotListClass="custom-dot-list-style"
-             itemClass="carousel-item-padding-40-px "
-          >
-            <div className="star-div">
-              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-              </div>
-              <div className="game-card z-0 rounded-xl">
-                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                  <div>
-                    <img
-                      src={game1}
-                      height="200px"
-                      className="rounded-lg self-center"
-                      alt=""
-                    />
-
-                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                      Lorem Ipsum
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="star-div">
-              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-              </div>
-              <div className="game-card z-0 rounded-xl">
-                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                  <div>
-                    <img
-                      src={game2}
-                      height="200px"
-                      className="rounded-lg self-center"
-                      alt=""
-                    />
-
-                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                      Lorem Ipsum
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="star-div">
-              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-              </div>
-              <div className="game-card z-0 rounded-xl">
-                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                  <div>
-                    <img
-                      src={game3}
-                      height="200px"
-                      className="rounded-lg self-center"
-                      alt=""
-                    />
-
-                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                      Lorem Ipsum
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="star-div">
-              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-              </div>
-              <div className="game-card z-0 rounded-xl">
-                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                  <div>
-                    <img
-                      src={game4}
-                      height="200px"
-                      className="rounded-lg self-center"
-                      alt=""
-                    />
-
-                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                      Lorem Ipsum
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="star-div">
-              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-              </div>
-              <div className="game-card z-0 rounded-xl">
-                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                  <div>
-                    <img
-                      src={game1}
-                      height="200px"
-                      className="rounded-lg self-center"
-                      alt=""
-                    />
-
-                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                      Lorem Ipsum
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="star-div">
-              <div className="bg-red-600 z-10 relative rounded-xl w-3/4 self-center justify-center mx-auto">
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-                <i className="fa fa-star text-white text-xs"></i>
-              </div>
-              <div className="game-card z-0 rounded-xl">
-                <div className="flex flex-col -mt-3 p-4 w-full self-center text-center mx-auto">
-                  <div>
-                    <img
-                      src={game2}
-                      height="200px"
-                      className="rounded-lg self-center"
-                      alt=""
-                    />
-
-                    <span className="text-sm text-white font-semibold float-left justify-start  text-left">
-                      Lorem Ipsum
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-          </Carousel>
-          </div>
-        </div>
-      </section> */}
-
-        {/* <Game/> */}
       </div>
-      {/* <Footer/> */}
     </div>
   );
 };

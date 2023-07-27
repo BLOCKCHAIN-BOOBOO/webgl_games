@@ -158,7 +158,6 @@ const Login = () => {
                   }}
                   className="mt-1 w-full px-3 p-1 py-4 bg-transparent border-red-500 border-b-2 
                                      font-semibold focus:outline-none text-md placeholder-black"
-                  //    focus:border-red-500 focus:ring-red-500 block signup-input-width
                   placeholder="Username"
                 />{" "}
               </label>
@@ -208,20 +207,6 @@ const Login = () => {
                   LOGIN
                 </button>{" "}
               </div>
-
-              {/* <button
-                type="button"
-                className="text-red-500 border-2 border-red-500 self-center text-center justify-center flex flex-row w-full rounded-lg bg-transparent text-xl font-bold signup-input-width py-2"
-              >
-                <img
-                  src={booboocoin}
-                  height="30"
-                  width="30"
-                  className="mr-2 self-center"
-                  alt=""
-                />{" "}
-                <span className="flex self-center">Login with BooBoo</span>
-              </button> */}
 
               <div className="text-red-500 border-2 border-red-500 self-center text-center justify-center flex flex-row w-full rounded-lg bg-transparent text-xl font-bold signup-input-width py-2">
                 <button

@@ -4,12 +4,9 @@ import bbicon from "../images/bbicon.png";
 const Footer = () => {
     return (
 <footer id="footer" className="mt-10">
-{/* style={{ height: "5.5rem" }} */}
 <section className="relative bg-red-100 bottom-0  footer-align">
   <div className=" px-2 sm:px-2 md:px-2 xl:px-0 flex xl:flex-row md:flex-row sm:flex-row flex-col self-center text-center justify-between py-4 relative mx-auto container">
-  {/* flex-wrap */}
-    {/* <div className="flex flex-col self-center align-middle"> */}
-   <div className="flex  w-4/6 h-1/6 justify-center self-center sm:justify-start md:justify-start xl:justify-start">
+    <div className="flex  w-4/6 h-1/6 justify-center self-center sm:justify-start md:justify-start xl:justify-start">
     <a target="_blank" href="https://booboogames.com/"  className="rounded-lg cursor-pointer self-center w-2/6 h-1/6">
       <img  
         src={bbicon}
@@ -20,7 +17,6 @@ const Footer = () => {
       />
       </a>
       </div>
-    {/* </div> */}
 
     <div className="flex justify-between w-full justify-between">
     <div className="flex flex-col align-middle">
@@ -35,8 +31,6 @@ const Footer = () => {
           connect@booboo.games
         </span>
         <span className="flex font-semibold float-left"></span>
-
-        {/* DEFAULT */}
       </div>
     </div>
     <div className="flex flex-col self-center align-middle">
