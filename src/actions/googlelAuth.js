@@ -4,7 +4,7 @@ export const googleAuth = (Gdata) => async (dispatch) => {
   console.log(Gdata);
   try {
     const { data } = await axios.post(
-      "http://143.110.180.131:6060/users/google_login",
+      "https://booboo-login.themetacruize.com/users/google_login",
       Gdata
     );
     console.log("google data ", data);

@@ -21,7 +21,7 @@ const Signup = () => {
   const [showconfirm, setshowconfirm] = useState(false);
   const [showpass, setshowpass] = useState(false);
 
-  const BaseURL = "http://143.110.180.131:6060/";
+  const BaseURL = "https://booboo-login.themetacruize.com";
   let navigate = useNavigate();
   const handleChange = (evt) => {
     const value = evt.target.value;

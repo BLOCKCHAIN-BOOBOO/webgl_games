@@ -55,7 +55,7 @@ export const ValidateToken = async () => {
     let currentDate = new Date();
     await axios({
       method: "get",
-      url: "http://143.110.180.131:6060/users/token_validity",
+      url: "https://booboo-login.themetacruize.com/users/token_validity",
       headers: {
         Authorization: `Bearer ${token}`,
       },
